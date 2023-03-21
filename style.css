@@ -27,13 +27,12 @@ header {
 	padding: 20px;
 }
 
-footer {
-	background-color: #333;
-	color: #fff;
+footer{
+    background-color: #333;
+    color: #fff;
     position: absolute;
-    bottom:0;
-    left: 0; 
-    right: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 nav ul {
@@ -64,6 +63,7 @@ nav a {
 
 nav a:hover {
     background-color: #00000086;
+    border-radius: 5px;
 }
 
 nav a:active {
@@ -73,18 +73,21 @@ nav a:active {
 main {
 margin: 20px;
 }
-
-section {
-    margin-bottom: 40px;
-}
-
     
 h2 {
     font-size: 28px;
     font-weight: bolder;
     margin-bottom: -0.2em;
 }
-    
+
+h3{
+    font-size: 22px;
+    font-weight: bolder;
+    margin-bottom: -0.05em;
+}
+
+section
+
 section p {
     font-size: 16px;
     line-height: 1.5;
@@ -104,6 +107,13 @@ section a {
 section a:hover {
     background-color: #1bc55c;
     transform:scale(0.95)
+}
+
+section img{
+    width: 40%;
+    padding: 0.5em;
+    border-radius: 20px;
+    display: inline-block;
 }
 
 footer a {
