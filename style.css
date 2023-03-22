@@ -1,8 +1,16 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	padding: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 header img{
@@ -30,9 +38,10 @@ header {
 footer{
     background-color: #333;
     color: #fff;
-    position: absolute;
     bottom: 0;
     width: 100%;
+    margin-top: auto;
+    padding: 5px;
 }
 
 nav ul {
@@ -136,16 +145,46 @@ footer a:hover {
 }
 
 /* Styles for smaller screens */
-@media screen and (max-width: 600px) {
-    header {
-    padding: 10px;
+@media only screen and (max-width: 600px) {
+    header img {
+        width: 150px;
+        margin-left: -1em;
+        margin-top: -0.5em;
+        margin-bottom: -0.5em;
     }
+    
     nav li {
         display: block;
-        margin: 10px 0;
+        margin-right: 0;
+        margin-bottom: 10px;
     }
-
-    nav li:last-child {
+    
+    nav a {
+        padding: 10px;
+        margin-left: 0;
         margin-bottom: 0;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    section img {
+        width: 80%;
+    }
+    
+    footer {
+        padding: 10px;
+    }
+    
+    footer a {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 5px;
+        font-size: 14px;
     }
 }
