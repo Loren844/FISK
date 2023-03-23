@@ -4,63 +4,64 @@ html, body {
     padding: 0;
     margin: 0;
 }
-
+ 
 body {
-	font-family: 'Montserrat', sans-serif;
-	margin: 0;
-	padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
 }
-
+ 
 header img{
-	width: 200px;
-	margin-left:-1.5em;
-	margin-top:-0.8em;
+    width: 200px;
+    margin-left:-1.5em;
+    margin-top:-0.8em;
     margin-bottom: -1em;
     transition: all 0.1s ease-in-out;
 }
-
+ 
 header img:hover{
     transform: scale(0.95);
 }
-
+ 
 header img:active{
     transform: scale(0.9);
 }
-
+ 
 header {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
+    background: linear-gradient(to left top, #7600ba, #12833d);
+   
+    color: #fff;
+    padding:20px;
 }
-
+ 
 footer{
-    background-color: #333;
+    background: linear-gradient(to right bottom,#7600ba, #12833d);
     color: #fff;
     bottom: 0;
     width: 100%;
     margin-top: auto;
     padding: 5px;
 }
-
+ 
 nav ul {
-    
-	list-style: none;
-	margin: 0;
-	padding: 0;
+   
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
+ 
 nav li {
-	display:inline-block;
+    display:inline-block;
     margin-right: 20px;
 }
-
+ 
 nav li:last-child {
 margin-right: 0;
 }
-
+ 
 nav a {
     color: #fff;
     text-decoration: none;
@@ -70,42 +71,42 @@ nav a {
     margin-bottom: -1.5em;
     margin-left: -1em;
 }
-
+ 
 nav a:hover {
-    background-color: #00000086;
+    background-color: #00000042;
     border-radius: 5px;
 }
-
+ 
 nav a:active {
     transform:scale(0.95);
 }
-
+ 
 main {
 margin: 20px;
 }
-    
+   
 h2 {
     font-size: 28px;
     font-weight: bolder;
     margin-bottom: -0.2em;
 }
-
+ 
 h3{
     font-size: 22px;
     font-weight: bolder;
     margin-bottom: 0.2em
 }
-
+ 
 section
-
+ 
 section p {
     font-size: 16px;
     line-height: 1.5;
 }
-    
+   
 section a {
     display: inline-block;
-    background-color: #333;
+    background: #1bc55c;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -113,12 +114,12 @@ section a {
     margin-top: 10px;
     transition: all 0.4s ease-in-out;
 }
-
+ 
 section a:hover {
-    background-color: #1bc55c;
+    background-color: #e5b83d;
     transform:scale(0.95)
 }
-
+ 
 section img{
     width: 40%;
     padding: 0.5em;
@@ -126,14 +127,14 @@ section img{
     display: inline-block;
     transition: all 0.2s ease-in-out;
 }
-
+ 
 section > img:hover{
-    transform: scale(0.95);
+    transform: scale(0.97);
 }
-
+ 
 footer a {
     display: inline-block;
-    background-color: #333;
+    background-color: none;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -143,13 +144,13 @@ footer a {
     transition: all 0.4s ease-in-out;
     text-decoration: underline;
 }
-
+ 
 footer a:hover {
-    background-color: #1bc55c;
+    background-color: #e5b83d;
     transform:scale(0.95);
     text-decoration: none;
 }
-
+ 
 .modal {
     display: none;
     position: fixed;
@@ -161,17 +162,17 @@ footer a:hover {
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
   }
-
-  .modal p{
+ 
+.modal p{
     color:white;
-  }
-  
+}
+ 
 .modal-content {
     display: block;
     margin: auto;
     width: 70%;
 }
-
+ 
 
 /* Styles for smaller screens */
 @media only screen and (max-width: 600px) {
@@ -181,35 +182,35 @@ footer a:hover {
         margin-top: -0.5em;
         margin-bottom: -0.5em;
     }
-    
+   
     nav li {
         display: block;
         margin-right: 0;
         margin-bottom: 10px;
     }
-    
+   
     nav a {
         padding: 10px;
         margin-left: 0;
         margin-bottom: 0;
     }
-    
+   
     h2 {
         font-size: 22px;
     }
-    
+   
     h3 {
         font-size: 18px;
     }
-    
+   
     section img {
         width: 80%;
     }
-    
+   
     footer {
         padding: 10px;
     }
-    
+   
     footer a {
         margin-top: 0;
         margin-bottom: 0;
