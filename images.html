@@ -32,6 +32,7 @@
 			<img src="img/vieux_continent.png" alt="Maquette de la carte nommée 'Le vieux continent'" class="lightbox-img">
 			<div class="modal">
 				<img src="" class="modal-content">
+				<p class="modal-txt"></p>
 			</div>
 		</section>
 	</main>
@@ -62,11 +63,8 @@
 		
 			// Récupérer le texte de l'attribut alt de l'image
 			const altText = image.alt;
-
-			// Créer un nouvel élément de texte dans la boîte de dialogue modale
-			const modalTxt = document.createElement('p');
+			const modalTxt = modal.querySelector('.modal-txt');
 			modalTxt.textContent = altText;
-			modal.appendChild(modalTxt);
 		});
 	});
 
