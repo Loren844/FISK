@@ -124,6 +124,11 @@ section img{
     padding: 0.5em;
     border-radius: 13px;
     display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+section > img:hover{
+    transform: scale(0.95);
 }
 
 footer a {
