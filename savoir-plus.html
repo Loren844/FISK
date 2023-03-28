@@ -25,7 +25,11 @@
 	<main>
 		<section id="savoir-plus">
 			<h2>En savoir plus</h2>
-			<p>...</p>
+			<h3>Base de données</h3>
+			<p>Voici la base de données envisagée dans le cas où des duccès seraient implémentés</p>
+			<img src="img/bdd.png">
+			<br>
+			<a href="src/bdd.sql" target="_blank">Téléchargez le fichier SQL</a>
 		</section>
 	</main>
 	<footer>
@@ -35,3 +39,36 @@
 	</footer>
 	</body>
 </html>
+<script>
+	// Sélectionnez toutes les images avec la classe 'lightbox-img'
+	const images = document.querySelectorAll('.lightbox-img');
+
+	// Pour chaque image, ajoutez un événement click pour afficher la boîte de dialogue modale
+	images.forEach(image => {
+		image.addEventListener('click', event => {
+			// Empêcher le comportement par défaut (ouvrir l'image dans une nouvelle fenêtre)
+			event.preventDefault();
+
+			// Afficher la boîte de dialogue modale
+			const modal = document.querySelector('.modal');
+			modal.style.display = 'block';
+
+			// Afficher l'image agrandie dans la boîte de dialogue modale
+			const modalImg = modal.querySelector('.modal-content');
+			modalImg.src = event.target.src;
+		
+			// Récupérer le texte de l'attribut alt de l'image
+			const altText = image.alt;
+			const modalTxt = modal.querySelector('.modal-txt');
+			modalTxt.textContent = altText;
+		});
+	});
+
+	// Ajoutez un événement click pour fermer la boîte de dialogue modale lorsque l'utilisateur clique sur la zone en dehors de l'image
+	const modal = document.querySelector('.modal');
+	modal.addEventListener('click', event => {
+		if (event.target === modal) {
+			modal.style.display = 'none';
+		}
+	});
+</script>
