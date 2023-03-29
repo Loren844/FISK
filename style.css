@@ -120,7 +120,7 @@ section a:hover {
 }
  
 .lightbox-img{
-    width: 40%;
+    width: 60%;
     padding: 0.5em;
     border-radius: 13px;
     display: inline-block;
@@ -180,7 +180,6 @@ footer a:hover {
     width: 70%;
 }
  
-
 /* Styles for smaller screens */
 @media only screen and (max-width: 600px) {
     header img {
