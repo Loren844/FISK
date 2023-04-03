@@ -75,6 +75,11 @@ nav a:hover {
     background-color: #00000042;
     border-radius: 5px;
 }
+
+a.actif{
+	background-color: #00000042;
+    border-radius: 5px;
+}
  
 nav a:active {
     transform:scale(0.95);
