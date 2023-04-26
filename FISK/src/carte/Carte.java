@@ -10,6 +10,10 @@ public class Carte {
         this.villes = villes;
     }
 
+    public static Ville[] getVilles() {
+        return villes;
+    }
+
     public static Ville getVille(int numVille)
     {
         return villes[numVille];

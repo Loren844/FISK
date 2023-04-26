@@ -5,6 +5,11 @@ public class Ville {
     private Agence[] agences;
     private double argentGenere;
 
+    public Ville()
+    {
+
+    }
+
     public Ville(String nom, Agence[] agences, double argentGenere)
     {
         this.nom = nom;

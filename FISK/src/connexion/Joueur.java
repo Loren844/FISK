@@ -1,6 +1,7 @@
 package connexion;
 
 import carte.*;
+import jeu.Partie;
 
 public class Joueur {
     private int idJoueur;

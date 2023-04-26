@@ -36,7 +36,7 @@ public class Partie {
         this.nbToursMax = nbToursMax;
     }
 
-    public Joueur[] getJoueursRestants() {
+    public static Joueur[] getJoueursRestants() {
         return joueursRestants;
     }
 
