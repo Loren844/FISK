@@ -1,7 +1,5 @@
 package jeu;
-
-import carte.Agence;
-import carte.Ville;
+import carte.*;
 
 public class AgentFisk {
     private int nbToursAvantApp;
@@ -22,19 +20,53 @@ public class AgentFisk {
         villeCible = null;
         prixInfo += 1000;
 
-        Partie instPartie = new Partie();
-        nbToursAvantApp = (int) Math.random() * (instPartie.nbJoueursRestants() * 3) + 1; //l'agent apparait au maximum tous les 3 tours de table
+        nbToursAvantApp = (int) Math.random() * (Partie.nbJoueursRestants() * 3) + 1; //l'agent apparait au maximum tous les 3 tours de table
 
         evenement = (int) (Math.random() * (9));
 
-        int hasard;
+        int tirage;
         if(evenement != 3)
         {
-            hasard = (int) (Math.random() * (38));
+            tirage = (int) (Math.random() * (38));
+            if (tirage > 31)
+            {
+                tirage -= 32;
+                villeCible = Carte.getVille(5);
+            }
+
+            else if (tirage > 25)
+            {
+                tirage -= 26;
+                villeCible = Carte.getVille(4);
+            }
+
+            else if (tirage > 19)
+            {
+                tirage -= 20;
+                villeCible = Carte.getVille(3);
+            }
+
+            else if (tirage > 10)
+            {
+                tirage -= 11;
+                villeCible = Carte.getVille(2);
+            }
+
+            else if (tirage > 5)
+            {
+                tirage -= 6;
+                villeCible = Carte.getVille(1);
+            }
+            else {
+                villeCible = Carte.getVille(0);
+            }
+
+            agenceCible = villeCible.getAgence(tirage);
         }
         else
         {
-            hasard = (int) (Math.random() * (6));
+            tirage = (int) (Math.random() * (6));
+            villeCible = Carte.getVille(tirage);
         }
     }
 }

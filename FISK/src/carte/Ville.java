@@ -12,7 +12,13 @@ public class Ville {
         this.argentGenere = argentGenere;
     }
 
-    public Agence[] getAgences() {
+    public Agence[] getAgences()
+    {
         return agences;
+    }
+
+    public Agence getAgence(int numAgence)
+    {
+        return agences[numAgence];
     }
 }

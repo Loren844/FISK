@@ -2,7 +2,7 @@ package carte;
 
 public class Carte {
     private String nom;
-    private Ville[] villes;
+    private static Ville[] villes;
 
     public Carte(String nom, Ville[] villes)
     {
@@ -10,9 +10,8 @@ public class Carte {
         this.villes = villes;
     }
 
-    public Agence getAgence(int numVille, int numAgence)
+    public static Ville getVille(int numVille)
     {
-        return villes[numVille].getAgences()[numAgence];
+        return villes[numVille];
     }
-
 }

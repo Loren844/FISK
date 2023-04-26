@@ -6,7 +6,7 @@ import connexion.Joueur;
 public class Partie {
     private int phase = 0;
     private int nbToursMax;
-    private Joueur[] joueursRestants;
+    private static Joueur[] joueursRestants;
 
     void Partie(Joueur[] joueursRestants)
     {
@@ -44,7 +44,7 @@ public class Partie {
         this.joueursRestants = joueursRestants;
     }
 
-    public int nbJoueursRestants()
+    public static int nbJoueursRestants()
     {
         return joueursRestants.length;
     }
