@@ -8,26 +8,18 @@ public class Agence {
     private static Agence[] frontalieres;
 
     //constructeurs
-    public Agence(Agence[] frontalieres)
-    {
+    public Agence(Agence[] frontalieres) {
         this.frontalieres = frontalieres;
     }
 
 
-
-
-
     //getters and setters
-    public Joueur getJoueur()
-    {
+    public Joueur getJoueur() {
         Joueur[] joueurs = Partie.getJoueursRestants();
         Joueur proprietaire = new Joueur();
-        for(int i = 0; i < joueurs.length; i++)
-        {
-            for(int j = 0; j < joueurs[i].getAgences().length; j++)
-            {
-                if(joueurs[i].getAgences()[i].equals(this))
-                {
+        for (int i = 0; i < joueurs.length; i++) {
+            for (int j = 0; j < joueurs[i].getAgences().length; j++) {
+                if (joueurs[i].getAgences()[i].equals(this)) {
                     proprietaire = joueurs[i];
                 }
             }
@@ -35,16 +27,12 @@ public class Agence {
         return proprietaire;
     }
 
-    public Ville getVille()
-    {
+    public Ville getVille() {
         Ville[] villes = Carte.getVilles();
         Ville proprietaire = new Ville();
-        for(int i = 0; i < villes.length; i++)
-        {
-            for(int j = 0; j < villes[i].getAgences().length; j++)
-            {
-                if(villes[i].getAgences()[i].equals(this))
-                {
+        for (int i = 0; i < villes.length; i++) {
+            for (int j = 0; j < villes[i].getAgences().length; j++) {
+                if (villes[i].getAgences()[i].equals(this)) {
                     proprietaire = villes[i];
                 }
             }
@@ -52,29 +40,22 @@ public class Agence {
         return proprietaire;
     }
 
-    public void setNbBanquiers(int nbBanquiers)
-    {
+    public void setNbBanquiers(int nbBanquiers) {
         this.nbBanquiers = nbBanquiers;
     }
 
-    public static Agence[] getFrontalieres()
-    {
+    public static Agence[] getFrontalieres() {
         return frontalieres;
     }
 
 
-
-
     //fonctions
-    public Agence[] attaquesPossibles()
-    {
+    public Agence[] attaquesPossibles() {
         Agence[] attaquables = new Agence[6];
         int cpt = 0;
         Joueur proprietaire = this.getJoueur();
-        for(int i = 0; i < frontalieres.length; i++)
-        {
-            if( !(frontalieres[i].getJoueur().equals(proprietaire)) )
-            {
+        for (int i = 0; i < frontalieres.length; i++) {
+            if (!(frontalieres[i].getJoueur().equals(proprietaire))) {
                 attaquables[cpt] = frontalieres[i];
                 cpt++;
             }
@@ -83,43 +64,33 @@ public class Agence {
     }
 
     //seules les agences voisines ennemies seront sélectionnables pour l'attaque
-    public void attaque(Agence frontiereAttaquee, int stockAttaquants)
-    {
+    public void attaque(Agence frontiereAttaquee, int stockAttaquants) {
         int stockDefenseurs = frontiereAttaquee.nbBanquiers;
         int nbAttaquants, nbDefenseurs;
 
-        while(stockAttaquants > 0)
-        {
-            if(stockAttaquants >= 3)
-            {
+        while (stockAttaquants > 0) {
+            if (stockAttaquants >= 3) {
                 nbAttaquants = 3;
                 stockAttaquants -= 3;
-            }
-            else
-            {
+            } else {
                 nbAttaquants = stockAttaquants;
                 stockAttaquants = 0;
             }
 
-            if(stockDefenseurs >= 2)
-            {
+            if (stockDefenseurs >= 2) {
                 nbDefenseurs = 2;
                 stockDefenseurs -= 2;
-            }
-            else
-            {
+            } else {
                 nbDefenseurs = stockDefenseurs;
                 stockDefenseurs = 0;
             }
 
             int[] tirageAttaque = new int[0];
             int[] tirageDefense = new int[0];
-            for(int i = 0; i < nbAttaquants; i++)
-            {
+            for (int i = 0; i < nbAttaquants; i++) {
                 tirageAttaque[i] = (int) (Math.random() * (6)) + 1;
             }
-            for(int i = 0; i < nbDefenseurs; i++)
-            {
+            for (int i = 0; i < nbDefenseurs; i++) {
                 tirageDefense[i] = (int) (Math.random() * (6)) + 1;
             }
         }
@@ -130,21 +101,16 @@ public class Agence {
         int test = 0;
 
         //pour chaque agence frontaliere on vérifie qu'elle n'a pas été testée
-        for(int i = 0; i < frontalieres.length; i++)
-        {
-            for (int j = 0; j < agencesTestees.length; j++)
-            {
-                if (frontalieres[i].equals(agencesTestees[j]))
-                {
+        for (int i = 0; i < frontalieres.length; i++) {
+            for (int j = 0; j < agencesTestees.length; j++) {
+                if (frontalieres[i].equals(agencesTestees[j])) {
                     test = 1;
                 }
             }
             //si elle n'a pas été testée
-            if(test==0)
-            {
+            if (test == 0) {
                 //on vérifie qu'elle est dispo : appartient au joueur et ce n'est pas l'agence d'origine
-                if(joueur.possede(frontalieres[i]) && !(frontalieres[i].equals(origine)))
-                {
+                if (joueur.possede(frontalieres[i]) && !(frontalieres[i].equals(origine))) {
                     //on l'ajoute comme agence dispo et agence testée
                     agencesDispo[tailleDispo] = frontalieres[i];
                     agencesTestees[tailleTestees] = frontalieres[i];
@@ -157,8 +123,7 @@ public class Agence {
                     frontalieres[i].transfertsPossibles(agencesDispo, tailleDispo, agencesTestees, tailleTestees, origine, joueur);
                 }
                 //si elle n'est pas dispo ou que c'est l'agence d'origine
-                else
-                {
+                else {
                     //on l'ajoute seulement a agencesTestees
                     agencesTestees[tailleTestees] = frontalieres[i];
 
@@ -172,8 +137,7 @@ public class Agence {
     }
 
     //transfertsPossibles agit avant l'appel de transfertVers, on ne peut appeler transfertVers que vers une agence valide ET le nb de banquiers est vérifié avant aussi
-    public void transfertVers(Agence destination, int nbBanquiers)
-    {
+    public void transfertVers(Agence destination, int nbBanquiers) {
         this.nbBanquiers -= nbBanquiers;
         destination.nbBanquiers += nbBanquiers;
     }
