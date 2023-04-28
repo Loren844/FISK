@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd3218c9-79e3-4aaa-b64b-97e38636db37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/externes/FISK-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/externes/bg-fisk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/externes/map_bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +55,8 @@
       <workItem from="1682672326945" duration="802000" />
       <workItem from="1682673144637" duration="133000" />
       <workItem from="1682673289253" duration="899000" />
-      <workItem from="1682674327742" duration="14000" />
+      <workItem from="1682674327742" duration="64000" />
+      <workItem from="1682675862078" duration="19000" />
     </task>
     <servers />
   </component>
