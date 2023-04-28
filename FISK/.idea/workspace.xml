@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd3218c9-79e3-4aaa-b64b-97e38636db37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FISK.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FISK.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carte/Agence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carte/Carte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/carte/Ville.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carte/Ville.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connexion/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connexion/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/AgentFisk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jeu/AgentFisk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jeu/Partie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/externes/FISK-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/externes/bg-fisk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/externes/map_bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +31,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2P33bK64wgmZdFsSxnXh5DXCe3M" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
@@ -63,7 +57,8 @@
       <workItem from="1682672009174" duration="308000" />
       <workItem from="1682672326945" duration="802000" />
       <workItem from="1682673144637" duration="133000" />
-      <workItem from="1682673289253" duration="179000" />
+      <workItem from="1682673289253" duration="899000" />
+      <workItem from="1682674327742" duration="14000" />
     </task>
     <servers />
   </component>
@@ -80,5 +75,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
