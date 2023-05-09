@@ -11,7 +11,7 @@ public class Lanceur extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Lanceur.class.getResource("menu_map.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Lanceur.class.getResource("menu_titre.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("FISK");
         stage.setScene(scene);
