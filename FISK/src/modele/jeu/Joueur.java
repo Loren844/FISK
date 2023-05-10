@@ -1,7 +1,6 @@
-package jeu;
+package modele.jeu;
 
-import carte.*;
-import jeu.Partie;
+import modele.carte.*;
 
 public class Joueur {
     private int idJoueur;

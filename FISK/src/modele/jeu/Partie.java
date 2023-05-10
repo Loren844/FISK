@@ -1,4 +1,4 @@
-package jeu;
+package modele.jeu;
 
 public class Partie {
     private int phase = 0;

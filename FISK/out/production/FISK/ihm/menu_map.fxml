@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.GameMenuListeners">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#99ceff" height="1108.0" layoutX="-19.0" layoutY="-16.0" stroke="BLACK" strokeType="INSIDE" width="1963.0" />
         <ImageView fitHeight="1096.0" fitWidth="1934.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../externes/map_bg.png" />
+                <Image url="@externes/map_bg.png" />
             </image>
         </ImageView>
         <Polygon fx:id="p0" fill="#bbc32a" layoutX="550.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
@@ -21,7 +23,7 @@
         <Polygon fx:id="p6" fill="#ff1515" layoutX="606.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
         <Polygon fx:id="p7" fill="#ff1515" layoutX="719.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
         <Polygon fx:id="p8" fill="#ff1515" layoutX="776.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p9" fill="#ff1515" layoutX="832.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="p9" fill="#ff1515" layoutX="832.0" layoutY="261.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
         <Polygon fx:id="p10" fill="#ff1515" layoutX="888.0" layoutY="162.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
         <Polygon fx:id="p11" fill="#952bff" layoutX="832.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
         <Polygon fx:id="p12" fill="#952bff" layoutX="776.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />

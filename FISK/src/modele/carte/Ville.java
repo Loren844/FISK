@@ -1,4 +1,4 @@
-package carte;
+package modele.carte;
 
 public class Ville {
     private String nom;

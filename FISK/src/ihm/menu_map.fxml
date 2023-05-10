@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.GameMenuListeners">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#99ceff" height="1108.0" layoutX="-19.0" layoutY="-16.0" stroke="BLACK" strokeType="INSIDE" width="1963.0" />
         <ImageView fitHeight="1096.0" fitWidth="1934.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../externes/map_bg.png" />
+                <Image url="@externes/map_bg.png" />
             </image>
         </ImageView>
-        <Polygon fx:id="p0" fill="#bbc32a" layoutX="550.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p1" fill="#bbc32a" layoutX="606.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p2" fill="#bbc32a" layoutX="719.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p3" fill="#bbc32a" layoutX="550.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p4" fill="#bbc32a" layoutX="663.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p5" fill="#bbc32a" layoutX="606.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p6" fill="#ff1515" layoutX="606.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p7" fill="#ff1515" layoutX="719.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p8" fill="#ff1515" layoutX="776.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p9" fill="#ff1515" layoutX="832.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p10" fill="#ff1515" layoutX="888.0" layoutY="162.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p11" fill="#952bff" layoutX="832.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p12" fill="#952bff" layoutX="776.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p13" fill="#952bff" layoutX="889.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p14" fill="#952bff" layoutX="719.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p15" fill="#952bff" layoutX="832.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p16" fill="#952bff" layoutX="945.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p17" fill="#952bff" layoutX="775.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p18" fill="#952bff" layoutX="888.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p19" fill="#952bff" layoutX="1001.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p20" fill="#1fbfff" layoutX="1001.0" layoutY="162.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p21" fill="#1fbfff" layoutX="1058.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p22" fill="#1fbfff" layoutX="1171.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p23" fill="#1fbfff" layoutX="1002.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p24" fill="#1fbfff" layoutX="1115.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p25" fill="#1fbfff" layoutX="1228.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p26" fill="#ffa21c" layoutX="945.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p27" fill="#ffa21c" layoutX="1171.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p28" fill="#ffa21c" layoutX="1002.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p29" fill="#ffa21c" layoutX="1115.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p30" fill="#ffa21c" layoutX="1171.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p31" fill="#ffa21c" layoutX="1114.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p32" fill="#26ff1f" layoutX="1284.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p33" fill="#26ff1f" layoutX="1341.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p34" fill="#26ff1f" layoutX="1454.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p35" fill="#26ff1f" layoutX="1284.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p36" fill="#26ff1f" layoutX="1397.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-        <Polygon fx:id="p37" fill="#26ff1f" layoutX="1341.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a0" fill="#bbc32a" layoutX="550.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a1" fill="#bbc32a" layoutX="606.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a2" fill="#bbc32a" layoutX="719.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a3" fill="#bbc32a" layoutX="550.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a4" fill="#bbc32a" layoutX="663.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a5" fill="#bbc32a" layoutX="606.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a6" fill="#ff1515" layoutX="606.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a7" fill="#ff1515" layoutX="719.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a8" fill="#ff1515" layoutX="776.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a9" fill="#ff1515" layoutX="832.0" layoutY="261.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a10" fill="#ff1515" layoutX="888.0" layoutY="162.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a11" fill="#952bff" layoutX="832.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a12" fill="#952bff" layoutX="776.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a13" fill="#952bff" layoutX="889.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a14" fill="#952bff" layoutX="719.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a15" fill="#952bff" layoutX="832.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a16" fill="#952bff" layoutX="945.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a17" fill="#952bff" layoutX="775.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a18" fill="#952bff" layoutX="888.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a19" fill="#952bff" layoutX="1001.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a20" fill="#1fbfff" layoutX="1001.0" layoutY="162.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a21" fill="#1fbfff" layoutX="1058.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a22" fill="#1fbfff" layoutX="1171.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a23" fill="#1fbfff" layoutX="1002.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a24" fill="#1fbfff" layoutX="1115.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a25" fill="#1fbfff" layoutX="1228.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a26" fill="#ffa21c" layoutX="945.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a27" fill="#ffa21c" layoutX="1171.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a28" fill="#ffa21c" layoutX="1002.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a29" fill="#ffa21c" layoutX="1115.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a30" fill="#ffa21c" layoutX="1171.0" layoutY="657.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a31" fill="#ffa21c" layoutX="1114.0" layoutY="756.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a32" fill="#26ff1f" layoutX="1284.0" layoutY="261.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a33" fill="#26ff1f" layoutX="1341.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a34" fill="#26ff1f" layoutX="1454.0" layoutY="360.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a35" fill="#26ff1f" layoutX="1284.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a36" fill="#26ff1f" layoutX="1397.0" layoutY="459.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Polygon fx:id="a37" fill="#26ff1f" layoutX="1341.0" layoutY="558.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
     </children>
 </AnchorPane>

@@ -1,11 +1,8 @@
 package ihm;
 
-import carte.Carte;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +15,6 @@ public class Lanceur extends Application {
         Scene menuTitre = new Scene(fxmlLoader.load());
         fenetre.setTitle("FISK");
         fenetre.setScene(menuTitre);
-        fenetre.setFullScreen(true);
         fenetre.setFullScreenExitHint("");
         fenetre.show();
     }

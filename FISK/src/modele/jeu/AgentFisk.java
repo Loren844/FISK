@@ -1,5 +1,5 @@
-package jeu;
-import carte.*;
+package modele.jeu;
+import modele.carte.*;
 
 public class AgentFisk {
     private int nbToursAvantApp;
