@@ -1,4 +1,4 @@
-package connexion;
+package jeu;
 
 import carte.*;
 import jeu.Partie;

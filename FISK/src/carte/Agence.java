@@ -1,17 +1,16 @@
 package carte;
 
-import connexion.Joueur;
+import jeu.Joueur;
 import jeu.*;
 
 public class Agence {
-    private int nbBanquiers;
+    private int nbBanquiers = 0;
     private static Agence[] frontalieres;
 
     //constructeurs
-    public Agence(Agence[] frontalieres) {
-        this.frontalieres = frontalieres;
-    }
+    public Agence(){
 
+    }
 
     //getters and setters
     public Joueur getJoueur() {

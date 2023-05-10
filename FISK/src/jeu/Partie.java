@@ -1,8 +1,5 @@
 package jeu;
 
-import carte.Agence;
-import connexion.Joueur;
-
 public class Partie {
     private int phase = 0;
     private int nbToursMax;

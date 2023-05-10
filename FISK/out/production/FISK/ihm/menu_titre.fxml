@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.Listeners">
     <children>
         <ImageView fitHeight="1100.0" fitWidth="2103.0" layoutX="-4.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -37,12 +37,12 @@
                 <Image url="@../../externes/FISK-logo.png" />
             </image>
         </ImageView>
-        <MFXButton layoutX="799.0" layoutY="546.0" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#7238b9" style="-fx-background-color: #A25EEE; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="JOUER" textAlignment="CENTER" textFill="WHITE">
+        <MFXButton fx:id="boutonJouer" layoutX="799.0" layoutY="546.0" onAction="#onPlayButtonClick" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#7238b9" style="-fx-background-color: #A25EEE; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="JOUER" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="45.0" />
             </font>
         </MFXButton>
-        <MFXButton layoutX="799.0" layoutY="739.0" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" text="PROFIL" textAlignment="CENTER" textFill="WHITE">
+        <MFXButton fx:id="boutonProfil" layoutX="799.0" layoutY="739.0" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" text="PROFIL" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="45.0" />
             </font>

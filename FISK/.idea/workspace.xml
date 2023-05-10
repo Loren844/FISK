@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6013016c-d54b-40d2-9091-7fa5643d1eea" name="Changes" comment="" />
+    <list default="true" id="6013016c-d54b-40d2-9091-7fa5643d1eea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lien/Case.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Agence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/carte/Agence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Carte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/carte/Carte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/connexion/Joueur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/Listeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/Listeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/menu_map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/menu_map.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/menu_titre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/menu_titre.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/jeu/Partie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/jeu/Partie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/carte/Agence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/carte/Carte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connexion/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/Lanceur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/Lanceur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/Listeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/Listeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/menu_map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/menu_map.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/menu_titre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/menu_titre.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jeu/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Partie.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,16 +35,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaFXApplication" />
         <option value="module-info" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PXydqKdkVJNQvJYG2Yd0MKy3sx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,7 +57,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/me203414/Desktop/saefisk/FISK/lib",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/Cours/R202 Développement d'applications IHM/TD2",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -68,6 +95,17 @@
       <updated>1683617812591</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
