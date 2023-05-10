@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="1100.0" fitWidth="2103.0" layoutX="-4.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../externes/bg-fisk.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="1136.0" layoutX="-42.0" layoutY="-43.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1975.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.3764705955982208" green="0.9333333373069763" blue="0.3921568691730499" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.6352941393852234" green="0.3686274588108063" blue="0.9333333373069763" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <ImageView fitHeight="438.0" fitWidth="666.0" layoutX="667.0" layoutY="56.0" preserveRatio="true">
+            <image>
+                <Image url="@../../externes/FISK-logo.png" />
+            </image>
+        </ImageView>
+        <MFXButton layoutX="799.0" layoutY="546.0" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#7238b9" style="-fx-background-color: #A25EEE; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="JOUER" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="45.0" />
+            </font>
+        </MFXButton>
+        <MFXButton layoutX="799.0" layoutY="739.0" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" text="PROFIL" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="45.0" />
+            </font>
+        </MFXButton>
+    </children>
+</AnchorPane>
