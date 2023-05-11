@@ -4,17 +4,17 @@ import modele.jeu.Joueur;
 import modele.jeu.*;
 
 public class Agence {
-    private String id;
+    private int id;
     private int nbBanquiers = 0;
     private static Agence[] frontalieres;
 
     //constructeurs
-    public Agence(String id){
+    public Agence(int id){
         this.id=id;
     }
 
     //getters and setters
-    public String getId() {
+    public int getId() {
         return id;
     }
 

@@ -1,16 +1,21 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1/lib" />
       <root url="file://$PROJECT_DIR$/lib" />
-      <root url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1/lib" />
-      <root url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1/lib" />
+      <root url="file://$PROJECT_DIR$/lib" />
+      <root url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1-macos/lib" />
+      <root url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1-macos/lib" />
+      <root url="file://$PROJECT_DIR$/lib" />
     </CLASSES>
     <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1-macos/lib" />
+    </NATIVE>
     <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1-macos/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/javafx-sdk-20.0.1-macos/lib" recursive="false" />
   </library>
 </component>

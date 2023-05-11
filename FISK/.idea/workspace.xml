@@ -5,27 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6013016c-d54b-40d2-9091-7fa5643d1eea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lien/Case.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Agence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/carte/Agence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Carte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/carte/Carte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/connexion/Joueur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Agence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Carte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/carte/Ville.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/Listeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/Listeners.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/menu_map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/menu_map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/menu_titre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/menu_titre.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/jeu/Partie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/jeu/Partie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/carte/Agence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/carte/Carte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connexion/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/Lanceur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/Lanceur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/Listeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/Listeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/jeu/AgentFisk.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/jeu/Joueur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/jeu/Partie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/lien/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/lien/Case.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/GameMenuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/GameMenuListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ihm/menu_map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/menu_map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/menu_titre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/menu_titre.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/carte/Agence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/carte/Carte.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,18 +48,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/Cours/R202 Développement d'applications IHM/TD2",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/Cours/R202 Développement d'applications IHM/TD2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ihm" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Lanceur" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ihm.Lanceur" />
@@ -93,8 +102,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683617812591</updated>
+      <workItem from="1683725114567" duration="7503000" />
+      <workItem from="1683785950858" duration="215000" />
+      <workItem from="1683792687143" duration="1343000" />
+      <workItem from="1683798118047" duration="101000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

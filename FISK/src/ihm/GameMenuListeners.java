@@ -11,6 +11,5 @@ public class GameMenuListeners {
     public void onPolygonClick(MouseEvent event) throws IOException {
         Polygon source = (Polygon) event.getSource();
         System.out.println(source.getId());
-
     }
 }
