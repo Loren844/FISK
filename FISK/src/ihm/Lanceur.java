@@ -15,12 +15,12 @@ public class Lanceur extends Application {
         Scene menuTitre = new Scene(fxmlLoader.load());
         fenetre.setTitle("FISK");
         fenetre.setScene(menuTitre);
+        fenetre.setFullScreen(true);
         fenetre.setFullScreenExitHint("");
         fenetre.show();
     }
 
     public static void main(String[] args) {
         launch();
-
     }
 }

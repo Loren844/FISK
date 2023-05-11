@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,105 +17,284 @@
                 <Image url="@externes/map_bg.png" />
             </image>
         </ImageView>
-      <Group layoutX="551.0" layoutY="121.0">
-         <children>
-              <Polygon fx:id="p0" fill="#bbc32a" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p1" fill="#bbc32a" layoutX="56.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p2" fill="#bbc32a" layoutX="169.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p3" fill="#bbc32a" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p4" fill="#bbc32a" layoutX="113.0" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p5" fill="#bbc32a" layoutX="56.0" layoutY="495.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p6" fill="#ff1515" layoutX="56.0" layoutY="99.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p7" fill="#ff1515" layoutX="169.0" layoutY="99.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p8" fill="#ff1515" layoutX="226.0" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p9" fill="#ff1515" layoutX="282.0" layoutY="99.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p10" fill="#ff1515" layoutX="338.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p11" fill="#952bff" layoutX="282.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p12" fill="#952bff" layoutX="226.0" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p13" fill="#952bff" layoutX="339.0" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p14" fill="#952bff" layoutX="169.0" layoutY="495.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p15" fill="#952bff" layoutX="282.0" layoutY="495.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p16" fill="#952bff" layoutX="395.0" layoutY="495.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p17" fill="#952bff" layoutX="225.0" layoutY="594.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p18" fill="#952bff" layoutX="338.0" layoutY="594.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p19" fill="#952bff" layoutX="451.0" layoutY="594.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p20" fill="#1fbfff" layoutX="451.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p21" fill="#1fbfff" layoutX="508.0" layoutY="99.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p22" fill="#1fbfff" layoutX="621.0" layoutY="99.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p23" fill="#1fbfff" layoutX="452.0" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p24" fill="#1fbfff" layoutX="565.0" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p25" fill="#1fbfff" layoutX="678.0" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p26" fill="#ffa21c" layoutX="395.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p27" fill="#ffa21c" layoutX="621.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p28" fill="#ffa21c" layoutX="452.0" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p29" fill="#ffa21c" layoutX="565.0" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p30" fill="#ffa21c" layoutX="621.0" layoutY="495.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p31" fill="#ffa21c" layoutX="564.0" layoutY="594.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p32" fill="#26ff1f" layoutX="734.0" layoutY="99.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p33" fill="#26ff1f" layoutX="791.0" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p34" fill="#26ff1f" layoutX="904.0" layoutY="198.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p35" fill="#26ff1f" layoutX="734.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p36" fill="#26ff1f" layoutX="847.0" layoutY="297.0" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-              <Polygon fx:id="p37" fill="#26ff1f" layoutX="791.0" layoutY="396.0000305175781" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
-         </children>
-      </Group>
-      <Group layoutX="649.0" layoutY="922.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="112.0" layoutX="59.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="516.0" />
-            <Circle layoutX="57.0" layoutY="56.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle layoutX="570.0" layoutY="56.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-            <Rectangle fill="WHITE" height="14.0" layoutX="113.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="129.0" />
-            <Rectangle fill="WHITE" height="14.0" layoutX="250.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="129.0" />
-            <Rectangle fill="WHITE" height="14.0" layoutX="386.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="129.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="13.0" prefHeight="64.0" prefWidth="244.0" text="LabelPhase" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="30.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="18.0" prefHeight="77.0" prefWidth="113.0" text="LabelNbBanquiers" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="36.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="98.0" fitWidth="67.0" layoutX="537.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@externes/fleche.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
+        <Polygon fx:id="p0" fill="#bbc32a" layoutX="551.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l0" alignment="CENTER" layoutX="519.0" layoutY="358.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p1" fill="#bbc32a" layoutX="607.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l1" alignment="CENTER" layoutX="575.0" layoutY="455.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p2" fill="#bbc32a" layoutX="720.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l2" alignment="CENTER" layoutX="689.0" layoutY="457.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p3" fill="#bbc32a" layoutX="551.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l3" alignment="CENTER" layoutX="519.0" layoutY="557.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p4" fill="#bbc32a" layoutX="664.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l4" alignment="CENTER" layoutX="631.0" layoutY="554.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p5" fill="#bbc32a" layoutX="607.0" layoutY="616.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l5" alignment="CENTER" layoutX="575.0" layoutY="655.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p6" fill="#ff1515" layoutX="607.0" layoutY="220.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l6" alignment="CENTER" layoutX="572.0" layoutY="258.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p7" fill="#ff1515" layoutX="720.0" layoutY="220.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l7" alignment="CENTER" layoutX="686.0" layoutY="258.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p8" fill="#ff1515" layoutX="777.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l8" alignment="CENTER" layoutX="745.0" layoutY="355.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p9" fill="#ff1515" layoutX="833.0" layoutY="220.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l9" alignment="CENTER" layoutX="799.0" layoutY="259.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p10" fill="#ff1515" layoutX="889.0" layoutY="121.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l10" alignment="CENTER" layoutX="855.0" layoutY="159.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p11" fill="#952bff" layoutX="833.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l11" alignment="CENTER" layoutX="799.0" layoutY="456.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p12" fill="#952bff" layoutX="777.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l12" alignment="CENTER" layoutX="745.0" layoutY="554.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p13" fill="#952bff" layoutX="890.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l13" alignment="CENTER" layoutX="857.0" layoutY="556.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p14" fill="#952bff" layoutX="720.0" layoutY="616.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l14" alignment="CENTER" layoutX="687.0" layoutY="656.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p15" fill="#952bff" layoutX="833.0" layoutY="616.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l15" alignment="CENTER" layoutX="801.0" layoutY="654.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p16" fill="#952bff" layoutX="946.0" layoutY="616.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l16" alignment="CENTER" layoutX="914.0" layoutY="655.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p17" fill="#952bff" layoutX="776.0" layoutY="715.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l17" alignment="CENTER" layoutX="743.0" layoutY="755.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p18" fill="#952bff" layoutX="889.0" layoutY="715.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l18" alignment="CENTER" layoutX="857.0" layoutY="755.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p19" fill="#952bff" layoutX="1002.0" layoutY="715.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l19" alignment="CENTER" layoutX="971.0" layoutY="756.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p20" fill="#1fbfff" layoutX="1002.0" layoutY="121.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l20" alignment="CENTER" layoutX="970.0" layoutY="159.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p21" fill="#1fbfff" layoutX="1059.0" layoutY="220.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l21" alignment="CENTER" layoutX="1026.0" layoutY="258.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p22" fill="#1fbfff" layoutX="1172.0" layoutY="220.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l22" alignment="CENTER" layoutX="1140.0" layoutY="260.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p23" fill="#1fbfff" layoutX="1003.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l23" alignment="CENTER" layoutX="970.0" layoutY="357.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p24" fill="#1fbfff" layoutX="1116.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l24" alignment="CENTER" layoutX="1083.0" layoutY="357.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p25" fill="#1fbfff" layoutX="1229.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l25" alignment="CENTER" layoutX="1196.0" layoutY="358.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p26" fill="#ffa21c" layoutX="946.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l26" alignment="CENTER" layoutX="912.0" layoutY="458.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p27" fill="#ffa21c" layoutX="1172.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l27" alignment="CENTER" layoutX="1139.0" layoutY="458.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p28" fill="#ffa21c" layoutX="1003.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l28" alignment="CENTER" layoutX="971.0" layoutY="553.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p29" fill="#ffa21c" layoutX="1116.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l29" alignment="CENTER" layoutX="1084.0" layoutY="554.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p30" fill="#ffa21c" layoutX="1172.0" layoutY="616.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l30" alignment="CENTER" layoutX="1140.0" layoutY="655.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p31" fill="#ffa21c" layoutX="1115.0" layoutY="715.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l31" alignment="CENTER" layoutX="1082.0" layoutY="756.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="63.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p32" fill="#26ff1f" layoutX="1285.0" layoutY="220.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l32" alignment="CENTER" layoutX="1253.0" layoutY="260.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p33" fill="#26ff1f" layoutX="1342.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l33" alignment="CENTER" layoutX="1309.0" layoutY="359.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p34" fill="#26ff1f" layoutX="1455.0" layoutY="319.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l34" alignment="CENTER" layoutX="1422.0" layoutY="360.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p35" fill="#26ff1f" layoutX="1285.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l35" alignment="CENTER" layoutX="1251.0" layoutY="457.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p36" fill="#26ff1f" layoutX="1398.0" layoutY="418.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l36" alignment="CENTER" layoutX="1365.0" layoutY="458.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+        <Polygon fx:id="p37" fill="#26ff1f" layoutX="1342.0" layoutY="517.0" onMouseClicked="#onPolygonClick" points="0.0, 0.0, 56.0, 32.0, 56.0, 98.0, 0.0, 130.0, -56.0, 98.0, -56.0, 32.0" stroke="BLACK" strokeWidth="3.0" />
+        <Label fx:id="l37" alignment="CENTER" layoutX="1309.0" layoutY="557.0" onMouseClicked="#onLabelClick" prefHeight="53.0" prefWidth="65.0" text="0">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="112.0" layoutX="708.0" layoutY="922.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="516.0" />
+      <Circle layoutX="706.0" layoutY="978.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="1219.0" layoutY="978.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle fill="WHITE" height="14.0" layoutX="762.0" layoutY="1005.0" stroke="BLACK" strokeType="INSIDE" width="129.0" />
+      <Rectangle fill="WHITE" height="14.0" layoutX="899.0" layoutY="1005.0" stroke="BLACK" strokeType="INSIDE" width="129.0" />
+      <Rectangle fill="WHITE" height="14.0" layoutX="1035.0" layoutY="1005.0" stroke="BLACK" strokeType="INSIDE" width="129.0" />
+      <Label fx:id="labelPhase" alignment="CENTER" contentDisplay="CENTER" layoutX="839.0" layoutY="935.0" prefHeight="64.0" prefWidth="244.0" text="LabelPhase" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelNbBanquiers" alignment="CENTER" contentDisplay="CENTER" layoutX="650.0" layoutY="940.0" prefHeight="77.0" prefWidth="113.0" text="LabelNbBanquiers" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="phaseSuiv" fitHeight="98.0" fitWidth="67.0" layoutX="1186.0" layoutY="944.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@externes/fleche.png" />
+         </image>
+      </ImageView>
       <Rectangle fill="RED" height="200.0" layoutX="-6.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="394.0" />
-      <Group layoutX="33.0" layoutY="334.0">
-         <children>
-            <Rectangle arcHeight="110.0" arcWidth="110.0" fill="RED" height="365.0" layoutX="1.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" width="110.0" />
-            <Circle layoutX="56.0" layoutY="56.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="77.0" fitWidth="73.0" layoutX="19.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@externes/billets.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
-      <Group layoutX="1777.0" layoutY="924.0">
-         <children>
-            <Circle layoutX="55.0" layoutY="55.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="67.0" fitWidth="60.0" layoutX="26.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@externes/journal.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
-      <Group layoutX="43.0" layoutY="931.0">
-         <children>
-            <Circle layoutX="56.0" layoutY="56.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="89.0" fitWidth="69.0" layoutX="22.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@externes/oeil.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
+      <Rectangle arcHeight="110.0" arcWidth="110.0" fill="RED" height="365.0" layoutX="34.0" layoutY="334.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" width="110.0" />
+      <Circle layoutX="89.0" layoutY="390.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="77.0" fitWidth="73.0" layoutX="52.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@externes/billets.png" />
+         </image>
+      </ImageView>
+      <Circle layoutX="88.0" layoutY="488.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="89.0" layoutY="561.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="89.0" layoutY="634.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="100.0" arcWidth="70.0" fill="#b5b5b5" height="283.0" layoutX="1422.0" layoutY="856.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" width="550.0" />
+      <Circle layoutX="1470.0" layoutY="901.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="67.0" fitWidth="60.0" layoutX="1441.0" layoutY="871.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@externes/journal.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelFisk" alignment="CENTER" contentDisplay="CENTER" layoutX="1540.0" layoutY="869.0" prefHeight="215.0" prefWidth="362.0" text="Vous n'avez pas payé de pot de vin, vous n'avez donc pas accès à l'information." textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Circle layoutX="99.0" layoutY="987.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="89.0" fitWidth="69.0" layoutX="65.0" layoutY="953.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@externes/oeil.png" />
+         </image>
+      </ImageView>
       <Rectangle arcHeight="110.0" arcWidth="110.0" fill="#8aff6a" height="111.0" layoutX="1593.0" layoutY="573.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" width="291.0" />
       <Circle fill="#1cff00" layoutX="1829.0" layoutY="629.0" radius="56.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" />
       <Rectangle arcHeight="110.0" arcWidth="110.0" fill="#e055ff" height="111.0" layoutX="1591.0" layoutY="435.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" width="291.0" />
