@@ -2,19 +2,24 @@ package modele.jeu;
 
 public class Partie {
     private int phase = 0;
-    private int nbToursMax;
+    private int nbToursMax; //-1 si richesse prospere ou 30 si richesse immediate
     private static Joueur[] joueursRestants;
 
-    void Partie(Joueur[] joueursRestants)
+    public Partie()
     {
-        this.joueursRestants = joueursRestants;
+        this.nbToursMax = -1;
+    }
+
+    public Partie(Joueur[] joueursRestants)
+    {
+        Partie.joueursRestants = joueursRestants;
 
     }
 
-    void Partie(int nbToursMax, Joueur[] joueursRestants)
+    public Partie(int nbToursMax, Joueur[] joueursRestants)
     {
         this.nbToursMax = nbToursMax;
-        this.joueursRestants = joueursRestants;
+        Partie.joueursRestants = joueursRestants;
     }
 
     public int getPhase() {

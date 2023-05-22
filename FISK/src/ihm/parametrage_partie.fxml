@@ -52,17 +52,17 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <MFXButton fx:id="boutonJouer12" layoutX="601.0" layoutY="824.0" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#ffa537" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="2" textAlignment="CENTER">
+      <MFXButton fx:id="nbJoueurs2" layoutX="601.0" layoutY="824.0" onAction="#on2JoueursClick" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#d3ac38" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="2" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
       </MFXButton>
-      <MFXButton fx:id="boutonJouer121" layoutX="852.0" layoutY="825.0" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#ffa537" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="3" textAlignment="CENTER">
+      <MFXButton fx:id="nbJoueurs3" layoutX="852.0" layoutY="825.0" onAction="#on3JoueursClick" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#d3ac38" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="3" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
       </MFXButton>
-      <MFXButton fx:id="boutonJouer1211" layoutX="1102.0" layoutY="826.0" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#ffa537" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="4" textAlignment="CENTER">
+      <MFXButton fx:id="nbJoueurs4" layoutX="1102.0" layoutY="826.0" onAction="#on4JoueursClick" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#d3ac38" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="4" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
@@ -72,17 +72,17 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <MFXButton fx:id="boutonJouer122" layoutX="497.0" layoutY="616.0" pickOnBounds="false" prefHeight="78.0" prefWidth="406.0" rippleAnimateShadow="true" rippleColor="#ffa537" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="RICHESSE IMMÉDIATE" textAlignment="CENTER">
+      <MFXButton fx:id="modeRichesseImmediate" layoutX="497.0" layoutY="616.0" onAction="#onImmediateClick" prefHeight="78.0" prefWidth="406.0" rippleColor="#d3ac38" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="RICHESSE IMMÉDIATE" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
       </MFXButton>
-      <MFXButton fx:id="boutonJouer1221" layoutX="948.0" layoutY="618.0" pickOnBounds="false" prefHeight="78.0" prefWidth="406.0" rippleAnimateShadow="true" rippleColor="#ffa537" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="RICHESSE PROSPÈRE" textAlignment="CENTER">
+      <MFXButton fx:id="modeRichesseProspere" layoutX="948.0" layoutY="618.0" onAction="#onProspereClick" pickOnBounds="false" prefHeight="78.0" prefWidth="406.0" rippleAnimateShadow="true" rippleColor="#d3ac38" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="RICHESSE PROSPÈRE" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
       </MFXButton>
-      <MFXButton fx:id="boutonJouer11" layoutX="1690.0" layoutY="976.0" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60ee64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="CRÉER" textAlignment="CENTER">
+      <MFXButton fx:id="boutonCreer" layoutX="1690.0" layoutY="976.0" onAction="#onCreerButtonClick" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#7c7c7c" style="-fx-background-color: #9a9a9a; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="CRÉER" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>

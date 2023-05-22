@@ -10,13 +10,21 @@ public class Joueur {
     private double argentParTour;
     private int nbBanquiersDispo;
     private int nbBanquiersTotaux;
-    private Agence[] agences;
+    private Agence[] agences = new Agence[38];
     private boolean infoAchetee;
     private Ville[] villesMonop;
 
     public Joueur()
     {
 
+    }
+
+    public Joueur(int[] idAgences)
+    {
+        for(int i = 0; i < idAgences.length; i++)
+        {
+            this.agences[i] = Carte.getAgenceById(idAgences[i]);
+        }
     }
 
     public Agence[] getAgences()

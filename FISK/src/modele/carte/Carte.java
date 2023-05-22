@@ -5,9 +5,9 @@ public class Carte {
     private static Ville[] villes;
 
     //Si plusieurs cartes sont jouables, alors rajouter une condition sur le nom de la modele.carte
-    public Carte(String nom)
+    public Carte()
     {
-        this.nom = nom;
+        this.nom = "Vieux Continent";
 
         //Création de la ville Andorre et de ses agences pour permettre a une ville d'avoir des formes différentes selon les cartes
         Agence a0 = new Agence(0);
@@ -82,6 +82,42 @@ public class Carte {
     public static Ville getVille(int numVille)
     {
         return villes[numVille];
+    }
+    
+    public static Agence getAgenceById(int id)
+    {
+        if (id > 31)
+        {
+            id -= 32;
+            return Carte.getVille(5).getAgence(id);
+        }
+
+        else if (id > 25)
+        {
+            id -= 26;
+            return Carte.getVille(4).getAgence(id);
+        }
+
+        else if (id > 19)
+        {
+            id -= 20;
+            return Carte.getVille(3).getAgence(id);
+        }
+
+        else if (id > 10)
+        {
+            id -= 11;
+            return Carte.getVille(2).getAgence(id);
+        }
+
+        else if (id > 5)
+        {
+            id -= 6;
+            return Carte.getVille(1).getAgence(id);
+        }
+        else {
+            return Carte.getVille(0).getAgence(id);
+        }
     }
 
     public Agence getAgenceByPolyId(String id)

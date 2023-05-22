@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import modele.jeu.Partie;
 
 import java.io.IOException;
 
@@ -21,6 +22,7 @@ public class Lanceur extends Application {
     }
 
     public static void main(String[] args) {
+        Partie partie = new Partie();
         launch();
     }
 }
