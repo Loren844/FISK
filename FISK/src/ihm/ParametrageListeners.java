@@ -60,7 +60,7 @@ public class ParametrageListeners {
             {
                 nbJoueurs = 3;
             }
-            else
+            else if(clicQuatreJoueurs)
             {
                 nbJoueurs = 4;
             }
@@ -79,16 +79,64 @@ public class ParametrageListeners {
             }
 
             Joueur[] joueurs = new Joueur[nbJoueurs];
-            for(int i = 0; i < nbJoueurs; i++)
+
+            if(nbJoueurs == 2)
             {
-                int[] idAgences = new int[38];
-                for(int j = 0; j < 38/nbJoueurs; j++)
+                //Creation des joueurs
+                for(int i = 0; i < nbJoueurs; i++)
                 {
-                    posTirage = (int) (Math.random() * (listTirages.size()));
-                    idAgences[j] = (int) listTirages.get(posTirage);
-                    listTirages.remove(posTirage);
+                    //tirage des agences
+                    int[] idAgences = new int[38];
+                    for(int j = 0; j < 19; j++)
+                    {
+                        posTirage = (int) (Math.random() * (listTirages.size()));
+                        idAgences[j] = (int) listTirages.get(posTirage);
+                        listTirages.remove(posTirage);
+                    }
+                    joueurs[i] = new Joueur(idAgences);
                 }
-                joueurs[i] = new Joueur(idAgences);
+            }
+
+            else if(nbJoueurs == 3)
+            {
+                for(int i = 0; i < nbJoueurs; i++)
+                {
+                    int[] idAgences = new int[38];
+
+                    for(int j = 0; j < 12; j++)
+                    {
+                        posTirage = (int) (Math.random() * (listTirages.size()));
+                        idAgences[j] = (int) listTirages.get(posTirage);
+                        listTirages.remove(posTirage);
+                    }
+
+                    if(i!=0)
+                    {
+                        posTirage = (int) (Math.random() * (listTirages.size()));
+                        idAgences[12] = (int) listTirages.get(posTirage);
+                        listTirages.remove(posTirage);
+                    }
+                    joueurs[i] = new Joueur(idAgences);
+                }
+            }
+
+            else if(nbJoueurs == 4) {
+                for (int i = 0; i < nbJoueurs; i++) {
+                    int[] idAgences = new int[38];
+
+                    for (int j = 0; j < 9; j++) {
+                        posTirage = (int) (Math.random() * (listTirages.size()));
+                        idAgences[j] = (int) listTirages.get(posTirage);
+                        listTirages.remove(posTirage);
+                    }
+
+                    if (i > 1) {
+                        posTirage = (int) (Math.random() * (listTirages.size()));
+                        idAgences[9] = (int) listTirages.get(posTirage);
+                        listTirages.remove(posTirage);
+                    }
+                    joueurs[i] = new Joueur(idAgences);
+                }
             }
             JeuListeners.initJeu(joueurs, nbToursMax);
         }

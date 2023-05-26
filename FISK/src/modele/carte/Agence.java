@@ -5,7 +5,7 @@ import modele.jeu.*;
 
 public class Agence {
     private int id;
-    private int nbBanquiers = 0;
+    private int nbBanquiers = 1;
     private static Agence[] frontalieres;
 
     //constructeurs
@@ -14,8 +14,14 @@ public class Agence {
     }
 
     //getters and setters
-    public int getId() {
+    public int getId()
+    {
         return id;
+    }
+
+    public int getNbBanquiers()
+    {
+        return nbBanquiers;
     }
 
     public Joueur getJoueur() {
@@ -30,6 +36,8 @@ public class Agence {
         }
         return proprietaire;
     }
+
+
 
     public Ville getVille() {
         Ville[] villes = Carte.getVilles();

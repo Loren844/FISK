@@ -42,7 +42,7 @@
                 <Font name="Arial Bold" size="45.0" />
             </font>
         </MFXButton>
-        <MFXButton fx:id="boutonProfil" layoutX="799.0" layoutY="739.0" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" text="PROFIL" textAlignment="CENTER" textFill="BLACK">
+        <MFXButton fx:id="boutonProfil" layoutX="799.0" layoutY="739.0" onAction="#onProfilButtonClick" pickOnBounds="false" prefHeight="140.0" prefWidth="320.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" text="PROFIL" textAlignment="CENTER" textFill="BLACK">
             <font>
                 <Font name="Arial Bold" size="45.0" />
             </font>

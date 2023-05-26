@@ -119,21 +119,4 @@ public class Carte {
             return Carte.getVille(0).getAgence(id);
         }
     }
-
-    public Agence getAgenceByPolyId(String id)
-    {
-        for (Ville ville : villes)
-        {
-            for (Agence agence : ville.getAgences())
-            {
-                id = id.substring(1, id.length() - 1);
-                int intId = Integer.parseInt(id);
-                if (intId == agence.getId())
-                {
-                    return agence;
-                }
-            }
-        }
-        return null;
-    }
 }

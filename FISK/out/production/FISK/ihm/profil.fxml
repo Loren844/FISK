@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ProfilListeners">
+    <children>
+        <ImageView fitHeight="1100.0" fitWidth="2103.0" layoutX="-4.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@externes/bg-fisk.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="1136.0" layoutX="-42.0" layoutY="-43.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1975.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.3764705955982208" green="0.9333333373069763" blue="0.3921568691730499" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.6352941393852234" green="0.3686274588108063" blue="0.9333333373069763" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <ImageView fitHeight="352.0" fitWidth="450.0" layoutX="744.0" layoutY="363.0" preserveRatio="true">
+            <image>
+                <Image url="@externes/FISK-logo.png" />
+            </image>
+        </ImageView>
+      <MFXButton fx:id="boutonRetour" layoutX="44.0" layoutY="975.0" onAction="#onRetourButtonClick" pickOnBounds="false" prefHeight="78.0" prefWidth="178.0" rippleAnimateShadow="true" rippleColor="#7238b9" style="-fx-background-color: #A25EEE; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="RETOUR" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </MFXButton>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="604.0" layoutX="55.0" layoutY="248.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="642.0" />
+      <Label alignment="CENTER" layoutX="59.0" layoutY="270.0" prefHeight="135.0" prefWidth="635.0" text="STATISTIQUES PERSONNELLES DE PSEUDO" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="604.0" layoutX="1230.0" layoutY="247.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="642.0" />
+      <Label alignment="CENTER" layoutX="1234.0" layoutY="267.0" prefHeight="135.0" prefWidth="635.0" text="STATISTIQUES CONTRE UN AUTRE JOUEUR" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="467.0" prefHeight="68.0" prefWidth="635.0" text="Nombre de parties :" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="584.0" prefHeight="68.0" prefWidth="635.0" text="Nombre de parties gagnées :" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="706.0" prefHeight="68.0" prefWidth="635.0" text="Pourcentage de victoires :" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1272.0" layoutY="488.0" prefHeight="68.0" prefWidth="635.0" text="Nombre de parties :" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1273.0" layoutY="602.0" prefHeight="68.0" prefWidth="635.0" text="Nombre de parties gagnées :" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1275.0" layoutY="717.0" prefHeight="68.0" prefWidth="635.0" text="Pourcentage de victoires :" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <MFXTextField fx:id="rechercheJoueur" layoutX="1268.0" layoutY="406.0" prefHeight="71.0" prefWidth="560.0" promptText="Entrez un pseudo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </MFXTextField>
+      <Label fx:id="nbParties1" alignment="CENTER_RIGHT" layoutX="380.0" layoutY="475.0" prefHeight="68.0" prefWidth="257.0" text="0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbPartiesGagnees1" alignment="CENTER_RIGHT" layoutX="506.0" layoutY="592.0" prefHeight="68.0" prefWidth="129.0" text="0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="pourcentageVictoire1" alignment="CENTER_RIGHT" layoutX="492.0" layoutY="705.0" prefHeight="68.0" prefWidth="145.0" text="N/A" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbParties2" alignment="CENTER_RIGHT" layoutX="1574.0" layoutY="494.0" prefHeight="68.0" prefWidth="255.0" text="0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbPartiesGagnees2" alignment="CENTER_RIGHT" layoutX="1704.0" layoutY="609.0" prefHeight="68.0" prefWidth="129.0" text="0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="pourcentageVictoire2" alignment="CENTER_RIGHT" layoutX="1703.0" layoutY="724.0" prefHeight="68.0" prefWidth="129.0" text="N/A" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

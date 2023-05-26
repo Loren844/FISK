@@ -25,4 +25,18 @@ public class MenuTitreListeners {
         stage.setScene(map);
         stage.setFullScreen(true);
     }
+
+    public void onProfilButtonClick(ActionEvent event) throws IOException {
+        // Chargement du fichier FXML
+        FXMLLoader loadMenu = new FXMLLoader(getClass().getResource("menu_titre.fxml"));
+        Parent root = loadMenu.load();
+
+        // Affichage de la scène
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        FXMLLoader loadMap = new FXMLLoader(getClass().getResource("profil.fxml"));
+        Scene map = new Scene(loadMap.load());
+        stage.setScene(map);
+        stage.setFullScreen(true);
+    }
 }
