@@ -29,6 +29,8 @@ public class JeuListeners {
     private boolean banquiers = false;
     private boolean placements = false;
     private boolean agentFisk = false;
+    private String polyIDSource;
+    private String polyIDDest;
 
     public static void initJeu(Joueur[] joueurs, int nbToursMax) throws IOException
     {
@@ -116,6 +118,7 @@ public class JeuListeners {
     public void onPolygonClick(MouseEvent event) throws IOException
     {
         Polygon source = (Polygon) event.getSource();
+        Scene scene = source.getScene();
     }
 
     @FXML
