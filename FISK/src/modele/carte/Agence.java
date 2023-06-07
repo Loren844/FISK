@@ -9,6 +9,10 @@ public class Agence {
     private static Agence[] frontalieres;
 
     //constructeurs
+    public Agence() {
+        this.id = -1;
+    }
+
     public Agence(int id){
         this.id=id;
     }
@@ -37,9 +41,8 @@ public class Agence {
         return proprietaire;
     }
 
-
-
-    public Ville getVille() {
+    public Ville getVille()
+    {
         Ville[] villes = Carte.getVilles();
         Ville proprietaire = new Ville();
         for (int i = 0; i < villes.length; i++) {
@@ -52,27 +55,31 @@ public class Agence {
         return proprietaire;
     }
 
-    public void setNbBanquiers(int nbBanquiers) {
+    public void setNbBanquiers(int nbBanquiers)
+    {
         this.nbBanquiers = nbBanquiers;
     }
 
-    public static Agence[] getFrontalieres() {
+    public Agence[] getFrontalieres()
+    {
         return frontalieres;
     }
 
-
     //fonctions
-    public Agence[] attaquesPossibles() {
-        Agence[] attaquables = new Agence[6];
-        int cpt = 0;
-        Joueur proprietaire = this.getJoueur();
-        for (int i = 0; i < frontalieres.length; i++) {
-            if (!(frontalieres[i].getJoueur().equals(proprietaire))) {
-                attaquables[cpt] = frontalieres[i];
-                cpt++;
+
+    public boolean estFrontaliere(String id)
+    {
+        int idAgence = Integer.parseInt(id.substring(2));
+        Agence agence = Carte.getAgenceById(idAgence);
+
+        for(int i = 0; i < frontalieres.length; i++)
+        {
+            if(frontalieres[i].equals(agence))
+            {
+                return true;
             }
         }
-        return attaquables;
+        return false;
     }
 
     //seules les agences voisines ennemies seront sélectionnables pour l'attaque

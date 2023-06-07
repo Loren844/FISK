@@ -3,18 +3,18 @@ package modele.carte;
 public class Ville {
     private String nom;
     private Agence[] agences;
-    private double argentGenere;
+    private int argentMonop;
 
     public Ville()
     {
 
     }
 
-    public Ville(String nom, Agence[] agences, double argentGenere)
+    public Ville(String nom, Agence[] agences, int argentMonop)
     {
         this.nom = nom;
         this.agences = agences;
-        this.argentGenere = argentGenere;
+        this.argentMonop = argentMonop;
     }
 
     public Agence[] getAgences()
@@ -24,6 +24,14 @@ public class Ville {
 
     public Agence getAgence(int numAgence)
     {
-        return agences[numAgence];
+        if(numAgence!= -1)
+        {
+            return agences[numAgence];
+        }
+        return null;
+    }
+
+    public int getArgentMonop() {
+        return argentMonop;
     }
 }

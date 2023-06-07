@@ -1,5 +1,7 @@
 package modele.jeu;
 
+import modele.carte.Ville;
+
 public class Partie {
     private static int phase = 1;
     private static int tour = 1;
@@ -93,5 +95,18 @@ public class Partie {
             }
             return joueursRestants[i+1];
         }
+    }
+
+    public static void setArgentParTour(Joueur j)
+    {
+        int bonus = 0;
+        for(Ville ville:j.getVillesMonop())
+        {
+            if(ville != null)
+            {
+                bonus += ville.getArgentMonop();
+            }
+        }
+        j.setArgentParTour( 3000 + j.getArgentPlace()/10 + bonus + (j.getNbAgences()/3 + 1)*1000 );
     }
 }

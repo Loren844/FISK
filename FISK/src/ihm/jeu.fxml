@@ -3,6 +3,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXSlider?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -268,20 +269,14 @@
             <Image url="@externes/fleche.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="cadreJoueur" arcHeight="50.0" arcWidth="50.0" fill="RED" height="215.0" layoutX="-33.0" layoutY="-22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="465.0" />
+      <Rectangle fx:id="cadreJoueur" arcHeight="50.0" arcWidth="50.0" fill="RED" height="215.0" layoutX="-33.0" layoutY="-22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="490.0" />
       <Rectangle fx:id="menuAchats" arcHeight="110.0" arcWidth="110.0" fill="RED" height="365.0" layoutX="34.0" layoutY="334.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" width="110.0" />
       <Circle layoutX="89.0" layoutY="390.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle fx:id="barreBanquiers" arcHeight="40.0" arcWidth="40.0" fill="#b5b5b5" height="44.0" layoutX="90.0" layoutY="466.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="331.0" />
       <ImageView fitHeight="77.0" fitWidth="73.0" layoutX="52.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@externes/billets.png" />
          </image>
       </ImageView>
-        <Rectangle fx:id="barrePlacements" arcHeight="40.0" arcWidth="40.0" fill="#b5b5b5" height="44.0" layoutX="88.0" layoutY="539.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="331.0" />
-      <Rectangle fx:id="barreAgentFisk" arcHeight="40.0" arcWidth="40.0" fill="#b5b5b5" height="44.0" layoutX="89.0" layoutY="611.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="222.0" />
-      <Circle fx:id="btnBanquiers" layoutX="88.0" layoutY="488.0" onMouseClicked="#onBanquiersClick" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btnPlacements" layoutX="89.0" layoutY="561.0" onMouseClicked="#onPlacementsClick" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btnAgentFisk" layoutX="89.0" layoutY="634.0" onMouseClicked="#onAgentFiskClick" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#b5b5b5" height="203.0" layoutX="1422.0" layoutY="856.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" width="488.0" />
       <Circle layoutX="1470.0" layoutY="901.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="67.0" fitWidth="60.0" layoutX="1441.0" layoutY="871.0" pickOnBounds="true" preserveRatio="true">
@@ -308,82 +303,82 @@
       <Circle fx:id="advers10" fill="RED" layoutX="1818.0" layoutY="311.0" radius="56.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" visible="false" />
       <Rectangle fx:id="advers21" arcHeight="110.0" arcWidth="110.0" fill="#ffc559" height="111.0" layoutX="1585.0" layoutY="389.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" visible="false" width="291.0" />
       <Circle fx:id="advers20" fill="#ffa100" layoutX="1821.0" layoutY="445.0" radius="56.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" visible="false" />
-      <Label fx:id="labelDollar2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1680.0" layoutY="403.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelDollar2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1657.0" layoutY="406.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelBat2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1680.0" layoutY="451.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelAgences2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1656.0" layoutY="457.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelDollar1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1680.0" layoutY="267.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelDollar1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1655.0" layoutY="273.0" prefHeight="50.0" prefWidth="109.0" text="3000 $" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelBat1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1680.0" layoutY="315.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelAgences1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1655.0" layoutY="321.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelDollar3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1670.0" layoutY="536.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelDollar3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1658.0" layoutY="542.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelBat3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1670.0" layoutY="584.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelAgences3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1657.0" layoutY="590.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelDollar4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1670.0" layoutY="674.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelDollar4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1659.0" layoutY="680.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelBat4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1670.0" layoutY="722.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
+      <Label fx:id="labelAgences4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1658.0" layoutY="728.0" prefHeight="50.0" prefWidth="111.0" text="0" textAlignment="CENTER" visible="false">
          <font>
-            <Font name="Arial Black" size="27.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgBat2" fitHeight="44.0" fitWidth="61.0" layoutX="1617.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgBat2" fitHeight="44.0" fitWidth="61.0" layoutX="1609.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/batiment.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgBat3" fitHeight="44.0" fitWidth="61.0" layoutX="1617.0" layoutY="584.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgBat3" fitHeight="44.0" fitWidth="61.0" layoutX="1610.0" layoutY="584.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/batiment.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgBat4" fitHeight="44.0" fitWidth="61.0" layoutX="1617.0" layoutY="720.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgBat4" fitHeight="44.0" fitWidth="61.0" layoutX="1611.0" layoutY="720.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/batiment.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgBat1" fitHeight="44.0" fitWidth="61.0" layoutX="1617.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgBat1" fitHeight="44.0" fitWidth="61.0" layoutX="1608.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/batiment.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgDollar1" fitHeight="44.0" fitWidth="61.0" layoutX="1618.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgDollar1" fitHeight="44.0" fitWidth="61.0" layoutX="1609.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/monnaie.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgDollar2" fitHeight="44.0" fitWidth="61.0" layoutX="1618.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgDollar2" fitHeight="44.0" fitWidth="61.0" layoutX="1610.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/monnaie.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgDollar3" fitHeight="44.0" fitWidth="61.0" layoutX="1618.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgDollar3" fitHeight="44.0" fitWidth="61.0" layoutX="1611.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/monnaie.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgDollar4" fitHeight="44.0" fitWidth="61.0" layoutX="1619.0" layoutY="670.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgDollar4" fitHeight="44.0" fitWidth="61.0" layoutX="1612.0" layoutY="670.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/monnaie.png" />
          </image>
@@ -408,17 +403,17 @@
             <Font name="Arial Black" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="labelDispo" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="296.0" layoutY="48.0" prefHeight="50.0" prefWidth="129.0" text="0 $" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelDispo" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="296.0" layoutY="48.0" prefHeight="50.0" prefWidth="156.0" text="3000 $" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="labelParTour" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="258.0" layoutY="95.0" prefHeight="50.0" prefWidth="171.0" text="0 $" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelParTour" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="258.0" layoutY="95.0" prefHeight="50.0" prefWidth="193.0" text="3000 $" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="labelPlace" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="222.0" layoutY="139.0" prefHeight="50.0" prefWidth="207.0" text="0 $" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelPlace" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="222.0" layoutY="139.0" prefHeight="50.0" prefWidth="232.0" text="0 $" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>
@@ -433,6 +428,12 @@
             <Font size="50.0" />
          </font>
       </Label>
+      <Rectangle fx:id="barreBanquiers" arcHeight="40.0" arcWidth="40.0" fill="#b5b5b5" height="44.0" layoutX="90.0" layoutY="466.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="352.0" />
+        <Rectangle fx:id="barrePlacements" arcHeight="40.0" arcWidth="40.0" fill="#b5b5b5" height="44.0" layoutX="88.0" layoutY="539.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="352.0" />
+      <Rectangle fx:id="barreAgentFisk" arcHeight="40.0" arcWidth="40.0" fill="#b5b5b5" height="44.0" layoutX="89.0" layoutY="611.0" stroke="#616161" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="222.0" />
+      <Circle fx:id="btnBanquiers" layoutX="88.0" layoutY="488.0" onMouseClicked="#onBanquiersClick" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btnPlacements" layoutX="89.0" layoutY="561.0" onMouseClicked="#onPlacementsClick" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btnAgentFisk" layoutX="89.0" layoutY="634.0" onMouseClicked="#onAgentFiskClick" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fx:id="imgBanquiers" fitHeight="40.0" fitWidth="37.0" layoutX="70.0" layoutY="468.0" onMouseClicked="#onImgClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@externes/banquiers.png" />
@@ -450,22 +451,22 @@
       </ImageView>
       <MFXSlider fx:id="jaugeBanquiers" blendMode="HARD_LIGHT" layoutX="160.0" layoutY="484.0" prefHeight="6.0" prefWidth="171.0" visible="false" />
       <MFXSlider fx:id="jaugePlacements" blendMode="HARD_LIGHT" layoutX="162.0" layoutY="558.0" prefHeight="6.0" prefWidth="171.0" visible="false" />
-      <ImageView fx:id="refBanquiers" fitHeight="37.0" fitWidth="31.0" layoutX="342.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="refBanquiers" fitHeight="37.0" fitWidth="31.0" layoutX="363.0" layoutY="472.0" onMouseClicked="#onRefBanquiersClick" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/annuler.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="refPlacements" fitHeight="37.0" fitWidth="31.0" layoutX="343.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="refPlacements" fitHeight="37.0" fitWidth="31.0" layoutX="364.0" layoutY="545.0" onMouseClicked="#onRefPlacementsClick" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/annuler.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="valPlacements" fitHeight="37.0" fitWidth="31.0" layoutX="379.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="valPlacements" fitHeight="37.0" fitWidth="31.0" layoutX="400.0" layoutY="545.0" onMouseClicked="#onValPlacementsClick" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/valider.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="valBanquiers" fitHeight="37.0" fitWidth="31.0" layoutX="379.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="valBanquiers" fitHeight="37.0" fitWidth="31.0" layoutX="400.0" layoutY="472.0" onMouseClicked="#onValBanquiersClick" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/valider.png" />
          </image>
@@ -475,12 +476,49 @@
             <Font name="Arial Black" size="22.0" />
          </font>
       </Label>
-      <ImageView fx:id="refAgentFisk" fitHeight="37.0" fitWidth="31.0" layoutX="234.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="refAgentFisk" fitHeight="37.0" fitWidth="31.0" layoutX="234.0" layoutY="617.0" onMouseClicked="#onRefAgentFiskClick" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/annuler.png" />
          </image>
       </ImageView>
       <ImageView fx:id="valAgentFisk" fitHeight="37.0" fitWidth="31.0" layoutX="270.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/valider.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rectBandeau" arcHeight="80.0" arcWidth="100.0" fill="WHITE" height="130.0" layoutX="607.0" layoutY="-31.0" opacity="0.9" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="789.0" />
+      <MFXSlider fx:id="jaugeBandeau" layoutX="1034.0" layoutY="45.0" prefHeight="3.0" prefWidth="223.0" style="-fx-background-color: #ffffff;" visible="false">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </MFXSlider>
+      <ImageView fx:id="refBandeau" fitHeight="39.0" fitWidth="55.0" layoutX="1280.0" layoutY="27.0" onMouseClicked="#onRefBandeauClick" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/annuler.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="valBandeau" fitHeight="44.0" fitWidth="65.0" layoutX="1335.0" layoutY="24.0" onMouseClicked="#onValBandeauClick" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/valider.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelBandeau" alignment="BASELINE_CENTER" contentDisplay="TOP" layoutX="603.0" layoutY="-1.0" mouseTransparent="true" prefHeight="92.0" prefWidth="407.0" text="Nombre de banquiers :" textAlignment="JUSTIFY" visible="false" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgAide2" fitHeight="87.0" fitWidth="60.0" layoutX="1588.0" layoutY="70.0" onMouseClicked="#onAiderButtonClick" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/aide.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rectCond1" arcHeight="80.0" arcWidth="100.0" height="260.0" layoutX="504.0" layoutY="358.0" opacity="0.9" stroke="BLACK" strokeType="INSIDE" visible="false" width="890.0" />
+      <Label fx:id="textCond1" alignment="BASELINE_CENTER" contentDisplay="TOP" layoutX="558.0" layoutY="408.0" mouseTransparent="true" prefHeight="157.0" prefWidth="799.0" text="Pour passer à la phase suivante, vous devez placer tous les banquiers que vous avez recruté." textAlignment="JUSTIFY" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="valCond1" fitHeight="61.0" fitWidth="55.0" layoutX="1318.0" layoutY="545.0" onMouseClicked="#onValCond1Click" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/valider.png" />
          </image>
@@ -496,7 +534,7 @@
          </image>
       </ImageView>
       <Rectangle fx:id="rectRegles" arcHeight="80.0" arcWidth="100.0" height="594.0" layoutX="168.0" layoutY="428.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" width="1578.0" />
-      <Label fx:id="msgRegles1" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="252.0" layoutY="508.0" mouseTransparent="true" prefHeight="159.0" prefWidth="1437.0" text="Vous êtes sur le point de commencer une partie de FISK, un jeu inspiré de RISK, dont vous pouvez trouver les règles sur le lien suivant : https://loren844.github.io/FISK/notice.html" textFill="WHITE" wrapText="true">
+      <Label fx:id="msgRegles1" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="252.0" layoutY="508.0" mouseTransparent="true" prefHeight="159.0" prefWidth="1437.0" text="Vous êtes sur le point de commencer une partie de FISK, un jeu inspiré de RISK, dont vous pouvez trouver les règles en cliquant sur ce bouton , vous pouvez le faire tout au long de la partie." textFill="WHITE" wrapText="true">
          <font>
             <Font name="Arial Bold" size="40.0" />
          </font>
@@ -511,5 +549,10 @@
             <Font name="Arial Bold" size="32.0" />
          </font>
       </MFXButton>
+      <ImageView fx:id="imgAide1" fitHeight="44.0" fitWidth="47.0" layoutX="1025.0" layoutY="613.0" onMouseClicked="#onAiderButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@externes/aide.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

@@ -87,13 +87,26 @@ public class ParametrageListeners {
                 {
                     //tirage des agences
                     int[] idAgences = new int[38];
+                    //initialiser le tableau avec des -1
+                    for(int j = 0; j < 38; j++)
+                    {
+                        idAgences[j] = -1;
+                    }
+
                     for(int j = 0; j < 19; j++)
                     {
                         posTirage = (int) (Math.random() * (listTirages.size()));
                         idAgences[j] = (int) listTirages.get(posTirage);
                         listTirages.remove(posTirage);
                     }
+
                     joueurs[i] = new Joueur(idAgences);
+                    //placement aléatoire des banquiers restants
+                    for(int j = 0; j < 31; j++)
+                    {
+                        int posAgenceAlea = (int) (Math.random() * (19));
+                        joueurs[i].getAgences()[posAgenceAlea].setNbBanquiers(joueurs[i].getAgences()[posAgenceAlea].getNbBanquiers()+1);
+                    }
                 }
             }
 
@@ -102,12 +115,18 @@ public class ParametrageListeners {
                 for(int i = 0; i < nbJoueurs; i++)
                 {
                     int[] idAgences = new int[38];
+                    //initialiser le tableau avec des -1
+                    for(int j = 0; j < 38; j++)
+                    {
+                        idAgences[j] = -1;
+                    }
 
                     for(int j = 0; j < 12; j++)
                     {
                         posTirage = (int) (Math.random() * (listTirages.size()));
                         idAgences[j] = (int) listTirages.get(posTirage);
                         listTirages.remove(posTirage);
+
                     }
 
                     if(i!=0)
@@ -117,12 +136,31 @@ public class ParametrageListeners {
                         listTirages.remove(posTirage);
                     }
                     joueurs[i] = new Joueur(idAgences);
+
+                    //placement aléatoire des banquiers restants
+                    int nbAgences = 13;
+                    if(i == 0)
+                    {
+                        nbAgences = 12;
+                    }
+
+                    for(int j = 0; j < 35-nbAgences; j++)
+                    {
+                        int posAgenceAlea = (int) (Math.random() * (nbAgences));
+                        joueurs[i].getAgences()[posAgenceAlea].setNbBanquiers(joueurs[i].getAgences()[posAgenceAlea].getNbBanquiers()+1);
+                    }
+
                 }
             }
 
             else if(nbJoueurs == 4) {
                 for (int i = 0; i < nbJoueurs; i++) {
                     int[] idAgences = new int[38];
+                    //initialiser le tableau avec des -1
+                    for(int j = 0; j < 38; j++)
+                    {
+                        idAgences[j] = -1;
+                    }
 
                     for (int j = 0; j < 9; j++) {
                         posTirage = (int) (Math.random() * (listTirages.size()));
@@ -136,6 +174,19 @@ public class ParametrageListeners {
                         listTirages.remove(posTirage);
                     }
                     joueurs[i] = new Joueur(idAgences);
+
+                    //placement aléatoire des banquiers restants
+                    int nbAgences = 10;
+                    if(i < 2)
+                    {
+                        nbAgences = 9;
+                    }
+
+                    for(int j = 0; j < 30-nbAgences; j++)
+                    {
+                        int posAgenceAlea = (int) (Math.random() * (nbAgences));
+                        joueurs[i].getAgences()[posAgenceAlea].setNbBanquiers(joueurs[i].getAgences()[posAgenceAlea].getNbBanquiers()+1);
+                    }
                 }
             }
             JeuListeners.initJeu(joueurs, nbToursMax);

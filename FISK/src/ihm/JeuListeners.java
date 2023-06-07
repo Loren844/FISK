@@ -22,13 +22,18 @@ import modele.jeu.Joueur;
 import modele.jeu.Partie;
 import io.github.palexdev.materialfx.controls.MFXSlider;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class JeuListeners {
     private boolean vue = true; //false = vue normale, true = vue des villes
     private boolean banquiers = false;
     private boolean placements = false;
     private boolean agentFisk = false;
+    private String polySourceId = null;
+    private String polyDestId = null;
 
     public static void initJeu(Joueur[] joueurs, int nbToursMax) throws IOException
     {
@@ -37,48 +42,20 @@ public class JeuListeners {
 
     }
 
+    public void onAiderButtonClick(MouseEvent event) throws URISyntaxException, IOException {
+        String url = "https://loren844.github.io/FISK/src/regles_fisk.pdf";
+        Desktop.getDesktop().browse(new URI(url));
+    }
+
     @FXML
     public void onAccederButtonClick(MouseEvent event) throws IOException
     {
         Button acceder = (Button) event.getSource();
         Scene scene = acceder.getScene();
 
-        //Suppression du message d'intro
-        ImageView fond = (ImageView) scene.lookup("#bgRegles");
-        fond.setVisible(false);
-        ImageView logo = (ImageView) scene.lookup("#logoRegles");
-        logo.setVisible(false);
-        Rectangle rectangle = (Rectangle) scene.lookup("#rectRegles");
-        rectangle.setVisible(false);
-        Label msgRegles1 = (Label) scene.lookup("#msgRegles1");
-        msgRegles1.setVisible(false);
-        Label msgRegles2 = (Label) scene.lookup("#msgRegles2");
-        msgRegles2.setVisible(false);
-        MFXButton bouton = (MFXButton) scene.lookup("#boutonAcceder");
-        bouton.setVisible(false);
+        supprMessageIntro(scene);
 
-        //Affichage des infos adversaires
-        for (int i = 1; i <= Partie.getJoueursRestants().length; i++)
-        {
-            String id0 = "#advers" + i + "0";
-            String id1 = "#advers" + i + "1";
-            String idImgBat = "#imgBat" + i;
-            String idImgDollar = "#imgDollar" + i;
-            String idLabelBat = "#labelBat" + i;
-            String idLabelDollar = "#labelDollar" + i;
-            Circle circleId0 = (Circle) scene.lookup(id0);
-            Rectangle rectId1 = (Rectangle) scene.lookup(id1);
-            ImageView imgBat = (ImageView) scene.lookup(idImgBat);
-            ImageView imgDollar = (ImageView) scene.lookup(idImgDollar);
-            Label labelBat = (Label) scene.lookup(idLabelBat);
-            Label labelDollar = (Label) scene.lookup(idLabelDollar);
-            circleId0.setVisible(true);
-            rectId1.setVisible(true);
-            imgBat.setVisible(true);
-            imgDollar.setVisible(true);
-            labelBat.setVisible(true);
-            labelDollar.setVisible(true);
-        }
+        afficheAdvers(scene);
 
         //Initialisation du compteur
         Label cpt = (Label) scene.lookup("#labelCpt");
@@ -96,11 +73,25 @@ public class JeuListeners {
         {
             for(Agence agence : joueur.getAgences())
             {
-                int id = agence.getId();
-                Label nbBanquiers = (Label) scene.lookup("#l" + id);
-                nbBanquiers.setText(""+agence.getNbBanquiers());
+                if(agence != null)
+                {
+                    int id = agence.getId();
+                    Label nbBanquiers = (Label) scene.lookup("#l" + id);
+                    nbBanquiers.setText(""+agence.getNbBanquiers());
+                }
             }
         }
+
+        //mettre a jour infos joueurs
+        Partie.setArgentParTour(Partie.getJoueurActuel());
+        Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo() + Partie.getJoueurActuel().getArgentParTour());
+
+        Label labelDispo = (Label) scene.lookup("#labelDispo");
+        Label labelParTour = (Label) scene.lookup("#labelParTour");
+        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
+        labelParTour.setText("" + Partie.getJoueurActuel().getArgentParTour() + " $");
+
+        majInfosAdvers(scene);
     }
 
     @FXML
@@ -116,6 +107,90 @@ public class JeuListeners {
     public void onPolygonClick(MouseEvent event) throws IOException
     {
         Polygon source = (Polygon) event.getSource();
+        Scene scene = source.getScene();
+
+        if(vue == false)
+        {
+            //si phase achat un seul polygone cliquable
+            if(Partie.getPhase() == 1 && Partie.getJoueurActuel().getNbBanquiersDispo() > 0)
+            {
+                //verifier que le polygone est une agence du joueur
+                if(Partie.getJoueurActuel().possede("#"+source.getId()))
+                {
+
+                    //si aucun polygone n'a été cliqué
+                    if (polySourceId == null) {
+                        afficherBandeau(scene);
+                        polySourceId = "#" + source.getId();
+                        effetsPolygonSelect(event);
+                    }
+
+                    //si le polygone est déjà cliqué
+                    else if(polySourceId.equals("#"+source.getId()))
+                    {
+                        desafficherBandeau(scene);
+                        effetsPolygonDefaut(scene, polySourceId);
+                        polySourceId = null;
+                    }
+
+                    //si un polygone a été cliqué avant
+                    else {
+                        effetsPolygonDefaut(scene, polySourceId);
+                        afficherBandeau(scene);
+                        polySourceId = "#" + source.getId();
+                        effetsPolygonSelect(event);
+                    }
+                }
+            }
+            else if(Partie.getPhase() == 2){
+                //aucun polygone cliqué
+                if(polySourceId == null)
+                {
+                    //le polygone cliqué doit appartenir au joueur
+                    if(Partie.getJoueurActuel().possede("#"+source.getId()))
+                    {
+                        polySourceId = "#" + source.getId();
+                        effetsPolygonSelect(event);
+                    }
+                }
+
+                //polysource est cliqué
+                else if(polyDestId == null)
+                {
+                    int idDest = Integer.parseInt(polyDestId.substring(2));
+                    Agence agenceDest = Carte.getAgenceById(idDest);
+
+                    //le polygone appartient au joueur
+                    if(Partie.getJoueurActuel().possede("#"+source.getId()))
+                    {
+                        //si le polygone est déjà cliqué
+                        if(polySourceId.equals("#"+source.getId()))
+                        {
+                            effetsPolygonDefaut(scene, polySourceId);
+                            polySourceId = null;
+                        }
+
+                        //si un polygone a été cliqué avant
+                        else {
+                            effetsPolygonDefaut(scene, polySourceId);
+                            polySourceId = "#" + source.getId();
+                            effetsPolygonSelect(event);
+                        }
+                    }
+
+                    else if(agenceDest.estFrontaliere(polySourceId))
+                    {
+                        //Afficher le bandeau, si croix activée alors on deselectionne les 2
+                        //si validé attaque et on déselectionne les deux
+                    }
+                }
+            }
+            else if(Partie.getPhase() == 3) {
+                //verifier que les 2 soient des agences du joueur
+
+            }
+        }
+
     }
 
     @FXML
@@ -134,6 +209,14 @@ public class JeuListeners {
         if(vue == false)
         {
             vue = true;
+
+            if(polySourceId != null)
+            {
+                desafficherBandeau(scene);
+                effetsPolygonDefaut(scene, polySourceId);
+                polySourceId = null;
+            }
+
             for(int i = 0; i < 38; i++)
             {
                 String id="#p"+i;
@@ -176,13 +259,17 @@ public class JeuListeners {
         else
         {
             vue = false;
+            int cpt = 0;
             for(Joueur joueur:Partie.getJoueursRestants())
             {
                 for(Agence a:joueur.getAgences())
                 {
-                    String polyId="#p"+a.getId();
-                    Polygon polygon = (Polygon) scene.lookup(polyId);
-                    polygon.setFill(Paint.valueOf(joueur.getCouleur()));
+                    if(a != null)
+                    {
+                        String polyId="#p"+a.getId();
+                        Polygon polygon = (Polygon) scene.lookup(polyId);
+                        polygon.setFill(Paint.valueOf(joueur.getCouleur()));
+                    }
                 }
             }
 
@@ -201,205 +288,641 @@ public class JeuListeners {
         Scene scene = source.getScene();
 
         //Si fin des 3 phases d'un joueur
-        if(Partie.getPhase()%3 == 0)
+        if(Partie.getPhase() == 3)
         {
             //Si nouveau tour
             if(Partie.getJoueurSuivant().equals(Partie.getJoueursRestants()[0]))
             {
-                //Si mode = richesse prospere
-                if(Partie.getNbToursMax() == -1)
-                {
-                    Partie.setTour(Partie.getTour()+1);
-                }
-                //Si mode = richesse immediate
-                else
-                {
-                    Partie.setTour(Partie.getTour()-1);
-                }
-
-                String tour = String.valueOf(Partie.getTour());
-                while(tour.length() != 3)
-                {
-                    tour = "0" + tour;
-                }
-
-                //incrémenter/décrémenter le compteur
-                Label compteur = (Label) scene.lookup("#labelCpt");
-                compteur.setText(tour.substring(0,1) + "  " + tour.substring(1,2) + "  " + tour.substring(2,3));
-
+                nouveauTour(scene);
             }
 
-            //Changement de joueur
-            Partie.setJoueurActuel(Partie.getJoueurSuivant());
+            changementJoueur(scene, event);
 
-            //initialiser la phase
-            Partie.setPhase(1);
-
-            //Changement du nom de phase
-            Label labelPhase = (Label) scene.lookup("#labelPhase");
-            labelPhase.setText("Achats");
-
-            //Remettre les deux barres en blanc
-            Rectangle barrePhase2 = (Rectangle) scene.lookup("#barrePhase2");
-            Rectangle barrePhase3 = (Rectangle) scene.lookup("#barrePhase3");
-            barrePhase2.setFill(Color.WHITE);
-            barrePhase3.setFill(Color.WHITE);
-
-            //Changer la couleur du joueur
-            Rectangle menuPhases = (Rectangle) scene.lookup("#menuPhases");
-            Rectangle menuAchats = (Rectangle) scene.lookup("#menuAchats");
-            Rectangle cadreJoueur = (Rectangle) scene.lookup("#cadreJoueur");
-            menuPhases.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
-            menuAchats.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
-            cadreJoueur.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
-
-            //Passage en vue Joueurs
-            //Changement de la vue
-            if(vue)
-            {
-                Circle btnVue = (Circle) scene.lookup("#btnVue");
-                btnVue.fireEvent(event);
-            }
         }
 
         else
         {
-            //incrémenter la phase
-            Partie.setPhase(Partie.getPhase()+1);
-
-            //changement du nom de la phase
-            Label labelPhase = (Label) scene.lookup("#labelPhase");
-            if(Partie.getPhase() == 2)
+            //conditions de sortie de la phase d'achats
+            if(Partie.getPhase() == 1)
             {
-                labelPhase.setText("Combats fiscaux");
-                Rectangle barrePhase2 = (Rectangle) scene.lookup("#barrePhase2");
-                barrePhase2.setFill(Paint.valueOf("#f0ff1a"));
+                if(Partie.getJoueurActuel().getNbBanquiersDispo() != 0)
+                {
+                    desactiverBoutons(scene);
+                    affichagePopUp(scene);
+                }
+                else
+                {
+                    changementPhase(scene);
+                }
             }
-            else
-            {
-                labelPhase.setText("Transfert stratégique");
-                Rectangle barrePhase3 = (Rectangle) scene.lookup("#barrePhase3");
-                barrePhase3.setFill(Paint.valueOf("#f0ff1a"));
+
+            else {
+                changementPhase(scene);
             }
         }
+        //fermer le menu d'achat
+        ImageView refPlacements = (ImageView) scene.lookup("#refPlacements");
+        ImageView refAgentFisk = (ImageView) scene.lookup("#refAgentFisk");
+        desafficherBandeau(scene);
+        refPlacements.fireEvent(event);
+        refAgentFisk.fireEvent(event);
+    }
+
+    public void onValCond1Click(MouseEvent event) throws IOException
+    {
+        ImageView source = (ImageView) event.getSource();
+        Scene scene = source.getScene();
+
+        activerBoutons(scene);
+        //desaffichage du pop up
+        Rectangle rectCond1 = (Rectangle) scene.lookup("#rectCond1");
+        Label textCond1 = (Label) scene.lookup("#textCond1");
+        ImageView valCond1 = (ImageView) scene.lookup("#valCond1");
+        rectCond1.setVisible(false);
+        textCond1.setVisible(false);
+        valCond1.setVisible(false);
     }
 
     public void onBanquiersClick(MouseEvent event) throws IOException
     {
-        Circle source = (Circle) event.getSource();
+        if(Partie.getPhase() == 1)
+        {
+            Circle source = (Circle) event.getSource();
+            Scene scene = source.getScene();
+
+            if(placements)
+            {
+                Circle placements = (Circle) scene.lookup("#btnPlacements");
+                placements.fireEvent(event);
+            }
+            else if(agentFisk)
+            {
+                Circle agentFisk = (Circle) scene.lookup("#btnAgentFisk");
+                agentFisk.fireEvent(event);
+            }
+
+            Rectangle barre = (Rectangle) scene.lookup("#barreBanquiers");
+            ImageView refuser = (ImageView) scene.lookup("#refBanquiers");
+            ImageView valider = (ImageView) scene.lookup("#valBanquiers");
+            MFXSlider jauge = (MFXSlider) scene.lookup("#jaugeBanquiers");
+
+            //si la barre etait ouverte
+            if(banquiers)
+            {
+                banquiers = false;
+                barre.setVisible(false);
+                refuser.setVisible(false);
+                valider.setVisible(false);
+                jauge.setVisible(false);
+            }
+
+            //si la barre etait fermée
+            else
+            {
+                banquiers = true;
+                barre.setVisible(true);
+                refuser.setVisible(true);
+                valider.setVisible(true);
+                jauge.setVisible(true);
+
+                jauge.setMin(0);
+                jauge.setMax(Partie.getJoueurActuel().getArgentDispo()/1000);
+            }
+        }
+    }
+
+    public void onRefBanquiersClick(MouseEvent event) throws IOException
+    {
+        ImageView source = (ImageView) event.getSource();
         Scene scene = source.getScene();
 
-        if(placements)
-        {
-            Circle placements = (Circle) scene.lookup("#btnPlacements");
-            placements.fireEvent(event);
-        }
-        else if(agentFisk)
-        {
-            Circle agentFisk = (Circle) scene.lookup("#btnAgentFisk");
-            agentFisk.fireEvent(event);
-        }
+        desafficherMenuBanquiers(scene);
+    }
 
-        Rectangle barre = (Rectangle) scene.lookup("#barreBanquiers");
-        ImageView refuser = (ImageView) scene.lookup("#refBanquiers");
-        ImageView valider = (ImageView) scene.lookup("#valBanquiers");
-        MFXSlider jauge = (MFXSlider) scene.lookup("#jaugeBanquiers");
+    public void onValBanquiersClick(MouseEvent event) throws IOException
+    {
+        ImageView valBanquiers = (ImageView) event.getSource();
+        Scene scene = valBanquiers.getScene();
+        MFXSlider jaugeBanquiers = (MFXSlider) scene.lookup("#jaugeBanquiers");
 
-        if(banquiers)
-        {
-            banquiers = false;
-            barre.setVisible(false);
-            refuser.setVisible(false);
-            valider.setVisible(false);
-            jauge.setVisible(false);
-        }
-        else
-        {
-            banquiers = true;
-            barre.setVisible(true);
-            refuser.setVisible(true);
-            valider.setVisible(true);
-            jauge.setVisible(true);
-        }
+        //récupérer le nombre de banquiers selectionnés
+        int nbBanquiersRecrut = (int) jaugeBanquiers.getValue();
+
+        //enlever l'argent
+        Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo() - nbBanquiersRecrut * 1000);
+
+        //ajouter le nombre de banquiers
+        Partie.getJoueurActuel().setNbBanquiersDispo(Partie.getJoueurActuel().getNbBanquiersDispo() + nbBanquiersRecrut);
+
+        //actualiser l'affichage
+        Label labelNbBanquiers = (Label) scene.lookup("#labelNbBanquiers");
+        Label labelDispo = (Label) scene.lookup("#labelDispo");
+
+        labelNbBanquiers.setText("" +Partie.getJoueurActuel().getNbBanquiersDispo());
+        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
+
+        //fermer la barre
+        desafficherMenuBanquiers(scene);
     }
 
     public void onPlacementsClick(MouseEvent event) throws IOException
     {
-        Circle source = (Circle) event.getSource();
+        if(Partie.getPhase() == 1)
+        {
+            Circle source = (Circle) event.getSource();
+            Scene scene = source.getScene();
+
+            if(banquiers)
+            {
+                Circle banquiers = (Circle) scene.lookup("#btnBanquiers");
+                banquiers.fireEvent(event);
+            }
+            else if(agentFisk)
+            {
+                Circle agentFisk = (Circle) scene.lookup("#btnAgentFisk");
+                agentFisk.fireEvent(event);
+            }
+
+            Rectangle barre = (Rectangle) scene.lookup("#barrePlacements");
+            ImageView refuser = (ImageView) scene.lookup("#refPlacements");
+            ImageView valider = (ImageView) scene.lookup("#valPlacements");
+            MFXSlider jauge = (MFXSlider) scene.lookup("#jaugePlacements");
+
+            //si la barre etait ouverte
+            if(placements)
+            {
+                placements = false;
+                barre.setVisible(false);
+                refuser.setVisible(false);
+                valider.setVisible(false);
+                jauge.setVisible(false);
+            }
+
+            //si la barre etait fermée
+            else
+            {
+                placements = true;
+                barre.setVisible(true);
+                refuser.setVisible(true);
+                valider.setVisible(true);
+                jauge.setVisible(true);
+
+                jauge.setUnitIncrement(100);
+                jauge.valueProperty().addListener((observable, oldValue, newValue) -> {
+                    int roundedValue = (int) Math.round(newValue.doubleValue() / 100) * 100;
+                    jauge.setValue(roundedValue);
+                });
+                jauge.setMax(Partie.getJoueurActuel().getArgentDispo());
+            }
+        }
+    }
+
+    public void onRefPlacementsClick(MouseEvent event) throws IOException
+    {
+        ImageView source = (ImageView) event.getSource();
         Scene scene = source.getScene();
 
-        if(banquiers)
-        {
-            Circle banquiers = (Circle) scene.lookup("#btnBanquiers");
-            banquiers.fireEvent(event);
-        }
-        else if(agentFisk)
-        {
-            Circle agentFisk = (Circle) scene.lookup("#btnAgentFisk");
-            agentFisk.fireEvent(event);
-        }
+        desafficherMenuPlacements(scene);
+    }
 
-        Rectangle barre = (Rectangle) scene.lookup("#barrePlacements");
-        ImageView refuser = (ImageView) scene.lookup("#refPlacements");
-        ImageView valider = (ImageView) scene.lookup("#valPlacements");
-        MFXSlider jauge = (MFXSlider) scene.lookup("#jaugePlacements");
+    public void onValPlacementsClick(MouseEvent event) throws IOException
+    {
+        ImageView valPlacements = (ImageView) event.getSource();
+        Scene scene = valPlacements.getScene();
+        MFXSlider jaugePlacements = (MFXSlider) scene.lookup("#jaugePlacements");
 
-        if(placements)
-        {
-            placements = false;
-            barre.setVisible(false);
-            refuser.setVisible(false);
-            valider.setVisible(false);
-            jauge.setVisible(false);
-        }
-        else
-        {
-            placements = true;
-            barre.setVisible(true);
-            refuser.setVisible(true);
-            valider.setVisible(true);
-            jauge.setVisible(true);
-        }
+        //récupérer la somme d'argent placée
+        int argentPlace = (int) jaugePlacements.getValue();
+
+        //enlever l'argent
+        Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo() - argentPlace);
+
+        //ajouter la somme aux placements
+        Partie.getJoueurActuel().placerArgent(argentPlace);
+
+        //actualiser l'argent par tour
+        actArgentParTour(scene);
+
+        //actualiser l'affichage
+        Label labelPlace = (Label) scene.lookup("#labelPlace");
+        Label labelDispo = (Label) scene.lookup("#labelDispo");
+
+        labelPlace.setText("" +Partie.getJoueurActuel().getArgentPlace() + " $");
+        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
+
+        //fermer la barre
+        desafficherMenuPlacements(scene);
     }
 
     public void onAgentFiskClick(MouseEvent event) throws IOException
     {
-        Circle source = (Circle) event.getSource();
-        Scene scene = source.getScene();
+        if(Partie.getPhase() == 1)
+        {
+            Circle source = (Circle) event.getSource();
+            Scene scene = source.getScene();
 
-        if(banquiers)
-        {
-            Circle banquiers = (Circle) scene.lookup("#btnBanquiers");
-            banquiers.fireEvent(event);
+            if(banquiers)
+            {
+                Circle banquiers = (Circle) scene.lookup("#btnBanquiers");
+                banquiers.fireEvent(event);
+            }
+            else if(placements)
+            {
+                Circle placements = (Circle) scene.lookup("#btnPlacements");
+                placements.fireEvent(event);
+            }
+
+            Rectangle barre = (Rectangle) scene.lookup("#barreAgentFisk");
+            ImageView refuser = (ImageView) scene.lookup("#refAgentFisk");
+            ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
+            Label label = (Label) scene.lookup("#labelAgentFisk");
+
+            if(agentFisk)
+            {
+                agentFisk = false;
+                barre.setVisible(false);
+                refuser.setVisible(false);
+                valider.setVisible(false);
+                label.setVisible(false);
+            }
+            else
+            {
+                agentFisk = true;
+                barre.setVisible(true);
+                refuser.setVisible(true);
+                valider.setVisible(true);
+                label.setVisible(true);
+            }
         }
-        else if(placements)
-        {
-            Circle placements = (Circle) scene.lookup("#btnPlacements");
-            placements.fireEvent(event);
-        }
+    }
+
+    public void onRefAgentFiskClick(MouseEvent event) throws IOException
+    {
+        ImageView source = (ImageView) event.getSource();
+        Scene scene = source.getScene();
 
         Rectangle barre = (Rectangle) scene.lookup("#barreAgentFisk");
         ImageView refuser = (ImageView) scene.lookup("#refAgentFisk");
         ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
         Label label = (Label) scene.lookup("#labelAgentFisk");
 
-        if(agentFisk)
+        agentFisk = false;
+        barre.setVisible(false);
+        refuser.setVisible(false);
+        valider.setVisible(false);
+        label.setVisible(false);
+    }
+
+    public void onRefBandeauClick(MouseEvent event) throws IOException
+    {
+        ImageView refBandeau = (ImageView) event.getSource();
+        Scene scene = refBandeau.getScene();
+        desafficherBandeau(scene);
+        effetsPolygonDefaut(scene, polySourceId);
+        polySourceId = null;
+        if(polyDestId != null)
         {
-            agentFisk = false;
-            barre.setVisible(false);
-            refuser.setVisible(false);
-            valider.setVisible(false);
-            label.setVisible(false);
-        }
-        else
-        {
-            agentFisk = true;
-            barre.setVisible(true);
-            refuser.setVisible(true);
-            valider.setVisible(true);
-            label.setVisible(true);
+            effetsPolygonDefaut(scene, polyDestId);
+            polyDestId = null;
         }
     }
 
+    public void onValBandeauClick(MouseEvent event) throws  IOException
+    {
+        ImageView valBandeau = (ImageView) event.getSource();
+        Scene scene = valBandeau.getScene();
+        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
 
+        //récupérer banquiers a placer
+        int nbBanquiersPlaces = (int) jaugeBandeau.getValue();
+
+        //diminuer le nombre de banquiers dispo
+        Partie.getJoueurActuel().setNbBanquiersDispo(Partie.getJoueurActuel().getNbBanquiersDispo() - nbBanquiersPlaces);
+
+        //ajouter les banquiers a l'agence
+        int id = Integer.parseInt(polySourceId.substring(2));
+        Agence agence = Carte.getAgenceById(id);
+        agence.setNbBanquiers(agence.getNbBanquiers() + nbBanquiersPlaces);
+
+        //actualiser affichage
+        Label labelNbBanquiers = (Label) scene.lookup("#labelNbBanquiers");
+        Label nbBanquiersAgence = (Label) scene.lookup("#l" + id);
+        labelNbBanquiers.setText(""+Partie.getJoueurActuel().getNbBanquiersDispo());
+        nbBanquiersAgence.setText(""+agence.getNbBanquiers());
+
+        //deselectionner l'agence
+        effetsPolygonDefaut(scene, polySourceId);
+        polySourceId = null;
+
+        //fermer le bandeau
+        desafficherBandeau(scene);
+    }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------//
+    public void supprMessageIntro(Scene scene)
+    {
+        ImageView fond = (ImageView) scene.lookup("#bgRegles");
+        fond.setVisible(false);
+        ImageView logo = (ImageView) scene.lookup("#logoRegles");
+        logo.setVisible(false);
+        Rectangle rectangle = (Rectangle) scene.lookup("#rectRegles");
+        rectangle.setVisible(false);
+        Label msgRegles1 = (Label) scene.lookup("#msgRegles1");
+        msgRegles1.setVisible(false);
+        Label msgRegles2 = (Label) scene.lookup("#msgRegles2");
+        msgRegles2.setVisible(false);
+        MFXButton bouton = (MFXButton) scene.lookup("#boutonAcceder");
+        bouton.setVisible(false);
+        ImageView imgAide = (ImageView) scene.lookup("#imgAide1");
+        imgAide.setVisible(false);
+        ImageView imgAide2 = (ImageView) scene.lookup("#imgAide2");
+        imgAide2.setVisible(true);
+    }
+
+    public void afficherBandeau(Scene scene)
+    {
+        Rectangle rectBandeau = (Rectangle) scene.lookup("#rectBandeau");
+        Label labelBandeau = (Label) scene.lookup("#labelBandeau");
+        ImageView valBandeau = (ImageView) scene.lookup("#valBandeau");
+        ImageView refBandeau = (ImageView) scene.lookup("#refBandeau");
+        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
+        rectBandeau.setVisible(true);
+        labelBandeau.setVisible(true);
+        valBandeau.setVisible(true);
+        refBandeau.setVisible(true);
+        jaugeBandeau.setVisible(true);
+        jaugeBandeau.setMax(Partie.getJoueurActuel().getNbBanquiersDispo());
+    }
+
+    public void desafficherBandeau(Scene scene)
+    {
+        Rectangle rectBandeau = (Rectangle) scene.lookup("#rectBandeau");
+        Label labelBandeau = (Label) scene.lookup("#labelBandeau");
+        ImageView valBandeau = (ImageView) scene.lookup("#valBandeau");
+        ImageView refBandeau = (ImageView) scene.lookup("#refBandeau");
+        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
+        rectBandeau.setVisible(false);
+        labelBandeau.setVisible(false);
+        valBandeau.setVisible(false);
+        refBandeau.setVisible(false);
+        jaugeBandeau.setVisible(false);
+    }
+
+    public void effetsPolygonDefaut(Scene scene, String polyId)
+    {
+        Polygon poly = (Polygon) scene.lookup(polyId);
+        poly.setStroke(Color.BLACK);
+        poly.setStrokeWidth(3);
+    }
+
+    public void effetsPolygonSelect(MouseEvent event)
+    {
+        Polygon poly = (Polygon) event.getSource();
+        poly.setStroke(Color.WHITE);
+        poly.setStrokeWidth(5);
+        poly.toFront();
+        String polyId = poly.getId().substring(1);
+        Label l = (Label) poly.getScene().lookup("#l" + polyId);
+        l.toFront();
+    }
+
+    public void nouveauTour(Scene scene)
+    {
+        //Si mode = richesse prospere
+        if(Partie.getNbToursMax() == -1)
+        {
+            Partie.setTour(Partie.getTour()+1);
+        }
+        //Si mode = richesse immediate
+        else
+        {
+            Partie.setTour(Partie.getTour()-1);
+        }
+
+        String tour = String.valueOf(Partie.getTour());
+        while(tour.length() != 3)
+        {
+            tour = "0" + tour;
+        }
+
+        //incrémenter/décrémenter le compteur
+        Label compteur = (Label) scene.lookup("#labelCpt");
+        compteur.setText(tour.substring(0,1) + "  " + tour.substring(1,2) + "  " + tour.substring(2,3));
+    }
+
+    public void changementJoueur(Scene scene, MouseEvent event)
+    {
+        //Changement de joueur
+        Partie.setJoueurActuel(Partie.getJoueurSuivant());
+
+        //Ajouter argent au joueur
+        Partie.setArgentParTour(Partie.getJoueurActuel());
+        Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo() + Partie.getJoueurActuel().getArgentParTour());
+
+        //initialiser la phase
+        Partie.setPhase(1);
+
+        //Changement du nom de phase
+        Label labelPhase = (Label) scene.lookup("#labelPhase");
+        labelPhase.setText("Achats");
+
+        //Remettre les deux barres en blanc
+        Rectangle barrePhase2 = (Rectangle) scene.lookup("#barrePhase2");
+        Rectangle barrePhase3 = (Rectangle) scene.lookup("#barrePhase3");
+        barrePhase2.setFill(Color.WHITE);
+        barrePhase3.setFill(Color.WHITE);
+
+        //Changer la couleur du joueur
+        Rectangle menuPhases = (Rectangle) scene.lookup("#menuPhases");
+        Rectangle menuAchats = (Rectangle) scene.lookup("#menuAchats");
+        Rectangle cadreJoueur = (Rectangle) scene.lookup("#cadreJoueur");
+        menuPhases.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
+        menuAchats.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
+        cadreJoueur.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
+
+        //actualiser les infos joueurs
+        Label labelDispo = (Label) scene.lookup("#labelDispo");
+        Label labelParTour = (Label) scene.lookup("#labelParTour");
+        Label labelPlace = (Label) scene.lookup("#labelPlace");
+        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
+        labelParTour.setText("" + Partie.getJoueurActuel().getArgentParTour() + " $");
+        labelPlace.setText("" + Partie.getJoueurActuel().getArgentPlace() + " $");
+
+        //actualiser infos adversaires
+        majInfosAdvers(scene);
+
+        //Passage en vue Joueurs
+        if(vue)
+        {
+            Circle btnVue = (Circle) scene.lookup("#btnVue");
+            btnVue.fireEvent(event);
+        }
+    }
+
+    public void changementPhase(Scene scene)
+    {
+        //incrémenter la phase
+        Partie.setPhase(Partie.getPhase()+1);
+
+        //actualiser argent par tour
+        Partie.setArgentParTour(Partie.getJoueurActuel());
+
+        //changement du nom de la phase
+        Label labelPhase = (Label) scene.lookup("#labelPhase");
+        if(Partie.getPhase() == 2)
+        {
+            labelPhase.setText("Combats fiscaux");
+            Rectangle barrePhase2 = (Rectangle) scene.lookup("#barrePhase2");
+            barrePhase2.setFill(Paint.valueOf("#f0ff1a"));
+        }
+        else
+        {
+            labelPhase.setText("Transfert stratégique");
+            Rectangle barrePhase3 = (Rectangle) scene.lookup("#barrePhase3");
+            barrePhase3.setFill(Paint.valueOf("#f0ff1a"));
+        }
+    }
+
+    public void desactiverBoutons(Scene scene)
+    {
+        Circle banquiers = (Circle) scene.lookup("#btnBanquiers");
+        Circle placements = (Circle) scene.lookup("#btnPlacements");
+        Circle agentFisk = (Circle) scene.lookup("#btnAgentFisk");
+        Circle vue = (Circle) scene.lookup("#btnVue");
+        Circle suivant = (Circle) scene.lookup("#btnSuiv");
+
+        banquiers.setDisable(true);
+        placements.setDisable(true);
+        agentFisk.setDisable(true);
+        vue.setDisable(true);
+        suivant.setDisable(true);
+
+        ImageView imgBanquiers = (ImageView) scene.lookup("#imgBanquiers");
+        ImageView imgPlacements = (ImageView) scene.lookup("#imgPlacements");
+        ImageView imgAgentFisk = (ImageView) scene.lookup("#imgAgentFisk");
+        ImageView imgVue = (ImageView) scene.lookup("#imgVue");
+        ImageView imgSuivant = (ImageView) scene.lookup("#imgSuiv");
+
+        imgBanquiers.setDisable(true);
+        imgPlacements.setDisable(true);
+        imgAgentFisk.setDisable(true);
+        imgVue.setDisable(true);
+        imgSuivant.setDisable(true);
+    }
+
+    public void activerBoutons(Scene scene)
+    {
+        Circle banquiers = (Circle) scene.lookup("#btnBanquiers");
+        Circle placements = (Circle) scene.lookup("#btnPlacements");
+        Circle agentFisk = (Circle) scene.lookup("#btnAgentFisk");
+        Circle vue = (Circle) scene.lookup("#btnVue");
+        Circle suivant = (Circle) scene.lookup("#btnSuiv");
+
+        banquiers.setDisable(false);
+        placements.setDisable(false);
+        agentFisk.setDisable(false);
+        vue.setDisable(false);
+        suivant.setDisable(false);
+
+        ImageView imgBanquiers = (ImageView) scene.lookup("#imgBanquiers");
+        ImageView imgPlacements = (ImageView) scene.lookup("#imgPlacements");
+        ImageView imgAgentFisk = (ImageView) scene.lookup("#imgAgentFisk");
+        ImageView imgVue = (ImageView) scene.lookup("#imgVue");
+        ImageView imgSuivant = (ImageView) scene.lookup("#imgSuiv");
+
+        imgBanquiers.setDisable(false);
+        imgPlacements.setDisable(false);
+        imgAgentFisk.setDisable(false);
+        imgVue.setDisable(false);
+        imgSuivant.setDisable(false);
+    }
+
+    public void afficheAdvers(Scene scene)
+    {
+        for (int i = 1; i <= Partie.getJoueursRestants().length; i++)
+        {
+            String id0 = "#advers" + i + "0";
+            String id1 = "#advers" + i + "1";
+            String idImgBat = "#imgBat" + i;
+            String idImgDollar = "#imgDollar" + i;
+            String idLabelAgences = "#labelAgences" + i;
+            String idLabelDollar = "#labelDollar" + i;
+            Circle circleId0 = (Circle) scene.lookup(id0);
+            Rectangle rectId1 = (Rectangle) scene.lookup(id1);
+            ImageView imgBat = (ImageView) scene.lookup(idImgBat);
+            ImageView imgDollar = (ImageView) scene.lookup(idImgDollar);
+            Label labelAgences = (Label) scene.lookup(idLabelAgences);
+            Label labelDollar = (Label) scene.lookup(idLabelDollar);
+            circleId0.setVisible(true);
+            rectId1.setVisible(true);
+            imgBat.setVisible(true);
+            imgDollar.setVisible(true);
+            labelAgences.setVisible(true);
+            labelDollar.setVisible(true);
+        }
+    }
+
+    public void majInfosAdvers(Scene scene)
+    {
+        for(int i = 1; i <= Partie.nbJoueursRestants(); i++)
+        {
+            Label labelDollar = (Label) scene.lookup("#labelDollar" + i);
+            Label labelAgences = (Label) scene.lookup("#labelAgences" + i);
+            labelDollar.setText("" + Partie.getJoueursRestants()[i-1].getArgentDispo() + " $");
+            labelAgences.setText("" + Partie.getJoueursRestants()[i-1].getNbAgences());
+        }
+    }
+
+    public void desafficherMenuBanquiers(Scene scene)
+    {
+        Rectangle barre = (Rectangle) scene.lookup("#barreBanquiers");
+        ImageView refuser = (ImageView) scene.lookup("#refBanquiers");
+        ImageView valider = (ImageView) scene.lookup("#valBanquiers");
+        MFXSlider jauge = (MFXSlider) scene.lookup("#jaugeBanquiers");
+
+        banquiers = false;
+        barre.setVisible(false);
+        refuser.setVisible(false);
+        valider.setVisible(false);
+        jauge.setVisible(false);
+    }
+
+    public void desafficherMenuPlacements(Scene scene)
+    {
+        Rectangle barre = (Rectangle) scene.lookup("#barrePlacements");
+        ImageView refuser = (ImageView) scene.lookup("#refPlacements");
+        ImageView valider = (ImageView) scene.lookup("#valPlacements");
+        MFXSlider jauge = (MFXSlider) scene.lookup("#jaugePlacements");
+
+        placements = false;
+        barre.setVisible(false);
+        refuser.setVisible(false);
+        valider.setVisible(false);
+        jauge.setVisible(false);
+    }
+
+    public void affichagePopUp(Scene scene)
+    {
+        if(polySourceId != null){
+            effetsPolygonDefaut(scene, polySourceId);
+            polySourceId = null;
+        }
+        Rectangle rectCond1 = (Rectangle) scene.lookup("#rectCond1");
+        Label textCond1 = (Label) scene.lookup("#textCond1");
+        ImageView valCond1 = (ImageView) scene.lookup("#valCond1");
+        rectCond1.setVisible(true);
+        rectCond1.toFront();
+        textCond1.setVisible(true);
+        textCond1.toFront();
+        valCond1.setVisible(true);
+        valCond1.toFront();
+    }
+
+    public void actArgentParTour(Scene scene)
+    {
+        Partie.setArgentParTour(Partie.getJoueurActuel());
+        Label labelParTour = (Label) scene.lookup("#labelParTour");
+        labelParTour.setText(Partie.getJoueurActuel().getArgentParTour()+" $");
+
+    }
 }
