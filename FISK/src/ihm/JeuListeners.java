@@ -106,8 +106,8 @@ public class JeuListeners {
     @FXML
     public void onPolygonClick(MouseEvent event) throws IOException
     {
-        Polygon source = (Polygon) event.getSource();
-        Scene scene = source.getScene();
+        Polygon clique = (Polygon) event.getSource();
+        Scene scene = clique.getScene();
 
         if(vue == false)
         {
@@ -115,18 +115,18 @@ public class JeuListeners {
             if(Partie.getPhase() == 1 && Partie.getJoueurActuel().getNbBanquiersDispo() > 0)
             {
                 //verifier que le polygone est une agence du joueur
-                if(Partie.getJoueurActuel().possede("#"+source.getId()))
+                if(Partie.getJoueurActuel().possede("#"+clique.getId()))
                 {
 
                     //si aucun polygone n'a été cliqué
                     if (polySourceId == null) {
                         afficherBandeau(scene);
-                        polySourceId = "#" + source.getId();
+                        polySourceId = "#" + clique.getId();
                         effetsPolygonSelect(event);
                     }
 
                     //si le polygone est déjà cliqué
-                    else if(polySourceId.equals("#"+source.getId()))
+                    else if(polySourceId.equals("#"+clique.getId()))
                     {
                         desafficherBandeau(scene);
                         effetsPolygonDefaut(scene, polySourceId);
@@ -137,51 +137,103 @@ public class JeuListeners {
                     else {
                         effetsPolygonDefaut(scene, polySourceId);
                         afficherBandeau(scene);
-                        polySourceId = "#" + source.getId();
+                        polySourceId = "#" + clique.getId();
                         effetsPolygonSelect(event);
                     }
                 }
             }
-            else if(Partie.getPhase() == 2){
+            else if(Partie.getPhase() == 2)
+            {
                 //aucun polygone cliqué
                 if(polySourceId == null)
                 {
-                    //le polygone cliqué doit appartenir au joueur
-                    if(Partie.getJoueurActuel().possede("#"+source.getId()))
-                    {
-                        polySourceId = "#" + source.getId();
-                        effetsPolygonSelect(event);
-                    }
-                }
+                    String polyClique = "#" + clique.getId();
+                    int idClique = Integer.parseInt(polyClique.substring(2));
+                    Agence agenceClique = Carte.getAgenceById(idClique);
 
-                //polysource est cliqué
-                else if(polyDestId == null)
-                {
-                    int idDest = Integer.parseInt(polyDestId.substring(2));
-                    Agence agenceDest = Carte.getAgenceById(idDest);
-
-                    //le polygone appartient au joueur
-                    if(Partie.getJoueurActuel().possede("#"+source.getId()))
+                    //l'agence doit avoir plus d'un banquier sur l'agence
+                    if(agenceClique.getNbBanquiers() > 1)
                     {
-                        //si le polygone est déjà cliqué
-                        if(polySourceId.equals("#"+source.getId()))
+                        //le polygone cliqué doit appartenir au joueur
+                        if(Partie.getJoueurActuel().possede("#"+clique.getId()))
                         {
-                            effetsPolygonDefaut(scene, polySourceId);
-                            polySourceId = null;
-                        }
-
-                        //si un polygone a été cliqué avant
-                        else {
-                            effetsPolygonDefaut(scene, polySourceId);
-                            polySourceId = "#" + source.getId();
+                            polySourceId = "#" + clique.getId();
                             effetsPolygonSelect(event);
                         }
                     }
+                }
 
-                    else if(agenceDest.estFrontaliere(polySourceId))
+                //seul polysource est cliqué
+                else if(polyDestId == null)
+                 {
+                    String polyClique = "#" + clique.getId();
+                    int idClique = Integer.parseInt(polyClique.substring(2));
+                    Agence agenceClique = Carte.getAgenceById(idClique);
+
+                    //le polygone appartient au joueur
+                    if(Partie.getJoueurActuel().possede(polyClique))
                     {
-                        //Afficher le bandeau, si croix activée alors on deselectionne les 2
-                        //si validé attaque et on déselectionne les deux
+                        if(agenceClique.getNbBanquiers() > 1)
+                        {
+                            //si le polygone est déjà cliqué
+                            if(polySourceId.equals(polyClique))
+                            {
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = null;
+                            }
+
+                            //si un polygone a été cliqué avant
+                            else {
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = "#" + clique.getId();
+                                effetsPolygonSelect(event);
+                            }
+                        }
+                    }
+
+                    else if(agenceClique.estFrontaliere(polySourceId))
+                    {
+                        afficherBandeau(scene);
+                        effetsPolygonSelect(event);
+                        polyDestId = polyClique;
+                    }
+                }
+                else
+                {
+                    String polyClique = "#" + clique.getId();
+                    int idClique = Integer.parseInt(polyClique.substring(2));
+                    Agence agenceClique = Carte.getAgenceById(idClique);
+
+                    //si l'agence est attaquable depuis polySource, polyDest est écrasée
+                    if( !(Partie.getJoueurActuel().possede(polyClique)) && agenceClique.estFrontaliere(polySourceId) )
+                    {
+                        effetsPolygonDefaut(scene, polyDestId);
+                        polyDestId = polyClique;
+                        effetsPolygonSelect(event);
+                        effetsPolygonSelect(scene, polySourceId);
+                    }
+
+                    //si c'est une agence du joueur, polySource est écrasée et polyDest supprimée
+                    else if(Partie.getJoueurActuel().possede(polyClique))
+                    {
+                        if(agenceClique.getNbBanquiers() > 1)
+                        {
+                            effetsPolygonDefaut(scene, polyDestId);
+                            polyDestId = null;
+                            desafficherBandeau(scene);
+
+                            if(polyClique.equals(polySourceId))
+                            {
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = null;
+                            }
+                            else
+                            {
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = polyClique;
+                                effetsPolygonSelect(event);
+                            }
+                        }
                     }
                 }
             }
@@ -293,9 +345,16 @@ public class JeuListeners {
             //Si nouveau tour
             if(Partie.getJoueurSuivant().equals(Partie.getJoueursRestants()[0]))
             {
-                nouveauTour(scene);
-            }
+                if(Partie.estFinie())
+                {
+                    //afficher écran de fin de partie
+                    System.out.println("fin");
+                }
+                else{
+                    nouveauTour(scene);
+                }
 
+            }
             changementJoueur(scene, event);
 
         }
@@ -316,10 +375,28 @@ public class JeuListeners {
                 }
             }
 
+            else if(Partie.getPhase() == 2)
+            {
+                if(polyDestId != null) {
+                    effetsPolygonDefaut(scene, polyDestId);
+                    polyDestId = null;
+                    effetsPolygonDefaut(scene, polySourceId);
+                    polySourceId = null;
+                }
+
+                else if(polySourceId != null)
+                {
+                    effetsPolygonDefaut(scene, polySourceId);
+                    polySourceId = null;
+                }
+                changementPhase(scene);
+            }
+
             else {
                 changementPhase(scene);
             }
         }
+
         //fermer le menu d'achat
         ImageView refPlacements = (ImageView) scene.lookup("#refPlacements");
         ImageView refAgentFisk = (ImageView) scene.lookup("#refAgentFisk");
@@ -591,31 +668,17 @@ public class JeuListeners {
     {
         ImageView valBandeau = (ImageView) event.getSource();
         Scene scene = valBandeau.getScene();
-        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
 
-        //récupérer banquiers a placer
-        int nbBanquiersPlaces = (int) jaugeBandeau.getValue();
+        if(Partie.getPhase() == 1)
+        {
+            validBandeauPhase1(scene);
+        }
 
-        //diminuer le nombre de banquiers dispo
-        Partie.getJoueurActuel().setNbBanquiersDispo(Partie.getJoueurActuel().getNbBanquiersDispo() - nbBanquiersPlaces);
+        else if(Partie.getPhase() == 2)
+        {
+            validBandeauPhase2(scene);
+        }
 
-        //ajouter les banquiers a l'agence
-        int id = Integer.parseInt(polySourceId.substring(2));
-        Agence agence = Carte.getAgenceById(id);
-        agence.setNbBanquiers(agence.getNbBanquiers() + nbBanquiersPlaces);
-
-        //actualiser affichage
-        Label labelNbBanquiers = (Label) scene.lookup("#labelNbBanquiers");
-        Label nbBanquiersAgence = (Label) scene.lookup("#l" + id);
-        labelNbBanquiers.setText(""+Partie.getJoueurActuel().getNbBanquiersDispo());
-        nbBanquiersAgence.setText(""+agence.getNbBanquiers());
-
-        //deselectionner l'agence
-        effetsPolygonDefaut(scene, polySourceId);
-        polySourceId = null;
-
-        //fermer le bandeau
-        desafficherBandeau(scene);
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -651,7 +714,21 @@ public class JeuListeners {
         valBandeau.setVisible(true);
         refBandeau.setVisible(true);
         jaugeBandeau.setVisible(true);
-        jaugeBandeau.setMax(Partie.getJoueurActuel().getNbBanquiersDispo());
+
+        if(Partie.getPhase() == 1)
+        {
+            jaugeBandeau.setMax(Partie.getJoueurActuel().getNbBanquiersDispo());
+        }
+
+        else if(Partie.getPhase() == 2)
+        {
+            int idClique = Integer.parseInt(polySourceId.substring(2));
+            Agence agenceClique = Carte.getAgenceById(idClique);
+
+            jaugeBandeau.setMin(1);
+            jaugeBandeau.setMax(agenceClique.getNbBanquiers()-1);
+        }
+
     }
 
     public void desafficherBandeau(Scene scene)
@@ -679,9 +756,20 @@ public class JeuListeners {
     {
         Polygon poly = (Polygon) event.getSource();
         poly.setStroke(Color.WHITE);
-        poly.setStrokeWidth(5);
+        poly.setStrokeWidth(6);
         poly.toFront();
         String polyId = poly.getId().substring(1);
+        Label l = (Label) poly.getScene().lookup("#l" + polyId);
+        l.toFront();
+    }
+
+    public void effetsPolygonSelect(Scene scene, String polyId)
+    {
+        Polygon poly = (Polygon) scene.lookup(polyId);
+        poly.setStroke(Color.WHITE);
+        poly.setStrokeWidth(6);
+        poly.toFront();
+        polyId = poly.getId().substring(1);
         Label l = (Label) poly.getScene().lookup("#l" + polyId);
         l.toFront();
     }
@@ -741,12 +829,7 @@ public class JeuListeners {
         cadreJoueur.setFill(Paint.valueOf(Partie.getJoueurActuel().getCouleur()));
 
         //actualiser les infos joueurs
-        Label labelDispo = (Label) scene.lookup("#labelDispo");
-        Label labelParTour = (Label) scene.lookup("#labelParTour");
-        Label labelPlace = (Label) scene.lookup("#labelPlace");
-        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
-        labelParTour.setText("" + Partie.getJoueurActuel().getArgentParTour() + " $");
-        labelPlace.setText("" + Partie.getJoueurActuel().getArgentPlace() + " $");
+        majInfosJoueur(scene);
 
         //actualiser infos adversaires
         majInfosAdvers(scene);
@@ -873,6 +956,17 @@ public class JeuListeners {
         }
     }
 
+    public void majInfosJoueur(Scene scene)
+    {
+        //actualiser les infos joueurs
+        Label labelDispo = (Label) scene.lookup("#labelDispo");
+        Label labelParTour = (Label) scene.lookup("#labelParTour");
+        Label labelPlace = (Label) scene.lookup("#labelPlace");
+        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
+        labelParTour.setText("" + Partie.getJoueurActuel().getArgentParTour() + " $");
+        labelPlace.setText("" + Partie.getJoueurActuel().getArgentPlace() + " $");
+    }
+
     public void desafficherMenuBanquiers(Scene scene)
     {
         Rectangle barre = (Rectangle) scene.lookup("#barreBanquiers");
@@ -924,5 +1018,88 @@ public class JeuListeners {
         Label labelParTour = (Label) scene.lookup("#labelParTour");
         labelParTour.setText(Partie.getJoueurActuel().getArgentParTour()+" $");
 
+    }
+
+    public void validBandeauPhase1(Scene scene)
+    {
+        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
+
+        //récupérer banquiers a placer
+        int nbBanquiersPlaces = (int) jaugeBandeau.getValue();
+
+        //diminuer le nombre de banquiers dispo
+        Partie.getJoueurActuel().setNbBanquiersDispo(Partie.getJoueurActuel().getNbBanquiersDispo() - nbBanquiersPlaces);
+
+        //ajouter les banquiers a l'agence
+        int id = Integer.parseInt(polySourceId.substring(2));
+        Agence agence = Carte.getAgenceById(id);
+        agence.setNbBanquiers(agence.getNbBanquiers() + nbBanquiersPlaces);
+
+        //actualiser affichage
+        Label labelNbBanquiers = (Label) scene.lookup("#labelNbBanquiers");
+        Label nbBanquiersAgence = (Label) scene.lookup("#l" + id);
+        labelNbBanquiers.setText(""+Partie.getJoueurActuel().getNbBanquiersDispo());
+        nbBanquiersAgence.setText(""+agence.getNbBanquiers());
+
+        //deselectionner l'agence
+        effetsPolygonDefaut(scene, polySourceId);
+        polySourceId = null;
+
+        //fermer le bandeau
+        desafficherBandeau(scene);
+    }
+
+    public void validBandeauPhase2(Scene scene)
+    {
+        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
+        int nbAttaquants = (int) jaugeBandeau.getValue();
+
+        int idSource = Integer.parseInt(polySourceId.substring(2));
+        Agence agenceSource = Carte.getAgenceById(idSource);
+        int idDest = Integer.parseInt(polyDestId.substring(2));
+        Agence agenceDest = Carte.getAgenceById(idDest);
+
+        agenceSource.attaque(agenceDest, nbAttaquants);
+        actualiserAttaque(scene);
+
+        desafficherBandeau(scene);
+        effetsPolygonDefaut(scene, polySourceId);
+        effetsPolygonDefaut(scene, polyDestId);
+
+        polySourceId = null;
+        polyDestId = null;
+    }
+
+    public void actualiserAttaque(Scene scene)
+    {
+        //menu adversaires
+        majInfosAdvers(scene);
+
+        //infos joueur
+        Partie.setArgentParTour(Partie.getJoueurActuel());
+        majInfosJoueur(scene);
+
+        //polySource (label)
+        int idSource = Integer.parseInt(polySourceId.substring(2));
+        Agence agenceSource = Carte.getAgenceById(idSource);
+
+        Label labelSource = (Label) scene.lookup("#l" + polySourceId.substring(2));
+        labelSource.setText(String.valueOf(agenceSource.getNbBanquiers()));
+
+        //polyDest (poly + label)
+        int idDest = Integer.parseInt(polyDestId.substring(2));
+        Agence agenceDest = Carte.getAgenceById(idDest);
+
+        Polygon polyDest = (Polygon) scene.lookup(polyDestId);
+        polyDest.setFill(Paint.valueOf(agenceDest.getJoueur().getCouleur()));
+
+        Label labelDest = (Label) scene.lookup("#l" + polyDestId.substring(2));
+        labelDest.setText(String.valueOf(agenceDest.getNbBanquiers()));
+
+        if(Partie.estFinie())
+        {
+            //afficher écran de fin de partie
+            System.out.println("fin");
+        }
     }
 }

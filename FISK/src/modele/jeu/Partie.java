@@ -109,4 +109,23 @@ public class Partie {
         }
         j.setArgentParTour( 3000 + j.getArgentPlace()/10 + bonus + (j.getNbAgences()/3 + 1)*1000 );
     }
+
+    public static boolean estFinie()
+    {
+        if(nbToursMax == 30)
+        {
+            if(tour == 0)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            if(joueurActuel.getNbAgences() == 38)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -6,15 +6,17 @@ import modele.jeu.*;
 public class Agence {
     private int id;
     private int nbBanquiers = 1;
-    private static Agence[] frontalieres;
+    private int[] idFrontalieres = {};
 
     //constructeurs
     public Agence() {
         this.id = -1;
     }
 
-    public Agence(int id){
+    public Agence(int id, int[] idFrontalieres)
+    {
         this.id=id;
+        this.idFrontalieres = idFrontalieres;
     }
 
     //getters and setters
@@ -29,16 +31,17 @@ public class Agence {
     }
 
     public Joueur getJoueur() {
-        Joueur[] joueurs = Partie.getJoueursRestants();
-        Joueur proprietaire = new Joueur();
-        for (int i = 0; i < joueurs.length; i++) {
-            for (int j = 0; j < joueurs[i].getAgences().length; j++) {
-                if (joueurs[i].getAgences()[i].equals(this)) {
-                    proprietaire = joueurs[i];
+        for (Joueur joueur:Partie.getJoueursRestants())
+        {
+            for (int i = 0; i < joueur.getNbAgences(); i++)
+            {
+                if (joueur.getAgences()[i].equals(this))
+                {
+                    return joueur;
                 }
             }
         }
-        return proprietaire;
+        return null;
     }
 
     public Ville getVille()
@@ -60,11 +63,6 @@ public class Agence {
         this.nbBanquiers = nbBanquiers;
     }
 
-    public Agence[] getFrontalieres()
-    {
-        return frontalieres;
-    }
-
     //fonctions
 
     public boolean estFrontaliere(String id)
@@ -72,9 +70,10 @@ public class Agence {
         int idAgence = Integer.parseInt(id.substring(2));
         Agence agence = Carte.getAgenceById(idAgence);
 
-        for(int i = 0; i < frontalieres.length; i++)
+        for(int i = 0; i < idFrontalieres.length; i++)
         {
-            if(frontalieres[i].equals(agence))
+            Agence a = Carte.getAgenceById(idFrontalieres[i]);
+            if(a.equals(agence))
             {
                 return true;
             }
@@ -82,39 +81,120 @@ public class Agence {
         return false;
     }
 
-    //seules les agences voisines ennemies seront sélectionnables pour l'attaque
     public void attaque(Agence frontiereAttaquee, int stockAttaquants) {
-        int stockDefenseurs = frontiereAttaquee.nbBanquiers;
+        this.setNbBanquiers(this.getNbBanquiers() - stockAttaquants);
+
+        int stockDefenseurs = frontiereAttaquee.getNbBanquiers();
         int nbAttaquants, nbDefenseurs;
 
-        while (stockAttaquants > 0) {
-            if (stockAttaquants >= 3) {
+        while (stockAttaquants > 0 && stockDefenseurs > 0)
+        {
+            if (stockAttaquants >= 3)
+            {
                 nbAttaquants = 3;
-                stockAttaquants -= 3;
-            } else {
+            }
+            else
+            {
                 nbAttaquants = stockAttaquants;
-                stockAttaquants = 0;
             }
 
-            if (stockDefenseurs >= 2) {
-                nbDefenseurs = 2;
-                stockDefenseurs -= 2;
-            } else {
+            if (stockDefenseurs >= 2)
+            {
+                if(nbAttaquants == 1)
+                {
+                    nbDefenseurs = 1;
+                }
+                else
+                {
+                    nbDefenseurs = 2;
+                }
+            }
+
+            else
+            {
                 nbDefenseurs = stockDefenseurs;
-                stockDefenseurs = 0;
             }
 
-            int[] tirageAttaque = new int[0];
-            int[] tirageDefense = new int[0];
-            for (int i = 0; i < nbAttaquants; i++) {
+            //Tirage des valeurs des dés
+            int[] tirageAttaque = new int[3];
+            int[] tirageDefense = new int[2];
+
+            for (int i = 0; i < nbAttaquants; i++)
+            {
                 tirageAttaque[i] = (int) (Math.random() * (6)) + 1;
             }
-            for (int i = 0; i < nbDefenseurs; i++) {
+
+            for (int i = 0; i < nbDefenseurs; i++)
+            {
                 tirageDefense[i] = (int) (Math.random() * (6)) + 1;
             }
+
+            //Tri des tableaux
+            if(nbAttaquants > 1)
+            {
+                for(int i = 0; i < nbAttaquants ; i++)
+                {
+                    int max = i;
+                    for(int j = i+1; j < nbAttaquants; j++)
+                    {
+                        if(tirageAttaque[j] > tirageAttaque[max])
+                        {
+                            max = j;
+                        }
+                    }
+
+                    int temp = tirageAttaque[max];
+                    tirageAttaque[max] = tirageAttaque[i];
+                    tirageAttaque[i] = temp;
+                }
+            }
+
+
+            if(nbDefenseurs == 2)
+            {
+                if(tirageDefense[0]<tirageDefense[1])
+                {
+                    int temp = tirageDefense[0];
+                    tirageDefense[0] = tirageDefense[1];
+                    tirageDefense[1] = temp;
+                }
+            }
+
+            //Comparaison des valeurs
+            int nbCombats = Math.min(nbAttaquants, nbDefenseurs);
+
+            for(int i = 0; i < nbCombats; i++)
+            {
+                if(tirageAttaque[i] > tirageDefense[i])
+                {
+                    stockDefenseurs--;
+                }
+                else
+                {
+                    stockAttaquants--;
+                }
+            }
+        }
+
+        //si l'attaque perd
+        if(stockAttaquants == 0)
+        {
+            frontiereAttaquee.setNbBanquiers(stockDefenseurs);
+        }
+
+        //si la défense perd
+        else if(stockDefenseurs == 0)
+        {
+            //enlever l'agence au défenseur
+            frontiereAttaquee.getJoueur().perdreAgence(frontiereAttaquee);
+
+            //rajouter l'agence à l'attaquant
+            this.getJoueur().gagnerAgence(frontiereAttaquee);
+            frontiereAttaquee.setNbBanquiers(stockAttaquants);
         }
     }
 
+    /*
     public Agence[] transfertsPossibles(Agence[] agencesDispo, int tailleDispo, Agence[] agencesTestees, int tailleTestees, Agence origine, Joueur joueur) //les listes agencesDispo et agencesTestees sont crées dans le programme appelant
     {
         int test = 0;
@@ -154,6 +234,8 @@ public class Agence {
         }
         return agencesDispo;
     }
+
+     */
 
     //transfertsPossibles agit avant l'appel de transfertVers, on ne peut appeler transfertVers que vers une agence valide ET le nb de banquiers est vérifié avant aussi
     public void transfertVers(Agence destination, int nbBanquiers) {

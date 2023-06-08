@@ -5,20 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6013016c-d54b-40d2-9091-7fa5643d1eea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ihm/parametrage_partie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/GameMenuListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/GameMenuListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/TitleMenuListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/TitleMenuListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/menu_map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/menu_map.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/ConnexionsListeners.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/JeuListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/JeuListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/ParametrageListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/ParametrageListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/modele/carte/Agence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/modele/carte/Agence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/modele/carte/Carte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/modele/carte/Carte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/modele/jeu/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/modele/jeu/Joueur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FISK/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/GameMenuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/GameMenuListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/Lanceur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/Lanceur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/TitleMenuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/TitleMenuListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/menu_map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/menu_map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/menu_titre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/menu_titre.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/ConnexionsListeners.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/JeuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/JeuListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/carte/Agence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/carte/Carte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/jeu/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/jeu/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/jeu/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/jeu/Partie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,27 +48,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/FISK/FISK/lib/javafx-sdk-20.0.1/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/Cours/R202 Développement d'applications IHM/TD6/TD6-javaFx-mvc-debut/TD7-javaFx-mvc-debut&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\me203414\OneDrive - Université Nice Sophia Antipolis\Semestre 2\FISK\FISK\src\ihm" />
@@ -126,5 +127,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FISK$Lanceur.ic" NAME="Lanceur Coverage Results" MODIFIED="1684844729557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ihm.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -64,6 +64,7 @@ public class ParametrageListeners {
             {
                 nbJoueurs = 4;
             }
+
             if(clicImmediate)
             {
                 nbToursMax = 30;

@@ -9,7 +9,7 @@ public class Joueur {
     private int argentDispo;
     private int argentPlace;
     private int argentParTour;
-    private int nbBanquiersDispo;
+    private int nbBanquiersDispo = 0;
     private Agence[] agences = new Agence[38];
     private boolean infoAchetee;
     private Ville[] villesMonop = new Ville[6];
@@ -95,18 +95,6 @@ public class Joueur {
         return cpt;
     }
 
-    public boolean possede(Agence a)
-    {
-        for(int i = 0; i < agences.length; i++)
-        {
-            if(a.equals(agences[i]))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public boolean possede(String id)
     {
         String agenceId = id.substring(2);
@@ -120,5 +108,26 @@ public class Joueur {
             }
         }
         return false;
+    }
+
+    public void gagnerAgence(Agence a)
+    {
+        int pos = this.getNbAgences();
+        this.agences[pos] = a;
+    }
+
+    public void perdreAgence(Agence a)
+    {
+        int pos = 0;
+        while(!(agences[pos].equals(a)))
+        {
+            pos++;
+        }
+
+        for(int i = pos; i < this.getNbAgences()-1; i++)
+        {
+            agences[i] = agences[i+1];
+        }
+        agences[this.getNbAgences()-1] = null;
     }
 }
