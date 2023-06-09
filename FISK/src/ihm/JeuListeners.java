@@ -398,10 +398,10 @@ public class JeuListeners {
         }
 
         //fermer le menu d'achat
-        ImageView refPlacements = (ImageView) scene.lookup("#refPlacements");
-        ImageView refAgentFisk = (ImageView) scene.lookup("#refAgentFisk");
         desafficherBandeau(scene);
-        refPlacements.fireEvent(event);
+        desafficherMenuBanquiers(scene);
+        desafficherMenuPlacements(scene);
+        ImageView refAgentFisk = (ImageView) scene.lookup("#refAgentFisk");
         refAgentFisk.fireEvent(event);
     }
 

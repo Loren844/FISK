@@ -6,20 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6013016c-d54b-40d2-9091-7fa5643d1eea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/ConnexionsListeners.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/JeuListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/JeuListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/ParametrageListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/ParametrageListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/modele/carte/Agence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/modele/carte/Agence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/modele/carte/Carte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/modele/carte/Carte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/modele/jeu/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/modele/jeu/Joueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/ConnexionsListeners.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ihm/JeuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/JeuListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/carte/Agence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/carte/Carte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/jeu/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/jeu/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/jeu/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/jeu/Partie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
