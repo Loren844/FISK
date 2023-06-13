@@ -3,6 +3,7 @@ package ihm;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import modele.carte.Agence;
 import modele.carte.Carte;
 import modele.jeu.Joueur;
@@ -345,10 +347,22 @@ public class JeuListeners {
             //Si nouveau tour
             if(Partie.getJoueurSuivant().equals(Partie.getJoueursRestants()[0]))
             {
-                if(Partie.estFinie())
+                if(Partie.aUnGagnant() != null)
                 {
+                    Joueur gagnant = Partie.aUnGagnant();
                     //afficher écran de fin de partie
-                    System.out.println("fin");
+                    // Chargement du fichier FXML
+                    FXMLLoader loadMenu = new FXMLLoader(getClass().getResource("jeu.fxml"));
+                    Parent root = loadMenu.load();
+
+                    // Affichage de la scène
+                    Stage stage = (Stage) scene.getWindow();
+                    FXMLLoader loadMap = new FXMLLoader(getClass().getResource("fin_partie.fxml"));
+                    Scene map = new Scene(loadMap.load());
+                    stage.setScene(map);
+                    stage.setFullScreen(true);
+                    Label label = (Label) map.lookup("#labelMessage");
+                    label.setText(gagnant.getPseudo() + " , avez-vous pensé à vous lancer dans le monde des affaires ? Vous venez de prouver votre superiorité sur le monde en gagnant une partie de FISK, ce jeu fantastique.");
                 }
                 else{
                     nouveauTour(scene);
@@ -1049,8 +1063,7 @@ public class JeuListeners {
         desafficherBandeau(scene);
     }
 
-    public void validBandeauPhase2(Scene scene)
-    {
+    public void validBandeauPhase2(Scene scene) throws IOException {
         MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
         int nbAttaquants = (int) jaugeBandeau.getValue();
 
@@ -1070,8 +1083,7 @@ public class JeuListeners {
         polyDestId = null;
     }
 
-    public void actualiserAttaque(Scene scene)
-    {
+    public void actualiserAttaque(Scene scene) throws IOException {
         //menu adversaires
         majInfosAdvers(scene);
 
@@ -1096,10 +1108,22 @@ public class JeuListeners {
         Label labelDest = (Label) scene.lookup("#l" + polyDestId.substring(2));
         labelDest.setText(String.valueOf(agenceDest.getNbBanquiers()));
 
-        if(Partie.estFinie())
+        if(Partie.aUnGagnant() != null)
         {
+            Joueur gagnant = Partie.aUnGagnant();
             //afficher écran de fin de partie
-            System.out.println("fin");
+            // Chargement du fichier FXML
+            FXMLLoader loadMenu = new FXMLLoader(getClass().getResource("jeu.fxml"));
+            Parent root = loadMenu.load();
+
+            // Affichage de la scène
+            Stage stage = (Stage) scene.getWindow();
+            FXMLLoader loadMap = new FXMLLoader(getClass().getResource("fin_partie.fxml"));
+            Scene map = new Scene(loadMap.load());
+            stage.setScene(map);
+            stage.setFullScreen(true);
+            Label label = (Label) map.lookup("#labelMessage");
+            label.setText(gagnant.getPseudo() + " , avez-vous pensé à vous lancer dans le monde des affaires ? Vous venez de prouver votre superiorité sur le monde en gagnant une partie de FISK, ce jeu fantastique.");
         }
     }
 }

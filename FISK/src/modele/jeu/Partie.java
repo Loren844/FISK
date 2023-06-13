@@ -9,7 +9,6 @@ public class Partie {
     private static Joueur[] joueursRestants;
     private static Joueur joueurActuel;
 
-
     //Constructeurs
     public Partie() {}
 
@@ -70,14 +69,15 @@ public class Partie {
         return joueursRestants;
     }
 
-    public void setJoueursRestants(Joueur[] joueursRestants)
-    {
-        this.joueursRestants = joueursRestants;
-    }
-
     public static int nbJoueursRestants()
     {
-        return joueursRestants.length;
+        int nbJoueursRestants = 0;
+        for (Joueur joueursRestant : joueursRestants) {
+            if (joueursRestant != null) {
+                nbJoueursRestants++;
+            }
+        }
+        return nbJoueursRestants;
     }
 
     public static Joueur getJoueurSuivant()
@@ -97,6 +97,19 @@ public class Partie {
         }
     }
 
+    public static Joueur getJoueurPlusRiche()
+    {
+        Joueur joueurPlusRiche = joueursRestants[0];
+        for(int i = 1; i < joueursRestants.length; i++)
+        {
+            if(joueursRestants[i].getArgentPlace() > joueurPlusRiche.getArgentPlace())
+            {
+                joueurPlusRiche = joueursRestants[i];
+            }
+        }
+        return joueurPlusRiche;
+    }
+
     public static void setArgentParTour(Joueur j)
     {
         int bonus = 0;
@@ -110,22 +123,22 @@ public class Partie {
         j.setArgentParTour( 3000 + j.getArgentPlace()/10 + bonus + (j.getNbAgences()/3 + 1)*1000 );
     }
 
-    public static boolean estFinie()
+    public static Joueur aUnGagnant()
     {
         if(nbToursMax == 30)
         {
             if(tour == 0)
             {
-                return true;
+                return Partie.getJoueurPlusRiche();
             }
         }
         else
         {
             if(joueurActuel.getNbAgences() == 38)
             {
-                return true;
+                return Partie.getJoueurActuel();
             }
         }
-        return false;
+        return null;
     }
 }

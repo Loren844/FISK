@@ -31,6 +31,11 @@ public class Ville {
         return null;
     }
 
+    public String getNom()
+    {
+        return nom;
+    }
+
     public int getArgentMonop() {
         return argentMonop;
     }

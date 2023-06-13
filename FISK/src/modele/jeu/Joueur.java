@@ -35,6 +35,8 @@ public class Joueur {
 
         idJoueur = nbInstances;
         nbInstances++;
+        int numJoueur = idJoueur+1;
+        pseudo = "Joueur " + numJoueur;
     }
 
     public Agence[] getAgences()
@@ -93,6 +95,14 @@ public class Joueur {
             }
         }
         return cpt;
+    }
+
+    public static void setNbInstances(int nbInstances) {
+        Joueur.nbInstances = nbInstances;
+    }
+
+    public String getPseudo() {
+        return pseudo;
     }
 
     public boolean possede(String id)

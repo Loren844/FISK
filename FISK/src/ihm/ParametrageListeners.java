@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.carte.Carte;
 import modele.jeu.Joueur;
+import modele.jeu.Partie;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,6 +80,7 @@ public class ParametrageListeners {
                 listTirages.add(i);
             }
 
+            Joueur.setNbInstances(0);
             Joueur[] joueurs = new Joueur[nbJoueurs];
 
             if(nbJoueurs == 2)
