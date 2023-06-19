@@ -11,7 +11,7 @@ public class Joueur {
     private int argentParTour;
     private int nbBanquiersDispo = 0;
     private Agence[] agences = new Agence[38];
-    private boolean infoAchetee;
+    private boolean infoAchetee = false;
     private Ville[] villesMonop = new Ville[6];
     private static final String[] couleurs = {"#ff0000","#ffa100","#9500ff","#ff5d8f"};
 
@@ -65,6 +65,11 @@ public class Joueur {
         this.argentPlace += argentPlace;
     }
 
+    public void setArgentPlace(int argentPlace)
+    {
+        this.argentPlace = argentPlace;
+    }
+
     public int getArgentParTour() {
         return argentParTour;
     }
@@ -103,6 +108,18 @@ public class Joueur {
 
     public String getPseudo() {
         return pseudo;
+    }
+
+    public int getIdJoueur() {
+        return idJoueur;
+    }
+
+    public boolean isInfoAchetee() {
+        return infoAchetee;
+    }
+
+    public void setInfoAchetee(boolean infoAchetee) {
+        this.infoAchetee = infoAchetee;
     }
 
     public boolean possede(String id)

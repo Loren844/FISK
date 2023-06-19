@@ -20,6 +20,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import modele.carte.Agence;
 import modele.carte.Carte;
+import modele.jeu.AgentFisk;
 import modele.jeu.Joueur;
 import modele.jeu.Partie;
 import io.github.palexdev.materialfx.controls.MFXSlider;
@@ -36,12 +37,13 @@ public class JeuListeners {
     private boolean agentFisk = false;
     private String polySourceId = null;
     private String polyDestId = null;
+    private boolean transfertEffectue = false;
 
     public static void initJeu(Joueur[] joueurs, int nbToursMax) throws IOException
     {
         //Création de la partie
         Partie partie = new Partie(nbToursMax, joueurs);
-
+        AgentFisk.setProchainEvenement();
     }
 
     public void onAiderButtonClick(MouseEvent event) throws URISyntaxException, IOException {
@@ -240,11 +242,87 @@ public class JeuListeners {
                 }
             }
             else if(Partie.getPhase() == 3) {
-                //verifier que les 2 soient des agences du joueur
+                if(!transfertEffectue)
+                {
+                    String polyClique = "#" + clique.getId();
+                    int idClique = Integer.parseInt(polyClique.substring(2));
+                    Agence agenceClique = Carte.getAgenceById(idClique);
 
+                    //vérifier que le polygone appartient au joueur
+                    if(Partie.getJoueurActuel().possede(polyClique))
+                    {
+                        //aucun polygone cliqué
+                        if(polySourceId == null)
+                        {
+                            //l'agence doit avoir plus d'un banquier sur l'agence
+                            if(agenceClique.getNbBanquiers() > 1)
+                            {
+                                polySourceId = "#" + clique.getId();
+                                effetsPolygonSelect(event);
+                            }
+                        }
+
+                        //seul polysource est cliqué
+                        else if(polyDestId == null)
+                        {
+                            //si le polygone est déjà cliqué
+                            if (polySourceId.equals(polyClique))
+                            {
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = null;
+                            }
+
+                            //si le transfert est possible
+                            else if(Carte.getAgenceById(Integer.parseInt(polySourceId.substring(2))).transfertPossible(idClique))
+                            {
+                                polyDestId = "#" + clique.getId();
+                                effetsPolygonSelect(event);
+                                afficherBandeau(scene);
+                            }
+
+                            else{
+                                if(agenceClique.getNbBanquiers() > 1)
+                                {
+                                    effetsPolygonDefaut(scene, polySourceId);
+                                    polySourceId = "#" + clique.getId();
+                                    effetsPolygonSelect(event);
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            //si le polygone est déjà cliqué
+                            if (polySourceId.equals(polyClique))
+                            {
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = null;
+                                effetsPolygonDefaut(scene, polyDestId);
+                                polyDestId = null;
+                                desafficherBandeau(scene);
+                            }
+
+                            else if(Carte.getAgenceById(Integer.parseInt(polySourceId.substring(2))).transfertPossible(idClique))
+                            {
+                                effetsPolygonDefaut(scene, polyDestId);
+                                polyDestId = "#" + clique.getId();
+                                effetsPolygonSelect(event);
+                                afficherBandeau(scene);
+                            }
+
+                            else if(Carte.getAgenceById(idClique).getNbBanquiers() > 1)
+                            {
+                                effetsPolygonDefaut(scene, polyDestId);
+                                polyDestId = null;
+                                effetsPolygonDefaut(scene, polySourceId);
+                                polySourceId = "#" + clique.getId();
+                                effetsPolygonSelect(event);
+                            }
+                        }
+                    }
+                }
             }
         }
-
     }
 
     @FXML
@@ -347,6 +425,18 @@ public class JeuListeners {
             //Si nouveau tour
             if(Partie.getJoueurSuivant().equals(Partie.getJoueursRestants()[0]))
             {
+                //tous les 3 tours
+                if((Partie.getTour() % 3 == 0 && Partie.getNbToursMax() == -1) || (Partie.getTour() % 3 == 1 && Partie.getNbToursMax() == 30))
+                {
+                    if(AgentFisk.getAgenceCible() != null)
+                    {
+                        String labelId =  "#l" + AgentFisk.getAgenceCible().getId();
+                        Label label = (Label) scene.lookup(labelId);
+                        label.setTextFill(Color.BLACK);
+                    }
+                    AgentFisk.setProchainEvenement();
+                }
+
                 if(Partie.aUnGagnant() != null)
                 {
                     Joueur gagnant = Partie.aUnGagnant();
@@ -369,6 +459,7 @@ public class JeuListeners {
                 }
 
             }
+
             changementJoueur(scene, event);
 
         }
@@ -607,7 +698,7 @@ public class JeuListeners {
 
     public void onAgentFiskClick(MouseEvent event) throws IOException
     {
-        if(Partie.getPhase() == 1)
+        if(Partie.getPhase() == 1 && !Partie.getJoueurActuel().isInfoAchetee())
         {
             Circle source = (Circle) event.getSource();
             Scene scene = source.getScene();
@@ -628,6 +719,9 @@ public class JeuListeners {
             ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
             Label label = (Label) scene.lookup("#labelAgentFisk");
 
+            //mettre le prix a jour
+            label.setText(AgentFisk.getPrixInfo() + " $");
+
             if(agentFisk)
             {
                 agentFisk = false;
@@ -645,6 +739,31 @@ public class JeuListeners {
                 label.setVisible(true);
             }
         }
+    }
+
+    public void onValAgentFiskClick(MouseEvent event) throws IOException
+    {
+        ImageView source = (ImageView) event.getSource();
+        Scene scene = source.getScene();
+
+        if(Partie.getJoueurActuel().getArgentDispo() >= AgentFisk.getPrixInfo())
+        {
+            Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo()-AgentFisk.getPrixInfo());
+            Partie.getJoueurActuel().setInfoAchetee(true);
+            actualiserAgentFisk(scene);
+            majInfosJoueur(scene);
+            majInfosAdvers(scene);
+        }
+        Rectangle barre = (Rectangle) scene.lookup("#barreAgentFisk");
+        ImageView refuser = (ImageView) scene.lookup("#refAgentFisk");
+        ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
+        Label label = (Label) scene.lookup("#labelAgentFisk");
+
+        agentFisk = false;
+        barre.setVisible(false);
+        refuser.setVisible(false);
+        valider.setVisible(false);
+        label.setVisible(false);
     }
 
     public void onRefAgentFiskClick(MouseEvent event) throws IOException
@@ -693,6 +812,11 @@ public class JeuListeners {
             validBandeauPhase2(scene);
         }
 
+        else
+        {
+            validBandeauPhase3(scene);
+        }
+
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -734,7 +858,7 @@ public class JeuListeners {
             jaugeBandeau.setMax(Partie.getJoueurActuel().getNbBanquiersDispo());
         }
 
-        else if(Partie.getPhase() == 2)
+        else
         {
             int idClique = Integer.parseInt(polySourceId.substring(2));
             Agence agenceClique = Carte.getAgenceById(idClique);
@@ -742,7 +866,6 @@ public class JeuListeners {
             jaugeBandeau.setMin(1);
             jaugeBandeau.setMax(agenceClique.getNbBanquiers()-1);
         }
-
     }
 
     public void desafficherBandeau(Scene scene)
@@ -812,10 +935,27 @@ public class JeuListeners {
         compteur.setText(tour.substring(0,1) + "  " + tour.substring(1,2) + "  " + tour.substring(2,3));
     }
 
-    public void changementJoueur(Scene scene, MouseEvent event)
-    {
+    public void changementJoueur(Scene scene, MouseEvent event) throws IOException {
         //Changement de joueur
         Partie.setJoueurActuel(Partie.getJoueurSuivant());
+
+        //activer agent fisk
+        //pour richesse prospere : au bon tour et pour le bon joueur
+        if(Partie.getTour() % 3 == 0 && Partie.getNbToursMax() == -1 && Partie.getJoueurActuel().getIdJoueur() >= AgentFisk.getIdPremierJoueur() && !AgentFisk.estActif())
+        {
+            AgentFisk.activer();
+            majInfosJoueur(scene);
+            majInfosAdvers(scene);
+        }
+
+        //pour richesse immediate : au bon tour et pour le bon joueur
+        else if(Partie.getTour() % 3 == 1 && Partie.getNbToursMax() == 30 && Partie.getJoueurActuel().getIdJoueur() >= AgentFisk.getIdPremierJoueur() && !AgentFisk.estActif())
+        {
+            System.out.println("test");
+            AgentFisk.activer();
+            majInfosJoueur(scene);
+            majInfosAdvers(scene);
+        }
 
         //Ajouter argent au joueur
         Partie.setArgentParTour(Partie.getJoueurActuel());
@@ -847,6 +987,12 @@ public class JeuListeners {
 
         //actualiser infos adversaires
         majInfosAdvers(scene);
+
+        //actualiser agent fisk
+        actualiserAgentFisk(scene);
+
+        //rendre le transfert possible
+        transfertEffectue = false;
 
         //Passage en vue Joueurs
         if(vue)
@@ -961,12 +1107,37 @@ public class JeuListeners {
 
     public void majInfosAdvers(Scene scene)
     {
-        for(int i = 1; i <= Partie.nbJoueursRestants(); i++)
+        for(int i = 0; i < Partie.nbJoueursRestants(); i++)
         {
-            Label labelDollar = (Label) scene.lookup("#labelDollar" + i);
-            Label labelAgences = (Label) scene.lookup("#labelAgences" + i);
-            labelDollar.setText("" + Partie.getJoueursRestants()[i-1].getArgentDispo() + " $");
-            labelAgences.setText("" + Partie.getJoueursRestants()[i-1].getNbAgences());
+            //recuperer numero du joueur (id+1)
+            int id = Partie.getJoueursRestants()[i].getIdJoueur() + 1;
+
+            Label labelDollar = (Label) scene.lookup("#labelDollar" + id);
+            Label labelAgences = (Label) scene.lookup("#labelAgences" + id);
+            labelDollar.setText("" + Partie.getJoueursRestants()[i].getArgentDispo() + " $");
+            labelAgences.setText("" + Partie.getJoueursRestants()[i].getNbAgences());
+        }
+
+        for(int i = 0; i < Partie.nbJoueursElimines(); i++)
+        {
+            //recuperer numero du joueur (id+1)
+            int id = Partie.getJoueursElimines()[i].getIdJoueur() + 1;
+
+            //desafficher les infos
+            Label labelDollar = (Label) scene.lookup("#labelDollar" + id);
+            Label labelAgences = (Label) scene.lookup("#labelAgences" + id);
+            ImageView imgBat = (ImageView) scene.lookup("#imgBat" + id);
+            ImageView imgDollar = (ImageView) scene.lookup("#imgDollar" + id);
+            Rectangle rectId1 = (Rectangle) scene.lookup("#advers" + id + "1");
+            labelDollar.setVisible(false);
+            labelAgences.setVisible(false);
+            imgBat.setVisible(false);
+            imgDollar.setVisible(false);
+            rectId1.setVisible(false);
+
+            //afficher la croix
+            ImageView imgElem = (ImageView) scene.lookup("#elem" + id);
+            imgElem.setVisible(true);
         }
     }
 
@@ -1064,14 +1235,17 @@ public class JeuListeners {
     }
 
     public void validBandeauPhase2(Scene scene) throws IOException {
+        //récupérer le nombre de banquiers a placer
         MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
         int nbAttaquants = (int) jaugeBandeau.getValue();
 
+        //récupérer l'agence source et l'agence destination
         int idSource = Integer.parseInt(polySourceId.substring(2));
         Agence agenceSource = Carte.getAgenceById(idSource);
         int idDest = Integer.parseInt(polyDestId.substring(2));
         Agence agenceDest = Carte.getAgenceById(idDest);
 
+        //attaquer
         agenceSource.attaque(agenceDest, nbAttaquants);
         actualiserAttaque(scene);
 
@@ -1079,6 +1253,34 @@ public class JeuListeners {
         effetsPolygonDefaut(scene, polySourceId);
         effetsPolygonDefaut(scene, polyDestId);
 
+        polySourceId = null;
+        polyDestId = null;
+    }
+
+    public void validBandeauPhase3(Scene scene)
+    {
+        //récupérer le nombre de banquiers a transferer
+        MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
+        int nbBanquiers = (int) jaugeBandeau.getValue();
+
+        //récupérer l'agence source et l'agence destination
+        int idSource = Integer.parseInt(polySourceId.substring(2));
+        Agence agenceSource = Carte.getAgenceById(idSource);
+        int idDest = Integer.parseInt(polyDestId.substring(2));
+        Agence agenceDest = Carte.getAgenceById(idDest);
+
+        //transferer
+        agenceSource.transfertVers(agenceDest, nbBanquiers);
+        Label lSource = (Label) scene.lookup("#l" + polySourceId.substring(2));
+        Label lDest = (Label) scene.lookup("#l" + polyDestId.substring(2));
+        lSource.setText(String.valueOf(agenceSource.getNbBanquiers()));
+        lDest.setText(String.valueOf(agenceDest.getNbBanquiers()));
+
+        desafficherBandeau(scene);
+        effetsPolygonDefaut(scene, polySourceId);
+        effetsPolygonDefaut(scene, polyDestId);
+
+        transfertEffectue = true;
         polySourceId = null;
         polyDestId = null;
     }
@@ -1124,6 +1326,31 @@ public class JeuListeners {
             stage.setFullScreen(true);
             Label label = (Label) map.lookup("#labelMessage");
             label.setText(gagnant.getPseudo() + " , avez-vous pensé à vous lancer dans le monde des affaires ? Vous venez de prouver votre superiorité sur le monde en gagnant une partie de FISK, ce jeu fantastique.");
+        }
+    }
+
+    public void actualiserAgentFisk(Scene scene) throws IOException
+    {
+        Label labelMessage = (Label) scene.lookup("#labelFisk");
+        if(Partie.getJoueurActuel().isInfoAchetee())
+        {
+            labelMessage.setText(AgentFisk.getMessage());
+            if(AgentFisk.getAgenceCible() != null)
+            {
+                String labelId =  "#l" + AgentFisk.getAgenceCible().getId();
+                Label label = (Label) scene.lookup(labelId);
+                label.setTextFill(Color.WHITE);
+            }
+        }
+        else
+        {
+            labelMessage.setText("Vous n'avez pas payé de pot de vin, vous n'avez donc pas accès à l'information.");
+            if(AgentFisk.getAgenceCible() != null)
+            {
+                String labelId =  "#l" + AgentFisk.getAgenceCible().getId();
+                Label label = (Label) scene.lookup(labelId);
+                label.setTextFill(Color.BLACK);
+            }
         }
     }
 }

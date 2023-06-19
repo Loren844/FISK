@@ -3,10 +3,14 @@ package modele.carte;
 import modele.jeu.Joueur;
 import modele.jeu.*;
 
+import java.util.Arrays;
+
 public class Agence {
     private int id;
     private int nbBanquiers = 1;
     private int[] idFrontalieres = {};
+
+    private int[] transfertsPossibles = new int[38];
 
     //constructeurs
     public Agence() {
@@ -185,8 +189,22 @@ public class Agence {
         //si la défense perd
         else if(stockDefenseurs == 0)
         {
-            //enlever l'agence au défenseur
-            frontiereAttaquee.getJoueur().perdreAgence(frontiereAttaquee);
+            //si le joueur n'a plus d'agences, il est éliminé
+            if(frontiereAttaquee.getJoueur().getNbAgences() == 1)
+            {
+                Joueur elimine = frontiereAttaquee.getJoueur();
+
+                //enlever l'agence au défenseur
+                frontiereAttaquee.getJoueur().perdreAgence(frontiereAttaquee);
+
+                Partie.eliminerJoueur(elimine.getIdJoueur());
+            }
+
+            else
+            {
+                //enlever l'agence au défenseur
+                frontiereAttaquee.getJoueur().perdreAgence(frontiereAttaquee);
+            }
 
             //rajouter l'agence à l'attaquant
             this.getJoueur().gagnerAgence(frontiereAttaquee);
@@ -194,52 +212,68 @@ public class Agence {
         }
     }
 
-    /*
-    public Agence[] transfertsPossibles(Agence[] agencesDispo, int tailleDispo, Agence[] agencesTestees, int tailleTestees, Agence origine, Joueur joueur) //les listes agencesDispo et agencesTestees sont crées dans le programme appelant
+
+    public boolean transfertPossible(int id)
     {
-        int test = 0;
-
-        //pour chaque agence frontaliere on vérifie qu'elle n'a pas été testée
-        for (int i = 0; i < frontalieres.length; i++) {
-            for (int j = 0; j < agencesTestees.length; j++) {
-                if (frontalieres[i].equals(agencesTestees[j])) {
-                    test = 1;
-                }
-            }
-            //si elle n'a pas été testée
-            if (test == 0) {
-                //on vérifie qu'elle est dispo : appartient au joueur et ce n'est pas l'agence d'origine
-                if (joueur.possede(frontalieres[i]) && !(frontalieres[i].equals(origine))) {
-                    //on l'ajoute comme agence dispo et agence testée
-                    agencesDispo[tailleDispo] = frontalieres[i];
-                    agencesTestees[tailleTestees] = frontalieres[i];
-
-                    //on incrémente la taille des tableaux de 1
-                    tailleDispo++;
-                    tailleTestees++;
-
-                    //récursivité
-                    frontalieres[i].transfertsPossibles(agencesDispo, tailleDispo, agencesTestees, tailleTestees, origine, joueur);
-                }
-                //si elle n'est pas dispo ou que c'est l'agence d'origine
-                else {
-                    //on l'ajoute seulement a agencesTestees
-                    agencesTestees[tailleTestees] = frontalieres[i];
-
-                    //on incrémente la taille des tableaux de 1
-                    tailleTestees++;
-                }
-            }
-            //si elle a été testée on passe a la suivante
+        for (int i = 0; i < 38; i++)
+        {
+            transfertsPossibles[i] = -1;
         }
-        return agencesDispo;
+        transfertsPossibles[0] = this.id;
+
+        this.transfertsPossibles(this.getId());
+
+        int i = 0;
+        while(transfertsPossibles[i] != id && i < nbTransfertsPossibles())
+        {
+            i++;
+        }
+
+        return transfertsPossibles[i] == id;
     }
 
-     */
+    public int nbTransfertsPossibles()
+    {
+        int cpt = 0;
+        while(transfertsPossibles[cpt] != -1 && cpt < 37)
+        {
+            cpt++;
+        }
+        return cpt;
+    }
+
+    public int[] getTransfertsPossibles() {
+        return transfertsPossibles;
+    }
+
+    public void transfertsPossibles(int idDepart)
+    {
+        Agence depart = Carte.getAgenceById(idDepart);
+        for(int id:this.idFrontalieres)
+        {
+            //si l'agence appartient au meme joueur
+            if(depart.getJoueur() == Carte.getAgenceById(id).getJoueur())
+            {
+                int i = 0;
+                while(depart.transfertsPossibles[i] != -1 && depart.transfertsPossibles[i] != id && i < 37)
+                {
+                    i++;
+                }
+
+                //si l'agence n'a pas été testée, on la teste
+                if(depart.transfertsPossibles[i] == -1 || i == 37)
+                {
+                    depart.transfertsPossibles[depart.nbTransfertsPossibles()] = id;
+                    Carte.getAgenceById(id).transfertsPossibles(idDepart);
+                }
+            }
+        }
+    }
+
 
     //transfertsPossibles agit avant l'appel de transfertVers, on ne peut appeler transfertVers que vers une agence valide ET le nb de banquiers est vérifié avant aussi
     public void transfertVers(Agence destination, int nbBanquiers) {
         this.nbBanquiers -= nbBanquiers;
-        destination.nbBanquiers += nbBanquiers;
+        destination.setNbBanquiers(destination.getNbBanquiers()+nbBanquiers);
     }
 }

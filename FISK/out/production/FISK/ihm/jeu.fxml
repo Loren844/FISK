@@ -286,7 +286,7 @@
       </ImageView>
       <Label fx:id="labelFisk" alignment="CENTER" contentDisplay="CENTER" layoutX="1543.0" layoutY="845.0" prefHeight="215.0" prefWidth="352.0" text="Vous n'avez pas payé de pot de vin, vous n'avez donc pas accès à l'information." textAlignment="JUSTIFY" wrapText="true">
          <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
          </font>
       </Label>
       <Circle fx:id="btnVue" layoutX="99.0" layoutY="987.0" onMouseClicked="#onVueClick" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
@@ -303,6 +303,26 @@
       <Circle fx:id="advers10" fill="RED" layoutX="1818.0" layoutY="311.0" radius="56.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" visible="false" />
       <Rectangle fx:id="advers21" arcHeight="110.0" arcWidth="110.0" fill="#ffc559" height="111.0" layoutX="1585.0" layoutY="389.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" visible="false" width="291.0" />
       <Circle fx:id="advers20" fill="#ffa100" layoutX="1821.0" layoutY="445.0" radius="56.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" visible="false" />
+      <ImageView fx:id="elem1" fitHeight="74.0" fitWidth="66.0" layoutX="1786.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/elimine.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="elem2" fitHeight="74.0" fitWidth="66.0" layoutX="1789.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/elimine.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="elem3" fitHeight="74.0" fitWidth="66.0" layoutX="1792.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/elimine.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="elem4" fitHeight="74.0" fitWidth="66.0" layoutX="1794.0" layoutY="686.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@externes/elimine.png" />
+         </image>
+      </ImageView>
       <Label fx:id="labelDollar2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="1657.0" layoutY="406.0" prefHeight="50.0" prefWidth="109.0" text="0 $" textAlignment="CENTER" visible="false">
          <font>
             <Font name="Arial Black" size="20.0" />
@@ -471,7 +491,7 @@
             <Image url="@externes/valider.png" />
          </image>
       </ImageView>
-      <Label fx:id="labelAgentFisk" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="126.0" layoutY="617.0" prefHeight="33.0" prefWidth="109.0" text="300000$" textAlignment="CENTER" textFill="WHITE" visible="false">
+      <Label fx:id="labelAgentFisk" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="126.0" layoutY="617.0" prefHeight="33.0" prefWidth="109.0" text="10000$" textAlignment="CENTER" textFill="WHITE" visible="false">
          <font>
             <Font name="Arial Black" size="22.0" />
          </font>
@@ -481,7 +501,7 @@
             <Image url="@externes/annuler.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="valAgentFisk" fitHeight="37.0" fitWidth="31.0" layoutX="270.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="valAgentFisk" fitHeight="37.0" fitWidth="31.0" layoutX="270.0" layoutY="617.0" onMouseClicked="#onValAgentFiskClick" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@externes/valider.png" />
          </image>

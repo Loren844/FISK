@@ -7,6 +7,7 @@ public class Partie {
     private static int tour = 1;
     private static int nbToursMax = -1; //-1 si richesse prospere ou 30 si richesse immediate
     private static Joueur[] joueursRestants;
+    private static Joueur[] joueursElimines = {null, null, null};
     private static Joueur joueurActuel;
 
     //Constructeurs
@@ -80,19 +81,38 @@ public class Partie {
         return nbJoueursRestants;
     }
 
+    public static Joueur[] getJoueursElimines()
+    {
+        return joueursElimines;
+    }
+
+    public static int nbJoueursElimines()
+    {
+        int nbJoueursElimines = 0;
+        for (Joueur joueursElimine : joueursElimines) {
+            if (joueursElimine != null) {
+                nbJoueursElimines++;
+            }
+        }
+        return nbJoueursElimines;
+    }
+
     public static Joueur getJoueurSuivant()
     {
-        if(joueursRestants[joueursRestants.length-1] == joueurActuel)
+        //si le joueur actuel est le dernier joueur retourne le premier joueur
+        if(joueursRestants[Partie.nbJoueursRestants()-1] == joueurActuel)
         {
             return joueursRestants[0];
         }
         else
         {
             int i =0;
-            while(i < joueursRestants.length && !(joueursRestants[i].equals(joueurActuel)))
+            //on parcourt le tableau des joueurs restants jusau'à trouver la position du joueur actuel
+            while(i < Partie.nbJoueursRestants()-1 && !(joueursRestants[i].equals(joueurActuel)))
             {
                 i++;
             }
+            //on retourne le joueur suivant
             return joueursRestants[i+1];
         }
     }
@@ -140,5 +160,22 @@ public class Partie {
             }
         }
         return null;
+    }
+
+    public static void eliminerJoueur(int idJoueur)
+    {
+        int i = 0;
+        while(i < Partie.nbJoueursRestants() && !(joueursRestants[i].getIdJoueur() == idJoueur))
+        {
+            i++;
+        }
+        joueursElimines[nbJoueursElimines()] = joueursRestants[i];
+        System.out.println(joueursElimines[0].getIdJoueur());
+
+        for(int j = i ; j < nbJoueursRestants()-1; j++)
+        {
+            joueursRestants[j] = joueursRestants[j+1];
+        }
+        joueursRestants[nbJoueursRestants()-1] = null;
     }
 }
