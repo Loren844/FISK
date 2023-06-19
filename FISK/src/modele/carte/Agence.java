@@ -209,6 +209,7 @@ public class Agence {
             //rajouter l'agence à l'attaquant
             this.getJoueur().gagnerAgence(frontiereAttaquee);
             frontiereAttaquee.setNbBanquiers(stockAttaquants);
+            this.getJoueur().setVillesMonop();
         }
     }
 

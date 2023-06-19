@@ -90,12 +90,8 @@ public class JeuListeners {
         Partie.setArgentParTour(Partie.getJoueurActuel());
         Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo() + Partie.getJoueurActuel().getArgentParTour());
 
-        Label labelDispo = (Label) scene.lookup("#labelDispo");
-        Label labelParTour = (Label) scene.lookup("#labelParTour");
-        labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
-        labelParTour.setText("" + Partie.getJoueurActuel().getArgentParTour() + " $");
-
         majInfosAdvers(scene);
+        majInfosJoueur(scene);
     }
 
     @FXML
@@ -471,8 +467,7 @@ public class JeuListeners {
             {
                 if(Partie.getJoueurActuel().getNbBanquiersDispo() != 0)
                 {
-                    desactiverBoutons(scene);
-                    affichagePopUp(scene);
+                    affichagePopUp(scene, 1);
                 }
                 else
                 {
@@ -520,9 +515,13 @@ public class JeuListeners {
         Rectangle rectCond1 = (Rectangle) scene.lookup("#rectCond1");
         Label textCond1 = (Label) scene.lookup("#textCond1");
         ImageView valCond1 = (ImageView) scene.lookup("#valCond1");
+
         rectCond1.setVisible(false);
         textCond1.setVisible(false);
         valCond1.setVisible(false);
+
+        ImageView fond = (ImageView) scene.lookup("#bgRegles");
+        fond.setVisible(false);
     }
 
     public void onBanquiersClick(MouseEvent event) throws IOException
@@ -753,17 +752,33 @@ public class JeuListeners {
             actualiserAgentFisk(scene);
             majInfosJoueur(scene);
             majInfosAdvers(scene);
-        }
-        Rectangle barre = (Rectangle) scene.lookup("#barreAgentFisk");
-        ImageView refuser = (ImageView) scene.lookup("#refAgentFisk");
-        ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
-        Label label = (Label) scene.lookup("#labelAgentFisk");
 
-        agentFisk = false;
-        barre.setVisible(false);
-        refuser.setVisible(false);
-        valider.setVisible(false);
-        label.setVisible(false);
+            Rectangle barre = (Rectangle) scene.lookup("#barreAgentFisk");
+            ImageView refuser = (ImageView) scene.lookup("#refAgentFisk");
+            ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
+            Label label = (Label) scene.lookup("#labelAgentFisk");
+
+            agentFisk = false;
+            barre.setVisible(false);
+            refuser.setVisible(false);
+            valider.setVisible(false);
+            label.setVisible(false);
+        }
+
+        else
+        {
+            Rectangle barre = (Rectangle) scene.lookup("#barreAgentFisk");
+            ImageView refuser = (ImageView) scene.lookup("#refAgentFisk");
+            ImageView valider = (ImageView) scene.lookup("#valAgentFisk");
+            Label label = (Label) scene.lookup("#labelAgentFisk");
+
+            agentFisk = false;
+            barre.setVisible(false);
+            refuser.setVisible(false);
+            valider.setVisible(false);
+            label.setVisible(false);
+            affichagePopUp(scene, 2);
+        }
     }
 
     public void onRefAgentFiskClick(MouseEvent event) throws IOException
@@ -935,29 +950,30 @@ public class JeuListeners {
         compteur.setText(tour.substring(0,1) + "  " + tour.substring(1,2) + "  " + tour.substring(2,3));
     }
 
-    public void changementJoueur(Scene scene, MouseEvent event) throws IOException {
+    public void changementJoueur(Scene scene, MouseEvent event) throws IOException
+    {
         //Changement de joueur
         Partie.setJoueurActuel(Partie.getJoueurSuivant());
 
         //activer agent fisk
         //pour richesse prospere : au bon tour et pour le bon joueur
-        if(Partie.getTour() % 3 == 0 && Partie.getNbToursMax() == -1 && Partie.getJoueurActuel().getIdJoueur() >= AgentFisk.getIdPremierJoueur() && !AgentFisk.estActif())
+        if(Partie.getTour() % 3 == 0 && Partie.getNbToursMax() == -1 && Partie.getJoueurActuel().getIdJoueur() >= AgentFisk.getIdPremierJoueur() && !AgentFisk.estActif() )
         {
             AgentFisk.activer();
-            majInfosJoueur(scene);
-            majInfosAdvers(scene);
+            actualiserEffetFisk(scene);
+            affichagePopUp(scene, 3);
         }
 
         //pour richesse immediate : au bon tour et pour le bon joueur
         else if(Partie.getTour() % 3 == 1 && Partie.getNbToursMax() == 30 && Partie.getJoueurActuel().getIdJoueur() >= AgentFisk.getIdPremierJoueur() && !AgentFisk.estActif())
         {
-            System.out.println("test");
             AgentFisk.activer();
-            majInfosJoueur(scene);
-            majInfosAdvers(scene);
+            actualiserEffetFisk(scene);
+            affichagePopUp(scene, 3);
         }
 
         //Ajouter argent au joueur
+        Partie.getJoueurActuel().setVillesMonop();
         Partie.setArgentParTour(Partie.getJoueurActuel());
         Partie.getJoueurActuel().setArgentDispo(Partie.getJoueurActuel().getArgentDispo() + Partie.getJoueurActuel().getArgentParTour());
 
@@ -988,7 +1004,7 @@ public class JeuListeners {
         //actualiser infos adversaires
         majInfosAdvers(scene);
 
-        //actualiser agent fisk
+        //actualiser cadre en bas a droite agent fisk
         actualiserAgentFisk(scene);
 
         //rendre le transfert possible
@@ -1143,13 +1159,14 @@ public class JeuListeners {
 
     public void majInfosJoueur(Scene scene)
     {
-        //actualiser les infos joueurs
+        Label labelPseudo = (Label) scene.lookup("#labelPseudo");
         Label labelDispo = (Label) scene.lookup("#labelDispo");
         Label labelParTour = (Label) scene.lookup("#labelParTour");
         Label labelPlace = (Label) scene.lookup("#labelPlace");
         labelDispo.setText("" + Partie.getJoueurActuel().getArgentDispo() + " $");
         labelParTour.setText("" + Partie.getJoueurActuel().getArgentParTour() + " $");
         labelPlace.setText("" + Partie.getJoueurActuel().getArgentPlace() + " $");
+        labelPseudo.setText(Partie.getJoueurActuel().getPseudo());
     }
 
     public void desafficherMenuBanquiers(Scene scene)
@@ -1180,21 +1197,43 @@ public class JeuListeners {
         jauge.setVisible(false);
     }
 
-    public void affichagePopUp(Scene scene)
+    public void affichagePopUp(Scene scene, int code)
     {
-        if(polySourceId != null){
+        if(polySourceId != null)
+        {
             effetsPolygonDefaut(scene, polySourceId);
             polySourceId = null;
         }
-        Rectangle rectCond1 = (Rectangle) scene.lookup("#rectCond1");
+        desactiverBoutons(scene);
         Label textCond1 = (Label) scene.lookup("#textCond1");
+        if(code == 1)
+        {
+            textCond1.setText("Pour passer à la phase suivante, vous devez placer tous les banquiers que vous avez recruté.");
+            textCond1.setVisible(true);
+        }
+
+        else if(code == 2)
+        {
+            textCond1.setText("Vous n'avez pas assez d'argent pour payer le pot de vin.");
+            textCond1.setVisible(true);
+        }
+
+        else if(code == 3)
+        {
+            ImageView fond = (ImageView) scene.lookup("#bgRegles");
+            fond.setVisible(true);
+            fond.toFront();
+
+            textCond1.setText("L'agent FISK passe à l'action : " + AgentFisk.getNom() + ".");
+            textCond1.setVisible(true);
+        }
+        Rectangle rectCond1 = (Rectangle) scene.lookup("#rectCond1");
         ImageView valCond1 = (ImageView) scene.lookup("#valCond1");
         rectCond1.setVisible(true);
         rectCond1.toFront();
-        textCond1.setVisible(true);
-        textCond1.toFront();
         valCond1.setVisible(true);
         valCond1.toFront();
+        textCond1.toFront();
     }
 
     public void actArgentParTour(Scene scene)
@@ -1234,7 +1273,8 @@ public class JeuListeners {
         desafficherBandeau(scene);
     }
 
-    public void validBandeauPhase2(Scene scene) throws IOException {
+    public void validBandeauPhase2(Scene scene) throws IOException
+    {
         //récupérer le nombre de banquiers a placer
         MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
         int nbAttaquants = (int) jaugeBandeau.getValue();
@@ -1285,7 +1325,8 @@ public class JeuListeners {
         polyDestId = null;
     }
 
-    public void actualiserAttaque(Scene scene) throws IOException {
+    public void actualiserAttaque(Scene scene) throws IOException
+    {
         //menu adversaires
         majInfosAdvers(scene);
 
@@ -1310,6 +1351,9 @@ public class JeuListeners {
         Label labelDest = (Label) scene.lookup("#l" + polyDestId.substring(2));
         labelDest.setText(String.valueOf(agenceDest.getNbBanquiers()));
 
+        actualiserAgentFisk(scene);
+
+
         if(Partie.aUnGagnant() != null)
         {
             Joueur gagnant = Partie.aUnGagnant();
@@ -1332,17 +1376,7 @@ public class JeuListeners {
     public void actualiserAgentFisk(Scene scene) throws IOException
     {
         Label labelMessage = (Label) scene.lookup("#labelFisk");
-        if(Partie.getJoueurActuel().isInfoAchetee())
-        {
-            labelMessage.setText(AgentFisk.getMessage());
-            if(AgentFisk.getAgenceCible() != null)
-            {
-                String labelId =  "#l" + AgentFisk.getAgenceCible().getId();
-                Label label = (Label) scene.lookup(labelId);
-                label.setTextFill(Color.WHITE);
-            }
-        }
-        else
+        if(!Partie.getJoueurActuel().isInfoAchetee())
         {
             labelMessage.setText("Vous n'avez pas payé de pot de vin, vous n'avez donc pas accès à l'information.");
             if(AgentFisk.getAgenceCible() != null)
@@ -1352,5 +1386,33 @@ public class JeuListeners {
                 label.setTextFill(Color.BLACK);
             }
         }
+        else
+        {
+            labelMessage.setText(AgentFisk.getMessage());
+            if(AgentFisk.getEvenement() != 5  || AgentFisk.getAgenceCible().getJoueur().equals(Partie.getJoueurActuel()))
+            {
+                String labelId =  "#l" + AgentFisk.getAgenceCible().getId();
+                Label label = (Label) scene.lookup(labelId);
+                label.setTextFill(Color.WHITE);
+            }
+            else
+            {
+                String labelId =  "#l" + AgentFisk.getAgenceCible().getId();
+                Label label = (Label) scene.lookup(labelId);
+                label.setTextFill(Color.BLACK);
+            }
+        }
+    }
+
+    public void actualiserEffetFisk(Scene scene)
+    {
+        int idAgence = AgentFisk.getAgenceCible().getId();
+
+        Label labelAgence = (Label) scene.lookup("#l" + idAgence);
+        labelAgence.setText(String.valueOf(AgentFisk.getAgenceCible().getNbBanquiers()));
+        labelAgence.setTextFill(Color.BLACK);
+
+        majInfosJoueur(scene);
+        majInfosAdvers(scene);
     }
 }

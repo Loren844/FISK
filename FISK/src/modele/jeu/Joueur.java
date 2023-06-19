@@ -82,6 +82,87 @@ public class Joueur {
         return villesMonop;
     }
 
+    public void setVillesMonop()
+    {
+        int cpt = 0;
+        int idAgence = 0;
+
+        for(int i = 0; i < 6; i++)
+        {
+            villesMonop[i] = null;
+        }
+
+        while(Carte.getAgenceById(idAgence).getJoueur().equals(this) && idAgence != 5)
+        {
+            idAgence++;
+        }
+        if(idAgence == 5)
+        {
+            villesMonop[cpt] = Carte.getVille(0);
+            cpt++;
+        }
+
+        idAgence = 6;
+
+        while(Carte.getAgenceById(idAgence).getJoueur().equals(this) && idAgence != 10)
+        {
+            idAgence++;
+        }
+        if(idAgence == 10)
+        {
+            villesMonop[cpt] = Carte.getVille(1);
+            cpt++;
+        }
+
+        idAgence = 11;
+
+        while(Carte.getAgenceById(idAgence).getJoueur().equals(this) && idAgence != 19)
+        {
+            idAgence++;
+        }
+        if(idAgence == 19)
+        {
+            villesMonop[cpt] = Carte.getVille(2);
+            cpt++;
+        }
+
+        idAgence = 20;
+
+        while(Carte.getAgenceById(idAgence).getJoueur().equals(this) && idAgence != 25)
+        {
+            idAgence++;
+        }
+        if(idAgence == 25)
+        {
+            villesMonop[cpt] = Carte.getVille(3);
+            cpt++;
+        }
+
+        idAgence = 26;
+
+        while(Carte.getAgenceById(idAgence).getJoueur().equals(this) && idAgence != 31)
+        {
+            idAgence++;
+        }
+        if(idAgence == 31)
+        {
+            villesMonop[cpt] = Carte.getVille(4);
+            cpt++;
+        }
+
+        idAgence = 32;
+
+        while(Carte.getAgenceById(idAgence).getJoueur().equals(this) && idAgence != 37)
+        {
+            idAgence++;
+        }
+        if(idAgence == 37)
+        {
+            villesMonop[cpt] = Carte.getVille(5);
+            cpt++;
+        }
+    }
+
     public int getNbBanquiersDispo() {
         return nbBanquiersDispo;
     }
