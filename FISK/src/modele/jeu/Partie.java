@@ -9,6 +9,7 @@ public class Partie {
     private static Joueur[] joueursRestants;
     private static Joueur[] joueursElimines = {null, null, null};
     private static Joueur joueurActuel;
+    private static int[] idJoueursBDD = {-1,-1,-1,-1};
 
     //Constructeurs
     public Partie() {}
@@ -79,6 +80,29 @@ public class Partie {
             }
         }
         return nbJoueursRestants;
+    }
+
+    public static int getNbJoueursBDD()
+    {
+        int cpt = 0;
+        for(int id:idJoueursBDD)
+        {
+            if(id != -1)
+            {
+                cpt++;
+            }
+        }
+        return cpt;
+    }
+
+    public static int[] getIdJoueursBDD()
+    {
+        return idJoueursBDD;
+    }
+
+    public static void setIdJoueurBDD(int id)
+    {
+        idJoueursBDD[getNbJoueursBDD()] = id;
     }
 
     public static Joueur[] getJoueursElimines()

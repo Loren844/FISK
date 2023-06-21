@@ -29,6 +29,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.*;
 
 public class JeuListeners {
     private boolean vue = true; //false = vue normale, true = vue des villes
@@ -410,8 +411,7 @@ public class JeuListeners {
         }
     }
 
-    public void onSuivClick(MouseEvent event) throws IOException
-    {
+    public void onSuivClick(MouseEvent event) throws IOException, SQLException {
         Circle source = (Circle) event.getSource();
         Scene scene = source.getScene();
 
@@ -449,6 +449,48 @@ public class JeuListeners {
                     stage.setFullScreen(true);
                     Label label = (Label) map.lookup("#labelMessage");
                     label.setText(gagnant.getPseudo() + " , avez-vous pensé à vous lancer dans le monde des affaires ? Vous venez de prouver votre superiorité sur le monde en gagnant une partie de FISK, ce jeu fantastique.");
+
+
+
+                    //Connexion a la bdd
+                    String url = "jdbc:mysql://192.168.143.162:3306/FISK_BDD";
+                    String utilisateur = "fisk";
+                    String motDePasse = "fiskCgenial";
+                    Connection connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+
+                    //Récupération de l'id max de PARTIES
+                    String requeteIdPartie = "SELECT max(IdPartie) FROM PARTIES";
+                    PreparedStatement statementIdPartie = connexion.prepareStatement(requeteIdPartie);
+                    ResultSet resultSetIdPartie= statementIdPartie.executeQuery();
+
+                    int maxId = -1;
+                    if(resultSetIdPartie.next())
+                    {
+                        maxId = resultSetIdPartie.getInt(1);
+                    }
+                    statementIdPartie.close();
+
+                    //Enregistrement de la partie
+                    String requeteEnr = "INSERT INTO PARTIES (IdGagnant,IdPartie) VALUES (?,?)";
+                    PreparedStatement statementEnr = connexion.prepareStatement(requeteEnr);
+                    statementEnr.setString(1, String.valueOf(Partie.getIdJoueursBDD()[gagnant.getIdJoueur()]));
+                    statementEnr.setString(2, String.valueOf(maxId+1));
+                    statementEnr.executeUpdate();
+                    statementEnr.close();
+
+                    //MAJ JOUEURS_PARTIES
+                    for(int i=0; i<Partie.getNbJoueursBDD();i++)
+                    {
+                        String requeteEnrPartJ = "INSERT INTO JOUEURS_PARTIES (IdJoueur,IdPartie) VALUES (?,?)";
+                        PreparedStatement statementEnrPartJ = connexion.prepareStatement(requeteEnrPartJ);
+                        statementEnrPartJ.setString(1, String.valueOf(Partie.getIdJoueursBDD()[i]));
+                        statementEnrPartJ.setString(2, String.valueOf(maxId+1));
+                        statementEnrPartJ.executeUpdate();
+                        statementEnrPartJ.close();
+                    }
+
+                    connexion.close();
+
                 }
                 else{
                     nouveauTour(scene);
@@ -812,8 +854,7 @@ public class JeuListeners {
         }
     }
 
-    public void onValBandeauClick(MouseEvent event) throws  IOException
-    {
+    public void onValBandeauClick(MouseEvent event) throws IOException, SQLException {
         ImageView valBandeau = (ImageView) event.getSource();
         Scene scene = valBandeau.getScene();
 
@@ -1273,8 +1314,7 @@ public class JeuListeners {
         desafficherBandeau(scene);
     }
 
-    public void validBandeauPhase2(Scene scene) throws IOException
-    {
+    public void validBandeauPhase2(Scene scene) throws IOException, SQLException {
         //récupérer le nombre de banquiers a placer
         MFXSlider jaugeBandeau = (MFXSlider) scene.lookup("#jaugeBandeau");
         int nbAttaquants = (int) jaugeBandeau.getValue();
@@ -1325,8 +1365,7 @@ public class JeuListeners {
         polyDestId = null;
     }
 
-    public void actualiserAttaque(Scene scene) throws IOException
-    {
+    public void actualiserAttaque(Scene scene) throws IOException, SQLException {
         //menu adversaires
         majInfosAdvers(scene);
 
@@ -1370,7 +1409,47 @@ public class JeuListeners {
             stage.setFullScreen(true);
             Label label = (Label) map.lookup("#labelMessage");
             label.setText(gagnant.getPseudo() + " , avez-vous pensé à vous lancer dans le monde des affaires ? Vous venez de prouver votre superiorité sur le monde en gagnant une partie de FISK, ce jeu fantastique.");
+
+            //Connexion a la bdd
+            String url = "jdbc:mysql://192.168.143.162:3306/FISK_BDD";
+            String utilisateur = "fisk";
+            String motDePasse = "fiskCgenial";
+            Connection connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+
+            //Récupération de l'id max de PARTIES
+            String requeteIdPartie = "SELECT max(IdPartie) FROM PARTIES";
+            PreparedStatement statementIdPartie = connexion.prepareStatement(requeteIdPartie);
+            ResultSet resultSetIdPartie= statementIdPartie.executeQuery();
+
+            int maxId = -1;
+            if(resultSetIdPartie.next())
+            {
+                maxId = resultSetIdPartie.getInt(1);
+            }
+            statementIdPartie.close();
+
+            //Enregistrement de la partie
+            String requeteEnr = "INSERT INTO PARTIES (IdGagnant,IdPartie) VALUES (?,?)";
+            PreparedStatement statementEnr = connexion.prepareStatement(requeteEnr);
+            statementEnr.setString(1, String.valueOf(Partie.getIdJoueursBDD()[gagnant.getIdJoueur()]));
+            statementEnr.setString(2, String.valueOf(maxId+1));
+            statementEnr.executeUpdate();
+            statementEnr.close();
+
+            //MAJ JOUEURS_PARTIES
+            for(int i=0; i<Partie.getNbJoueursBDD();i++)
+            {
+                String requeteEnrPartJ = "INSERT INTO JOUEURS_PARTIES (IdJoueur,IdPartie) VALUES (?,?)";
+                PreparedStatement statementEnrPartJ = connexion.prepareStatement(requeteEnrPartJ);
+                statementEnrPartJ.setString(1, String.valueOf(Partie.getIdJoueursBDD()[i]));
+                statementEnrPartJ.setString(2, String.valueOf(maxId+1));
+                statementEnrPartJ.executeUpdate();
+                statementEnrPartJ.close();
+            }
+
+            connexion.close();
         }
+
     }
 
     public void actualiserAgentFisk(Scene scene) throws IOException

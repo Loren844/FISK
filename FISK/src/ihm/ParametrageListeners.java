@@ -25,7 +25,8 @@ public class ParametrageListeners {
     private static boolean creerCliquable = false;
 
     @FXML
-    public void onRetourButtonClick(ActionEvent event) throws IOException {
+    public void onRetourButtonClick(ActionEvent event) throws IOException
+    {
         // Chargement du fichier FXML
         FXMLLoader loadMenu = new FXMLLoader(getClass().getResource("parametrage_partie.fxml"));
         Parent root = loadMenu.load();
@@ -41,7 +42,8 @@ public class ParametrageListeners {
 
     @FXML
     public void onCreerButtonClick(ActionEvent event) throws IOException {
-        if (creerCliquable) {
+        if (creerCliquable)
+        {
             // Chargement du fichier FXML
             FXMLLoader loadMenu = new FXMLLoader(getClass().getResource("parametrage_partie.fxml"));
             Parent root = loadMenu.load();
@@ -49,7 +51,7 @@ public class ParametrageListeners {
             // Affichage de la scène
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
-            FXMLLoader loadMap = new FXMLLoader(getClass().getResource("jeu.fxml"));
+            FXMLLoader loadMap = new FXMLLoader(getClass().getResource("connexions_partie.fxml"));
             Scene map = new Scene(loadMap.load());
             stage.setScene(map);
             stage.setFullScreen(true);

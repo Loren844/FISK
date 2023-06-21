@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import modele.jeu.Partie;
 
 import java.io.IOException;
+import java.sql.*;
 
 public class Lanceur extends Application {
 
@@ -21,7 +22,8 @@ public class Lanceur extends Application {
         fenetre.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException
+    {
         Partie partie = new Partie();
         launch();
     }

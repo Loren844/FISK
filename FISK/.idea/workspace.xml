@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="FISK" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6013016c-d54b-40d2-9091-7fa5643d1eea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ihm/ConnexionsListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/JeuListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/JeuListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/Lanceur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/MenuTitreListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/MenuTitreListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/ihm/connexions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/ihm/connexions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FISK/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FISK/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ihm/JeuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/JeuListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/Lanceur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/Lanceur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/MenuTitreListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/MenuTitreListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/ParametrageListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ihm/connexions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ihm/connexions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/jeu/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/jeu/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +59,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/Cours/R202 Développement d'applications IHM/TD6/TD6-javaFx-mvc-debut/TD7-javaFx-mvc-debut&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/FISK/FISK/lib/mysql-connector-j-8.0.33.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -111,6 +126,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="9" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

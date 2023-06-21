@@ -34,7 +34,7 @@ public class MenuTitreListeners {
         // Affichage de la scène
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
-        FXMLLoader loadMap = new FXMLLoader(getClass().getResource("profil.fxml"));
+        FXMLLoader loadMap = new FXMLLoader(getClass().getResource("connexions.fxml"));
         Scene map = new Scene(loadMap.load());
         stage.setScene(map);
         stage.setFullScreen(true);
