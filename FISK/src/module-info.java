@@ -7,5 +7,4 @@ module FISK {
 
     opens ihm to javafx.fxml;
     exports ihm;
-
 }
