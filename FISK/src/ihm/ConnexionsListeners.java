@@ -22,6 +22,14 @@ public class ConnexionsListeners {
         MFXButton source = (MFXButton) event.getSource();
         Scene scene = source.getScene();
 
+        Label erreurPseudoMdp = (Label) scene.lookup("#erreurPseudoMdp");
+        Label erreurPseudo = (Label) scene.lookup("#erreurPseudo");
+        Label erreurMdp = (Label) scene.lookup("#erreurMdp");
+
+        erreurPseudoMdp.setVisible(false);
+        erreurPseudo.setVisible(false);
+        erreurMdp.setVisible(false);
+
         MFXTextField creerPseudo = (MFXTextField) scene.lookup("#creerPseudo");
         MFXPasswordField creerMdp = (MFXPasswordField) scene.lookup("#creerMdp");
         MFXPasswordField creerConfirm = (MFXPasswordField) scene.lookup("#creerConfirm");
@@ -46,7 +54,7 @@ public class ConnexionsListeners {
 
             if(resultat.next())
             {
-                System.out.println("Erreur");
+                erreurPseudo.setVisible(true);
                 statementVerif.close();
             }
 
@@ -67,6 +75,10 @@ public class ConnexionsListeners {
             }
             connexion.close();
         }
+        else
+        {
+            erreurMdp.setVisible(true);
+        }
 
 
     }
@@ -75,6 +87,14 @@ public class ConnexionsListeners {
     {
         MFXButton source = (MFXButton) event.getSource();
         Scene scene = source.getScene();
+
+        Label erreurPseudoMdp = (Label) scene.lookup("#erreurPseudoMdp");
+        Label erreurPseudo = (Label) scene.lookup("#erreurPseudo");
+        Label erreurMdp = (Label) scene.lookup("#erreurMdp");
+
+        erreurPseudoMdp.setVisible(false);
+        erreurPseudo.setVisible(false);
+        erreurMdp.setVisible(false);
 
         MFXTextField connecterPseudo = (MFXTextField) scene.lookup("#connecterPseudo");
         MFXPasswordField connecterMdp = (MFXPasswordField) scene.lookup("#connecterMdp");
@@ -106,7 +126,7 @@ public class ConnexionsListeners {
             }
             else
             {
-                System.out.println("Mauvais mdp");
+                erreurPseudoMdp.setVisible(true);
             }
         }
     }
@@ -169,10 +189,12 @@ public class ConnexionsListeners {
         }
         else
         {
-            float pourcentage = (float) (nombrePartiesGagnees*100.0)/nombreParties;
+            float pourcentage = (float) Math.round((nombrePartiesGagnees*100.0)/nombreParties);
             labelPourcentageVictoire1.setText(""+pourcentage+"%");
         }
 
+        //renvoi du pseudo a profil
+        ProfilListeners.pseudo = pseudo;
         connexion.close();
     }
 }

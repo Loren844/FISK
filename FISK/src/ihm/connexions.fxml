@@ -73,17 +73,12 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="erreur1" alignment="TOP_LEFT" layoutX="114.0" layoutY="473.0" prefHeight="59.0" prefWidth="543.0" text="message d'erreur" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+      <Label fx:id="erreurPseudo" alignment="TOP_LEFT" layoutX="114.0" layoutY="473.0" prefHeight="59.0" prefWidth="543.0" text="Le pseudo est déjà pris" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="erreur2" alignment="TOP_LEFT" layoutX="113.0" layoutY="605.0" prefHeight="59.0" prefWidth="543.0" text="message d'erreur" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="erreur3" alignment="TOP_LEFT" layoutX="115.0" layoutY="724.0" prefHeight="59.0" prefWidth="543.0" text="message d'erreur" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+      <Label fx:id="erreurMdp" alignment="TOP_LEFT" layoutX="115.0" layoutY="724.0" prefHeight="59.0" prefWidth="543.0" text="Les mots de passe ne sont pas identiques" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>
@@ -100,22 +95,17 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="erreur4" alignment="TOP_LEFT" layoutX="1292.0" layoutY="487.0" prefHeight="59.0" prefWidth="543.0" text="message d'erreur" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <MFXButton fx:id="boutonConnecter" onMouseClicked="#onConnecterButtonClick" layoutX="1464.0" layoutY="752.0" pickOnBounds="false" prefHeight="68.0" prefWidth="202.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="SE CONNECTER" textAlignment="CENTER">
+      <MFXButton fx:id="boutonConnecter" layoutX="1464.0" layoutY="752.0" onMouseClicked="#onConnecterButtonClick" pickOnBounds="false" prefHeight="68.0" prefWidth="202.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="SE CONNECTER" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </MFXButton>
-      <MFXButton fx:id="boutonCreer" onMouseClicked="#onCreerButtonClick" layoutX="286.0" layoutY="766.0" pickOnBounds="false" prefHeight="68.0" prefWidth="202.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="CRÉER" textAlignment="CENTER">
+      <MFXButton fx:id="boutonCreer" layoutX="286.0" layoutY="766.0" onMouseClicked="#onCreerButtonClick" pickOnBounds="false" prefHeight="68.0" prefWidth="202.0" rippleAnimateShadow="true" rippleColor="#43ab43" style="-fx-background-color: #60EE64; -fx-background-radius: 5px; -fx-border-width: 6px; -fx-border-radius: 8px; -fx-border-insets: -6px; -fx-border-color: rgba(0,0,0,0.5);" styleClass=".test" text="CRÉER" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </MFXButton>
-      <Label fx:id="erreur5" alignment="TOP_LEFT" layoutX="1292.0" layoutY="617.0" prefHeight="59.0" prefWidth="543.0" text="message d'erreur" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+      <Label fx:id="erreurPseudoMdp" alignment="TOP_LEFT" layoutX="1292.0" layoutY="619.0" prefHeight="59.0" prefWidth="543.0" text="Pseudo/Mot de passe incorrect" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>

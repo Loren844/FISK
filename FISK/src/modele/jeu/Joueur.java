@@ -35,8 +35,6 @@ public class Joueur {
 
         idJoueur = nbInstances;
         nbInstances++;
-        int numJoueur = idJoueur+1;
-        pseudo = "Joueur " + numJoueur;
     }
 
     public Agence[] getAgences()
@@ -161,6 +159,11 @@ public class Joueur {
             villesMonop[cpt] = Carte.getVille(5);
             cpt++;
         }
+    }
+
+    public void setPseudo(String pseudo)
+    {
+        this.pseudo = pseudo;
     }
 
     public int getNbBanquiersDispo() {

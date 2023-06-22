@@ -194,6 +194,7 @@ public class ParametrageListeners {
                     }
                 }
             }
+            Partie partie = new Partie(nbToursMax, joueurs);
             JeuListeners.initJeu(joueurs, nbToursMax);
         }
     }

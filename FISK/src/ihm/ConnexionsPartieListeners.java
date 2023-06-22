@@ -22,6 +22,14 @@ public class ConnexionsPartieListeners {
         MFXButton source = (MFXButton) event.getSource();
         Scene scene = source.getScene();
 
+        Label erreurPseudoMdp = (Label) scene.lookup("#erreurPseudoMdp");
+        Label erreurPseudo = (Label) scene.lookup("#erreurPseudo");
+        Label erreurMdp = (Label) scene.lookup("#erreurMdp");
+
+        erreurPseudoMdp.setVisible(false);
+        erreurPseudo.setVisible(false);
+        erreurMdp.setVisible(false);
+
         MFXTextField creerPseudo = (MFXTextField) scene.lookup("#creerPseudo");
         MFXPasswordField creerMdp = (MFXPasswordField) scene.lookup("#creerMdp");
         MFXPasswordField creerConfirm = (MFXPasswordField) scene.lookup("#creerConfirm");
@@ -46,7 +54,7 @@ public class ConnexionsPartieListeners {
 
             if(resultat.next())
             {
-                System.out.println("Erreur");
+                erreurPseudo.setVisible(true);
                 statementVerif.close();
             }
 
@@ -70,6 +78,7 @@ public class ConnexionsPartieListeners {
 
                 if (resultSetIdJoueur.next())
                 {
+                    Partie.getJoueursRestants()[Partie.getNbJoueursBDD()].setPseudo(pseudo);
                     Partie.setIdJoueurBDD(resultSetIdJoueur.getInt(1));
                 }
 
@@ -102,6 +111,10 @@ public class ConnexionsPartieListeners {
             }
             connexion.close();
         }
+        else
+        {
+            erreurMdp.setVisible(true);
+        }
 
 
     }
@@ -110,6 +123,14 @@ public class ConnexionsPartieListeners {
     {
         MFXButton source = (MFXButton) event.getSource();
         Scene scene = source.getScene();
+
+        Label erreurPseudoMdp = (Label) scene.lookup("#erreurPseudoMdp");
+        Label erreurPseudo = (Label) scene.lookup("#erreurPseudo");
+        Label erreurMdp = (Label) scene.lookup("#erreurMdp");
+
+        erreurPseudoMdp.setVisible(false);
+        erreurPseudo.setVisible(false);
+        erreurMdp.setVisible(false);
 
         MFXTextField connecterPseudo = (MFXTextField) scene.lookup("#connecterPseudo");
         MFXPasswordField connecterMdp = (MFXPasswordField) scene.lookup("#connecterMdp");
@@ -157,7 +178,13 @@ public class ConnexionsPartieListeners {
 
                     if(i == 4)
                     {
+                        Partie.getJoueursRestants()[Partie.getNbJoueursBDD()].setPseudo(pseudo);
                         Partie.setIdJoueurBDD(resultSetIdJoueur.getInt(1));
+                    }
+                    else
+                    {
+                        erreurPseudoMdp.setText("Le joueur est déjà connecté");
+                        erreurPseudoMdp.setVisible(true);
                     }
                 }
 
@@ -188,7 +215,8 @@ public class ConnexionsPartieListeners {
             }
             else
             {
-                System.out.println("Mauvais mdp");
+                erreurPseudoMdp.setText("Pseudo/Mot de passe incorrect");
+                erreurPseudoMdp.setVisible(true);
             }
         }
     }

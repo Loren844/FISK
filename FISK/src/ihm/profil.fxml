@@ -89,7 +89,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <MFXTextField fx:id="rechercheJoueur" layoutX="1268.0" layoutY="406.0" prefHeight="71.0" prefWidth="560.0" promptText="Entrez un pseudo">
+      <MFXTextField fx:id="rechercheJoueur" layoutX="1268.0" layoutY="398.0" prefHeight="71.0" prefWidth="492.0" promptText="Entrez un pseudo">
          <font>
             <Font size="20.0" />
          </font>
@@ -124,5 +124,10 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <ImageView fx:id="rechercher" fitHeight="91.0" fitWidth="66.0" layoutX="1778.0" layoutY="409.0" onMouseClicked="#onRechercherClick" preserveRatio="true">
+         <image>
+            <Image url="@externes/rechercher.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
