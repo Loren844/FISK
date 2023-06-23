@@ -202,4 +202,17 @@ public class Partie {
         }
         joueursRestants[nbJoueursRestants()-1] = null;
     }
+
+    public static void resetPartie()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            idJoueursBDD[i] = -1;
+        }
+
+        for(int i = 0; i < 3; i++)
+        {
+            joueursElimines[i] = null;
+        }
+    }
 }

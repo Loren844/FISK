@@ -989,7 +989,9 @@ public class JeuListeners {
     public void changementJoueur(Scene scene, MouseEvent event) throws IOException
     {
         //Changement de joueur
+        System.out.println(Partie.getJoueurSuivant().getIdJoueur());
         Partie.setJoueurActuel(Partie.getJoueurSuivant());
+
 
         //activer agent fisk
         //pour richesse prospere : au bon tour et pour le bon joueur

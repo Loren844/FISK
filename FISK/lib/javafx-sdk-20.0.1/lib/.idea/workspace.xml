@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1a3d62ca-9812-428a-bd44-2d899b583f25" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../out/production/FISK/ihm/JeuListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/FISK/ihm/JeuListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../out/production/FISK/ihm/ParametrageListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/FISK/ihm/ParametrageListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../out/production/FISK/modele/carte/Agence.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/FISK/modele/carte/Agence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../out/production/FISK/modele/carte/Carte.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/FISK/modele/carte/Carte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../out/production/FISK/modele/jeu/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/FISK/modele/jeu/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../out/production/FISK/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/FISK/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/ihm/JeuListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/ihm/JeuListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/ihm/ParametrageListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/ihm/ParametrageListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/modele/carte/Agence.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/modele/carte/Agence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/modele/carte/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/modele/carte/Carte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/modele/jeu/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/modele/jeu/Joueur.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="2QsONmQNhwDGZJ6OJj1EQv0ec9A" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/me203414/OneDrive - Université Nice Sophia Antipolis/Semestre 2/Cours/R202 Développement d'applications IHM/TD6/dragndrop js - code initial/code initial"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a3d62ca-9812-428a-bd44-2d899b583f25" name="Changes" comment="" />
+      <created>1686138784443</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686138784443</updated>
+    </task>
+    <servers />
+  </component>
+</project>

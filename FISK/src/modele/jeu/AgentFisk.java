@@ -52,7 +52,10 @@ public class AgentFisk {
         //nouvel evenement => les joueurs peuvent acheter l'info
         for(Joueur j:Partie.getJoueursRestants())
         {
-            j.setInfoAchetee(false);
+            if(j != null)
+            {
+                j.setInfoAchetee(false);
+            }
         }
 
         agenceCible = null;
