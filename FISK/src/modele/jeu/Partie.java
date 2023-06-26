@@ -176,12 +176,9 @@ public class Partie {
                 return Partie.getJoueurPlusRiche();
             }
         }
-        else
+        if(joueurActuel.getNbAgences() == 38)
         {
-            if(joueurActuel.getNbAgences() == 38)
-            {
-                return Partie.getJoueurActuel();
-            }
+            return Partie.getJoueurActuel();
         }
         return null;
     }

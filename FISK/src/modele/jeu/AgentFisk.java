@@ -165,7 +165,10 @@ public class AgentFisk {
 
         else if(evenement == 3)
         {
-            agenceCible.setNbBanquiers(agenceCible.getNbBanquiers()/2);
+            if(agenceCible.getNbBanquiers() != 1)
+            {
+                agenceCible.setNbBanquiers(agenceCible.getNbBanquiers()/2 + 1);
+            }
         }
 
         else if(evenement == 4)
