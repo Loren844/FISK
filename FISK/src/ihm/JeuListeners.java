@@ -413,6 +413,7 @@ public class JeuListeners {
         //Si fin des 3 phases d'un joueur
         if(Partie.getPhase() == 3)
         {
+
             //Si nouveau tour
             if(Partie.getJoueurSuivant().equals(Partie.getJoueursRestants()[0]))
             {
@@ -1047,6 +1048,20 @@ public class JeuListeners {
 
         //rendre le transfert possible
         transfertEffectue = false;
+
+        //enlever les contours
+        if(polyDestId != null) {
+            effetsPolygonDefaut(scene, polyDestId);
+            polyDestId = null;
+            effetsPolygonDefaut(scene, polySourceId);
+            polySourceId = null;
+        }
+
+        else if(polySourceId != null)
+        {
+            effetsPolygonDefaut(scene, polySourceId);
+            polySourceId = null;
+        }
 
         //Passage en vue Joueurs
         if(vue)
