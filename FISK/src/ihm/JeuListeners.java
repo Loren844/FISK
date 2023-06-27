@@ -1010,6 +1010,20 @@ public class JeuListeners {
         //rendre le transfert possible
         transfertEffectue = false;
 
+        //enlever les contours blancs
+        if(polyDestId != null) {
+            effetsPolygonDefaut(scene, polyDestId);
+            polyDestId = null;
+            effetsPolygonDefaut(scene, polySourceId);
+            polySourceId = null;
+        }
+
+        else if(polySourceId != null)
+        {
+            effetsPolygonDefaut(scene, polySourceId);
+            polySourceId = null;
+        }
+
         //Passage en vue Joueurs
         if(vue)
         {
